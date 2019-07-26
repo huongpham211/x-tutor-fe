@@ -1,0 +1,1498 @@
+* {
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+}
+
+.some_info {
+    margin-top: 40px;
+}
+
+.checkout_left {
+    color: #353C40;
+    padding: 35px 20px;
+}
+
+#info_courses h5 {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+#info_courses h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.subtitle h4 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.subtitle1 h4 {
+    font-size: 20px;
+    color: #49575F;
+    font-weight: 800;
+    padding: 20px 50px;
+}
+
+#condition {
+    padding-left: 20px;
+}
+
+.checkout_right .credit_info {
+    padding-left: 0;
+}
+
+#paypal, .credit_card {
+    padding: 0 50px;
+}
+
+#paypal {
+    margin-top: 50px;
+}
+
+input.checkout_button {
+    color: white;
+    margin-top: 20px !important;
+}
+
+.form-check.check_out {
+    border-bottom: 1px solid #bcb8b866;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.background_checkout {
+    background: white;
+}
+
+#expired_date,#cvv_info {
+    padding: 0;
+}
+
+#trong_expired {
+    display: flex;
+    margin-right: 30px;
+}
+
+#together {
+    display: flex;
+}
+
+.credit_card .form-check {
+    display: flex;
+}
+
+#paypal img {
+    width: 74px;
+    height: 100%;
+}
+
+#visa_card img {
+    max-width: 36px;
+    height: 100%;
+    margin: 0 10px;
+}
+
+#master_card img {
+    max-width: 36px;
+    height: 100%;
+}
+
+
+
+#credit_infor, #billing_info {
+    margin-left: 0;
+} 
+
+.paymentWrap {
+    padding: 50px;
+}
+
+.paymentWrap .paymentBtnGroup {
+    width: 200px;
+    margin: auto;
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod {
+    padding: 40px;
+    box-shadow: none;
+    position: relative;
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod.active {
+    outline: none !important;
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod.active .method {
+    border-color: #4cd264;
+    outline: none !important;
+    box-shadow: 0px 3px 22px 0px #7b7b7b;
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod .method {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid transparent;
+    transition: all 0.5s;
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod .method.visa {
+    background-image: url("data:image/png;base64,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");
+}
+
+.paymentWrap .paymentBtnGroup .paymentMethod .method.master-card {
+    background-image: url("data:image/png;base64,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");
+}
+
+
+.paymentWrap .paymentBtnGroup .paymentMethod .method:hover {
+    border-color: #4cd264;
+    outline: none !important;
+}
+
+.bottom-text a {
+    color: #C4E538;
+}
+
+.modal-content {
+    border: none;
+}
+
+.login-form, .login-form1 {
+    width: 360px;
+    height: 560px;
+    padding: 80px 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -0%);
+    background: #fff;
+}
+
+form.login-form1 {
+    height: 720px;
+}
+
+.login-form h1, .login-form1 h1 {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #242C42;
+}
+
+.txtb {
+    border-bottom: 2px solid #adadad;
+    position: relative;
+    margin: 30px 0;
+}
+
+.txtb input {
+    font-size: 15px;
+    color: #333;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+    padding: 0 5px;
+    height: 40px;
+}
+
+.txtb span:before {
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.txtb span::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    transition: .5s;
+    background: linear-gradient(120deg, #C4E538, #009432, #C4E538);
+    top: 100%;
+    left: 0;
+}
+
+.focus+span::before {
+    top: -5px;
+}
+
+.focus+span::after {
+    width: 100%;
+}
+
+.logbtn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: linear-gradient(120deg, #C4E538, #009432, #C4E538);
+    background-size: 200%;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.logbtn:hover {
+    background-position: right;
+}
+
+.bottom-text {
+    margin-top: 60px;
+    text-align: center;
+    font-size: 13px;
+}
+
+h3#payper1 {
+    text-align: left;
+    font-size: 17px;
+}
+
+.ttin_trai h4 {
+    font-size: 15px;
+}
+
+.khung {
+    text-align: left;
+    margin-bottom: 40px;
+    background: #ECE4B7;
+    padding: 15px;
+}
+
+li.nav-item.avatar.d-flex.align-items-center {
+    margin-left: 20px;
+}
+
+#formFilter label {
+    color: #353C40;
+    float: left;
+    margin-left: 38px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.giaoduc .univer, .noilam .univer {
+    display: flex;
+}
+
+.giaoduc .univer h3, .noilam .univer h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #353C40;
+    padding: 20px 50px 0 50px;
+}
+
+h3#year {
+    text-align: right;
+}
+
+#bangcap h3, h3#major, h3#kinhnghiem, .monday h3 {
+    font-size: 15px;
+    color: #353C40;
+    margin: 10px 50px 25px 50px;
+}
+
+#certification i.far.fa-file-alt, #education i.fas.fa-graduation-cap, #experience i.fas.fa-briefcase, #subject i.fas.fa-book-open, .second i.fas.fa-lock, .second i.fas.fa-money-check-alt, .second i.fas.fa-mobile-alt, .first i.fas.fa-user-edit, .preference i.fas.fa-chalkboard-teacher, .addtuition i.fas.fa-solar-panel,i.fas.fa-info {
+    margin: 20px 0 40px 50px;
+    background: #86BC42;
+    color: white;
+    border-radius: 99px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+}
+
+.first i.fas.fa-user-edit, .second i.fas.fa-mobile-alt, .preference i.fas.fa-chalkboard-teacher {
+    margin: 0 30px 30px 0;
+}
+
+.addtuition i.fas.fa-solar-panel {
+    margin: 30px 30px 30px 0;
+}
+
+.gtinh i.fas.fa-user {
+    position: absolute;
+    left: 4%;
+    font-size: 14px;
+    /* color: #86BC42; */
+}
+
+.info_tuitor {
+    position: relative;
+    color: #353C40;
+}
+
+.info_tuitor h5 {
+    font-size: 14px;
+    position: absolute;
+    left: 16%;
+}
+
+.tieude {
+    display: flex;
+    align-items: center;
+}
+
+.noio i.fas.fa-map-marker-alt {
+    padding-top: 0;
+    left: 4%;
+    position: absolute;
+    font-size: 14px;
+    /* color: #86BC42; */
+}
+
+.gtinh, .noio {
+    display: flex;
+    padding: 15px 0 30px 0;
+    border-bottom: 1px solid #bcb8b866;
+}
+
+.gtinh {
+    border-top: 1px solid #bcb8b866;
+}
+
+.teaching_subject form {
+    flex-direction: column;
+}
+
+.teaching_ex .noborder th, .teaching_ex .noborder tbody td, .teaching_subject .noborder th, .teaching_subject .noborder td, .some_info .noborder td {
+    border-bottom: 1px solid #bcb8b866 !important;
+    padding-left: 0;
+}
+
+.teaching_subject .noborder tfoot td {
+    border-bottom: none !important;
+}
+
+.noborder tfoot td .save_info {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 8px 25px;
+    background: #242C42;
+    color: #fff;
+    border-radius: 0;
+    margin-top: 30px;
+}
+
+.teaching_ex tfoot td, .some_info tfoot td {
+    display: flex;
+}
+
+.some-info img {
+    border-radius: 99px;
+}
+
+.teaching_ex .noborder, .teaching_ex .noborder tr, .teaching_ex .noborder th, .teaching_ex .noborder td, .teaching_subject .noborder, .teaching_subject .noborder tr, .teaching_subject .noborder th, .teaching_subject .noborder td, .some_info .noborder th, .some_info .noborder td {
+    border: 0px;
+}
+
+.edit-info2 th {
+    padding-top: 30px;
+}
+
+.edit-info2 h5 {
+    margin: 40px 0 20px 0;
+}
+
+.preference .duoi {
+    display: flex;
+}
+
+#addrow, #addrow2 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 8px 25px;
+    background: #86BC42;
+    color: #fff;
+    border-radius: 0;
+    margin-top: 30px;
+}
+
+.some-info {
+    display: flex;
+    align-items: center;
+}
+
+.edit-info2 {
+    background: #fff;
+    padding: 20px 10px;
+}
+
+.slide_menu {
+    position: absolute;
+    right: 6%;
+    border: 1px solid #bcb8b866;
+    background: white;
+    z-index: 9999;
+    display:none;
+}
+
+.slide_menu ul li {
+    padding: 10px 30px;
+}
+
+.slide_menu ul {
+    list-style: none;
+}
+
+.tieude {
+    border-bottom: 1px solid #bcb8b866;
+}
+
+.edit-info form .form-group, .edit-info1 form .form-group {
+    margin-top: 30px;
+}
+
+.duoi1 .form-check {
+    padding: 0;
+}
+
+input#exampleCheck1 {
+    box-sizing: unset;
+    font-size: 114px;
+}
+
+#radio .radio {
+    padding: 0;
+}
+
+.form-check.condition {
+    margin-top: 48px;
+    margin-left: 20px;
+}
+
+.duoi1 .trai, .duoi1 .phai {
+    padding: 0 80px;
+}
+
+.tren1 {
+    padding: 30px 65px;
+}
+
+.ngoai {
+    background: #fff;
+}
+
+#radio {
+    display: flex;
+    margin-left: 20px;
+}
+
+i.fas.fa-chevron-down {
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.avatar h4, .edit-info .up h5, .edit-info1 .up h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.edit-info .up h5, .edit-info1 .up h5 {
+    margin-top: 20px;
+}
+
+li.nav-item.form-search {
+    display: flex;
+    align-items: center
+}
+
+.form-search .fas.fa-search {
+    background: #86BC42;
+    color: white;
+    padding: 11px;
+}
+
+.form-search input {
+    padding-left: 10px;
+    width: 348px;
+    height: 38px;
+}
+
+.why .noname {
+    padding: 0 15px;
+}
+
+/* css page */
+
+.avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.learn_skill h5 {
+    position: absolute;
+    color: white;
+    z-index: 2;
+    font-size: 34px;
+    font-weight: 400;
+    left: 39%;
+    top: 56%;
+}
+
+.learn_skill h4 {
+    color: white;
+    position: absolute;
+    z-index: 2;
+    font-size: 40px;
+    font-weight: bold;
+    left: 26%;
+    top: 29%;
+}
+
+.outside1 {
+    background: black;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 250px;
+    opacity: 0.5;
+}
+
+.learn_skill .anh1 {
+    background: url('./Components/img/banner-1.jpg');
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center -159px;
+    z-index: 1;
+}
+
+.learn_skill {
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.subject {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0;
+}
+
+.top-courses1 {
+    padding:40px 0 60px 0;
+}
+
+.top-courses1 h4, .top-courses2 h4 {
+    padding-top:10px;;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+/* end css page */
+
+/* css .change_password */
+
+.change_password {
+    padding: 75px 0;
+}
+
+/* end css .change_password */
+
+/* css left account-setting */
+
+.setting_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    color: #CAC8C8;
+    border-color: #bcb8b866;
+    height: 43px;
+    border-radius: 0;
+}
+
+.right .tieude .second {
+    padding: 0;
+    display: flex;
+}
+
+form .rightt {
+    padding: 20px 50px;
+}
+
+form label, .tren1 h3, .edit-info2 tr th, #condition h5, .form-check.check_out label, .credit_info1 h5 {
+    font-size: 17px;
+    font-weight: 400;
+    color: #353C40;
+    text-transform: capitalize;
+}
+
+.tren1 label, .duoi1 .form-check #radio label, .condition label {
+    font-size: 16px;
+}
+
+.right form .left {
+    padding: 20px 50px;
+}
+
+.right .tieude .first {
+    padding: 0;
+    display: flex;
+}
+
+.icon {
+    display: grid;
+}
+
+.col-md-3.left {
+    padding: 0;
+    margin: 0;
+}
+
+.edit-info .right, .edit-info1 .right, .edit-info2 .right,.checkout_right {
+    border-left: 1px solid #bcb8b866;
+    padding: 20px 0;
+}
+
+.account-setting1 .right {
+    padding: 20px 25px;
+}
+
+.edit-info .right h5, .ngoai .tieude h5, .edit-info1 .right h5, .edit-info2 h5 {
+    font-size: 19px;
+    color: #49575F;
+    font-weight: 800;
+}
+
+.edit-info1 .tieude h5 {
+    margin: 20px 0 40px 30px;
+}
+
+.ngoai .tieude h5 {
+    padding: 20px 0;
+}
+
+.edit-info .right h5 {
+    padding-bottom: 20px;
+}
+
+.teaching_ex h5, .teaching_subject h5 {
+    margin-top: 50px;
+}
+
+.edit-info form, .edit-info1 form {
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 1px solid #bcb8b866; */
+}
+
+.down {
+    position: relative;
+}
+
+#delete_avatar {
+    border: 1px solid #bcb8b866;
+    background: #fff;
+    color: #353C40;
+    margin: 20px 0 40px 0;
+}
+
+.down .edit i, .down .change i, .down .payment i {
+    font-size: 14px;
+}
+
+.down i.fas.fa-chevron-right {
+    position: absolute;
+    right: 4%;
+    color: #353C40;
+}
+
+.down .edit i.fas.fa-user {
+    color: #86BC42;
+    position: absolute;
+    left: 4%;
+}
+
+.down i.fas.fa-lock, .down i.far.fa-credit-card {
+    position: absolute;
+    left: 4%;
+}
+
+.down .edit h5 {
+    color: #353C40;
+}
+
+.down .edit, .down .change, .down .payment {
+    display: flex;
+    color: #DCDCDC;
+    padding: 15px 0 30px 0;
+}
+
+.down .edit {
+    border-top: 1px solid #bcb8b866;
+    border-bottom: 1px solid #bcb8b866;
+}
+
+.down .change, .down .payment {
+    border-bottom: 1px solid #bcb8b866;
+}
+
+.down h5 {
+    color: #DCDCDC;
+    font-size: 14px;
+    position: absolute;
+    left: 16%;
+}
+
+.save_info a#update_avatar {
+    margin-bottom: 35px;
+}
+
+.edit-info img, .edit-info1 .up img {
+    width: 85px;
+    height: 85px;
+    border-radius: 99px;
+    margin-top: 44px;
+}
+
+.col-md-md-9.right {
+    border: 1px solid #bcb8b866;
+}
+
+.edit-info, .edit-info1 {
+    background: white;
+    display: flex;
+    margin: 0;
+}
+
+.account-setting, .addtuition, .account-setting1,#checkout {
+    background: #bcb8b866;
+    padding: 23px 0;
+}
+
+/* end css left account-setting */
+
+#button {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background: #86BC42;
+    text-align: center;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    padding: 9px;
+    z-index: 1000;
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+    color: white;
+    font-size: 21px;
+}
+
+.show1 {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* css modal */
+
+input::placeholder {
+    color: #B9B6B6 !important;
+}
+
+.modal-dialog h5, .modal-dialog span {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.modal-dialog .modal-body h5 {
+    margin-right: 150px;
+}
+
+.modal-dialog span {
+    color: #86BC42;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.modal-body {
+    border: none;
+}
+
+.modal-footer a.btn.btn-primary, a#add {
+    width: 348px;
+    text-transform: uppercase;
+    margin: -16px 0 60px 0;
+}
+
+a#add, a#add2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+a#add {
+    color: #fff;
+    background: #242C42;
+    border-color: #242C42;
+}
+
+.modal-dialog .condition {
+    margin: -15px 0 15px 19px;
+}
+
+button.close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+span {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+i.fas.fa-map-marker-alt {
+    padding-top: 20px;
+}
+
+i.fas.fa-phone-volume {
+    border-bottom: 1px solid #2F374C;
+    padding: 20px 0;
+}
+
+i.fas.fa-envelope {
+    border-top: 1px solid #2F374C;
+    padding: 20px 0;
+    border-bottom: 1px solid #2F374C;
+}
+
+/* end css modal */
+
+/* css footer */
+
+.footer i {
+    width: 100%;
+}
+
+.footer i span {
+    margin-left: 15px;
+}
+
+footer p {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 0 0 0;
+}
+
+i.fas.fa-check {
+    background: #86BC42;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    padding: 12px;
+}
+
+.footer input[type="text"] {
+    padding: 5px 121px 5px 10px;
+    position: relative;
+    color: #DAD8D8;
+}
+
+.footer p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer h3 {
+    color: #86BC42;
+    padding-bottom: 40px;
+    font-size: 30px;
+}
+
+footer, .footer {
+    color: white;
+    background: #242C42;
+    border-bottom: 1px solid #2F374C;
+}
+
+.footer {
+    padding: 60px 0;
+}
+
+.footer .second img {
+    width: 24%;
+    margin-bottom: 30px;
+    height: 83px;
+    padding-left: 4px
+}
+
+/* end css footer */
+
+/* css structor */
+
+/* .structor a.btn.btn-primary {
+    background: #242C42 !important;
+    position: absolute;
+    right: 14px;
+    bottom: 13%;
+} */
+.structor button.btn.btn-primary {
+    background: #242C42 !important;
+    position: absolute;
+    right: 14px;
+    bottom: 13%;
+}
+
+.structor h3 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.structor h2 {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.structor {
+    background: #86BC42;
+    color: white;
+    padding: 30px 0;
+    position: relative;
+}
+
+/* end css structor */
+
+/* css the-best */
+
+.best p {
+    color: #49575F;
+    font-size: 12px;
+    padding: 0 27px;
+}
+
+.the-best .best h4 {
+    font-size: 16px;
+    color: #86BC42;
+}
+
+.best h3 {
+    color: #49575F;
+    font-size: 18px;
+    padding: 16px 0 0 0;
+    font-weight: 400;
+}
+
+.best img {
+    width: 134px;
+    height: 134px;
+    border-radius: 99px;
+}
+
+.best {
+    box-shadow: -1px -1px 20px rgba(150, 143, 143, 0.25);
+    padding: 30px 0 20px 0;
+    margin-top: 60px;
+}
+
+.the-best {
+    padding: 80px 0;
+}
+
+/* end the-best */
+
+/* css why-choose-us */
+
+.why .col-md-4.right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.noname .left {
+    padding: 60px 0;
+}
+
+.why {
+    background: #242C42;
+    color: white;
+    position: relative;
+}
+
+.why .noname p {
+    color: #d1d8eb;
+    line-height: 25px;
+    margin-bottom: -15px;
+}
+
+.why .noname h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* end css why-choose-us */
+
+body, html {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* css navbar */
+
+.nav-item .nav-link:hover, .nav-item .nav-link:active, .nav-item .nav-link:focus {
+    color: #86BC42 !important;
+}
+
+.nav-item.active .nav-link {
+    color: #86BC42 !important;
+}
+
+.edit:hover i.fas.fa-user, .payment:hover i.far.fa-credit-card, .change:hover i.fas.fa-lock {
+    color: #86BC42 !important;
+}
+
+.edit:hover h5, .payment:hover h5, .change:hover h5, .edit:hover .fas.fa-chevron-right, .change:hover .fas.fa-chevron-right, .payment:hover .fas.fa-chevron-right {
+    color: #353C40 !important;
+}
+
+.nav-link {
+    color: #242C42 !important;
+    margin-left: 40px;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+}
+
+.navbar.navbar-expand-sm.navbar-light {
+    /* height: 103px; */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.16);
+}
+
+/* end css navbar */
+
+/* css slogan */
+
+.slogan {
+    background: url('./Components/img/banner-2.jpg');
+    height: 528px;
+    width: 100%;
+    background-size: cover;
+}
+
+.slogan h3 {
+    font-size: 30px;
+    line-height: 35px;
+    padding-top: 144px;
+    font-weight: 300;
+    color: #242C42;
+}
+
+.slogan h1 {
+    font-size: 60px;
+    font-weight: bold;
+    color: #242C42;
+}
+
+.slogan h4 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #242C42;
+}
+
+a.btn.btn-primary, a.btn.btn-warning,input.checkout_button {
+    background: #86BC42;
+    border-color: #86BC42;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 8px 25px;
+    margin-top: 40px;
+}
+button.btn.btn-primary, button.btn.btn-warning,input.checkout_button {
+    background: #86BC42;
+    border-color: #86BC42;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 8px 25px;
+    margin-top: 40px;
+}
+
+.slogan a.btn.btn-primary {
+    margin-top: 15px;
+}
+
+.why .noname a.btn.btn-primary, .structor a.btn.btn-primary {
+    text-transform: uppercase;
+}
+
+a.btn.btn-warning {
+    background: transparent;
+    color: #86BC42;
+    border: 3px solid #fff;
+    padding: 6px 29px;
+    margin-right: 14px;
+}
+
+button.btn.btn-warning {
+    background: transparent;
+    color: #86BC42;
+    border: 3px solid #fff;
+    padding: 6px 29px;
+    margin-right: 14px;
+}
+
+.btn {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* end css slogan */
+
+/* css choose-courses */
+
+.course {
+    width: 180px;
+    height: 180px;
+    border-radius: 99px;
+    background: #86BC42;
+}
+
+i.far.fa-money-bill-alt {
+    color: #86BC42;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.choose-courses h2, .top-courses h2, .the-best h2 {
+    color: #242C42;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 35px;
+    margin-top: 17px;
+}
+
+.choose-courses h4, .top-courses h4, .the-best h4 {
+    color: #242C42;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.choose-course i.fas {
+    background: #86BC42;
+    color: white;
+    font-size: 64px;
+    width: 160px;
+    height: 160px;
+    border-radius: 99px;
+    padding: 42px 0;
+    border: 3px solid #fff;
+    margin: 10px;
+}
+
+.courses {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.choose-course h3 {
+    color: #49575F;
+    font-size: 16px;
+    line-height: 19px;
+    margin-top: 20px;
+}
+
+.top-courses {
+    padding: 80px 0 200px 0;
+}
+
+.choose-courses {
+    padding: 80px 0;
+}
+
+/* end css choose-courses */
+
+/* css top-courses */
+
+.your-courses {
+    margin-top: 60px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
+}
+
+.your-courses1 {
+    margin-top: 40px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
+}
+
+.outside {
+    padding: 0 10px;
+}
+
+.outside h2 {
+    font-weight: 600;
+}
+
+.outside h1 {
+    font-size: 29px;
+    color: #353C40;
+    padding: 20px 0;
+}
+
+i.fas.fa-star {
+    color: #F9EF03;
+    margin-top: 10px;
+}
+
+.outside h3.author {
+    font-size: 14px;
+    color: #CAC8C8;
+}
+
+.top-course .outside h2 {
+    padding-top:20px;
+    font-size: 17px;
+}
+
+.your-courses img, .your-courses1 img {
+    width: 100%;
+}
+
+/* end cs top-courses */
+
+/* css fact */
+
+.group-button {
+    text-transform: uppercase;
+}
+
+.fact p {
+    font-size: 16px;
+    margin: 15px 0 0 0;
+}
+
+.fact h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.fact.text-center {
+    background-image: url('./Components/img/background-count-number.png');
+    color: #fff;
+    padding: 100px 0;
+}
+
+button.navbar-toggler.d-lg-none {
+    background: #86BC42;
+    color: white;
+}
+
+/* end css fact */
+
+@media only screen and (max-width: 991px) {
+    * {}
+
+    .tieude.khac {
+        padding: 0 15px;
+    }
+
+    form.khac {
+        padding: 0 15px;
+    }
+
+    .checkout_left {
+        border-bottom: 1px solid #bcb8b866;
+        margin: 0 15px;
+        padding: 35px 5px;
+    }
+
+    .checkout_right {
+        margin: 0px -30px;
+    }
+
+    #throne .rightt {
+        margin-top: -40px;
+    }
+
+    i.fas.fa-info {
+        margin: 20px 15px;
+    }
+
+    form#throne {
+        flex-direction:column;
+    }
+
+    .giaoduc .univer h3, .noilam .univer h3 {
+        font-size: 16px;
+    }
+    h3#year {
+        text-align: left;
+        padding-left: 10px;
+    }
+    #education, #certification, #subject, #experience {
+        margin: 20px -35px !important;
+    }
+    .edit-info1, .edit-info {
+        margin: 0 -15px !important;
+    }
+    .second i.fas.fa-lock, .second i.fas.fa-money-check-alt {
+        margin: 20px 0;
+    }
+    /* .structor a.btn.btn-primary {
+        right: -29px;
+    } */
+    .structor button.btn.btn-primary {
+        right: 0;
+    }
+    .learn_skill h5 {
+        font-size: 22px;
+        left: 21%;
+        top: 63%;
+    }
+    .learn_skill h4 {
+        font-size: 25px;
+        left: 0;
+        top: 20%
+    }
+    .learn_skill.text-center {
+        height: 150px;
+    }
+    .learn_skill .anh1 {
+        background-position: center;
+        height: 150px;
+    }
+    .outside1 {
+        height: 150px;
+    }
+    form .rightt {
+        padding: 20px 15px;
+    }
+    .right form .left {
+        padding: 40px 15px 20px;
+    }
+    .edit-info .right form {
+        flex-direction: column;
+    }
+    .ngoai {
+        margin: 0 -15px;
+    }
+    .edit-info.row {
+        margin: 0;
+        padding: 0;
+    }
+    .duoi1 .trai, .duoi1 .phai {
+        padding: 0 30px;
+    }
+    .duoi1 .phai {
+        margin-top: 25px;
+    }
+    .tren1 {
+        padding: 30px 15px;
+    }
+    .account-setting .edit-info {
+        margin: 0 -15px;
+    }
+    .edit-info1 .right {
+        padding: 15px 0;
+    }
+    .change_password {
+        padding-top: 40px;
+    }
+    .edit-info1 .right .tieude .second {
+        padding-top: 30px;
+    }
+    .footer .second {
+        margin-top: 25px;
+    }
+    .structor .left {
+        margin-bottom: 50px;
+    }
+    .structor .col-md-4.right {
+        left: -50%;
+    }
+    .best p {
+        font-size: 10px;
+    }
+    .best img {
+        width: 114px;
+        height: 114px;
+    }
+    .slogan h1 {
+        font-size: 46px;
+    }
+    .slogan {
+        background-position: -107px;
+    }
+    .why .noname p {
+        font-size: 15px;
+    }
+    .why .col-md-4.right {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .outside h1 {
+        font-size: 24px;
+    }
+    i.fas.fa-star {
+        font-size: 12px;
+    }
+    .outside h3.author {
+        font-size: 13px;
+    }
+    .your-courses, .best {
+        margin-top: 30px;
+    }
+    .top-courses h2, .the-best h2 {
+        font-size: 27px;
+    }
+    .top-course .outside h2 {
+        font-size: 15px;
+    }
+    .choose-courses, .top-courses, .the-best {
+        padding: 50px 0;
+    }
+    .content p {
+        font-size: 17px;
+    }
+    .choose-course i.fas {
+        width: 114px;
+        height: 114px;
+        font-size: 36px;
+        margin: 13px;
+        padding: 35px;
+    }
+    .col-xs-6 {
+        width: 50%;
+    }
+    .course {
+        width: 140px;
+        height: 140px;
+    }
+}
