@@ -16,6 +16,8 @@ import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
 import Courses from './Containers/Courses';
 
+import config from './config';
+
 
 class App extends Component {
   constructor(props, context) {
@@ -81,23 +83,23 @@ class App extends Component {
 
 
   onLogin = (signInPassword, signInUsername) => {
-    // this.setState({
-    //   signInPassword: signInPassword,
-    //   signInUsername: signInUsername
-    // })
-
     axios
-      .post('api/v1/auth', {
-        signInUsername: signInUsername,
-        signInPassword: signInPassword
+      .post(`${config.rootPath}/api/v1/auth`, {
+        username: signInUsername,
+        password: signInPassword
       })
-      .then(response =>
-        this.setState({
-          signInUsername: response.data.user.username,
-          signInPassword: response.data.user.password
+      .then(response => {                
+        this.setState({        
+          signInUsername: response.data.userFound.username
         })
-      )
-      .catch(err => console.log(err));
+
+
+        //set token
+        console.log(response.data)
+        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
+
+      })
+      .catch(err => console.log(err.response));
   }
 
   render() {
