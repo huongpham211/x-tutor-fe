@@ -7,6 +7,8 @@
     "axios": "^0.19.0",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
+    "qs": "^6.7.0",
+    "querystring": "^0.2.0",
     "react": "^16.8.6",
     "react-big-calendar": "^0.22.0",
     "react-dom": "^16.8.6",
@@ -19,7 +21,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +37,4 @@
       "last 1 safari version"
     ]
   }
- 
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 import axios from './axios';
-
+import qs from "qs";
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
 import Page from './Containers/Page';
@@ -27,13 +27,15 @@ class App extends Component {
       searchText: '',
       signUpError: '',
       signInError: '',
-      signUpEmail: '',
-      signUpPassword: '',
-      signUpUsername: '',
-      signUpRole: '',
+      email: '',
+      password: '',
+      username: '',
+      rolesId: '',
       signInPassword: '',
       signInUsername: ''
     }
+    this.onSignUp = this.onSignUp.bind(this);
+    this.onLogin = this.onLogin.bind(this);
   }
 
  
@@ -43,28 +45,35 @@ class App extends Component {
     this.setState({
       searchText: dl
     })
-    console.log('du bo lieu nhan duoc la ' + this.state.searchText);
+    // console.log('du bo lieu nhan duoc la ' + this.state.searchText);
   }
 
   onSignUp = (signUpUsername,signUpPassword,signUpEmail,signUpRole) => {
-    // console.log('signup username la ' + signUpUsername);
-    // console.log('signup password la ' + signUpPassword);
-    // console.log('signup email la ' + signUpEmail);
-    // console.log('signup role la ' + signUpRole);
-    this.setState({
-      signUpUsername:signUpUsername,
-      signUpPassword:signUpPassword,
-      signUpEmail:signUpEmail,
-      signUpRole:signUpRole
-    })
+    // this.setState({
+    //   username:signUpUsername,
+    //   password:signUpPassword,
+    //   email:signUpEmail,
+    //   rolesId:signUpRole
+    // })
+    // const params = {
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   email: this.state.email,
+    //   rolesId: this.state.rolesId
+    // }
+    // console.log(this.state);
+    const header = {
+      'content-type': 'application/json',    
+    };
+    
     axios
-    .post('api/v1/users', {
-      signUpUsername: this.state.signUpUsername,
-      signUpPassword: this.state.signUpPassword,
-      signUpEmail: this.state.signUpEmail,
-      signUpRole: this.state.signUpRole
-    })
-    .then(function (response) {
+    .post('api/v1/users',{
+      username:signUpUsername,
+      password:signUpPassword,
+      email:signUpEmail,
+      rolesId:signUpRole
+    },header)
+    .then((response) => {       
       console.log(response);
     })
     .catch(err => console.log(err));
@@ -72,16 +81,15 @@ class App extends Component {
 
 
   onLogin = (signInPassword, signInUsername) => {
-    this.setState({
-      signInPassword: signInPassword,
-      signInUsername: signInUsername
-    })
-    // console.log('du lieu password nhan duoc la ' + this.state.signInUsername );
-    // console.log('du lieu username nhan duoc la ' + this.state.signInPassword );
+    // this.setState({
+    //   signInPassword: signInPassword,
+    //   signInUsername: signInUsername
+    // })
+
     axios
-      .post('api/v1/login', {
-        signInUsername: this.state.signInUsername,
-        signInPassword: this.state.signInPassword
+      .post('api/v1/auth', {
+        signInUsername: signInUsername,
+        signInPassword: signInPassword
       })
       .then(response =>
         this.setState({

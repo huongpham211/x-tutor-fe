@@ -20,11 +20,11 @@ class Bodyhome extends Component {
     };
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignInUsername = this.onTextboxChangeSignInUsername.bind(this);
-    // this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-    // this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
-    // this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
-
-    // this.onSignIn = this.onSignIn.bind(this);
+    this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
+    this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
+    this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
+    this.onTextboxChangeSignUpRole = this.onTextboxChangeSignUpRole.bind(this);
+    // this.onLogin = this.onLogin.bind(this);
     // this.onSignUp = this.onSignUp.bind(this);
     // this.logout = this.logout.bind(this);
   }
