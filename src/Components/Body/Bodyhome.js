@@ -71,7 +71,6 @@ class Bodyhome extends Component {
     });
   }
   
-
   
   render() {
    
@@ -85,11 +84,11 @@ class Bodyhome extends Component {
                 <span aria-hidden="true">x</span>
               </button>
               <div className="txtb">
-                <input type="text" onChange={(event) =>this.onTextboxChangeSignInUsername(event)}/>
+                <input id="" type="text" onChange={(event) =>this.onTextboxChangeSignInUsername(event)}/>
                 <span data-placeholder="Username" />
               </div>
               <div className="txtb">
-                <input type="password" onChange={(event) =>this.onTextboxChangeSignInPassword(event)}/>
+                <input id="" type="password" onChange={(event) =>this.onTextboxChangeSignInPassword(event)}/>
                 <span data-placeholder="Password" />
               </div>
               <input type="submit"  className="logbtn" value="Login" onClick={(signInPassword,signInUsername) => this.props.onLogin(this.state.signInPassword,this.state.signInUsername)}/>

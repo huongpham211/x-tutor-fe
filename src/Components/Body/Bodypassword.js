@@ -17,17 +17,17 @@ class Bodypassword extends Component {
                 </div>
               </div>
               <div className="down">
-                <Link to="/account_setting" className="edit justify-content-center">
+              <Link to={`/account_setting/${this.props.passdata}`} className="edit justify-content-center">
                   <i className="fas fa-user" />
                   <h5>Account Settings</h5>
                   <i className="fas fa-chevron-right" />
                 </Link>
-                <Link to="/change_password" className="change justify-content-center">
+                <Link to={`/change_password/${this.props.passdata}`} className="change justify-content-center">
                   <i className="fas fa-lock" />
                   <h5>Change Password</h5>
                   <i className="fas fa-chevron-right" />
                 </Link>
-                <Link to="./payment_method" className="payment justify-content-center">
+                <Link to={`/payment_info/${this.props.passdata}`} className="payment justify-content-center">
                   <i className="far fa-credit-card" />
                   <h5>Payment Info</h5>
                   <i className="fas fa-chevron-right" />

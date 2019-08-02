@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Coursespage from './Coursespage';
 
 class Bodypage extends Component {
+
+
+
   printData = () =>  this.props.dataCourseProps.map((value,key)=>
                 (<Coursespage
                 key={key}
@@ -13,8 +16,9 @@ class Bodypage extends Component {
   render() {
     
     return (
-      
+
       <div>
+
         <div className="coursess">
           <div className="container">
             <div className="subject">

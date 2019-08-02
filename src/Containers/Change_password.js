@@ -5,11 +5,22 @@ import Footer from '../Components/Footer';
 
 
 class Change_password extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            id:this.props.match.params.id
+        }
+    }
+    
+
+    
+    
+
     render() {
         return (
             <div>
                <Header/>
-               <Bodypassword/>
+               <Bodypassword passdata={this.state.id}/>
                <Footer/>
             </div>
         );

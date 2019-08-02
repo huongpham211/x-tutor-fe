@@ -4,7 +4,16 @@ import Bodypage from '../Components/Body/Bodypage';
 import Footer from '../Components/Footer';
 
 
+
 class Page extends Component {
+   constructor(props, context) {
+       super(props, context);
+       this.state = {
+        id : this.props.match.params.id
+    }
+   }
+
+
    
         
     
@@ -15,8 +24,9 @@ class Page extends Component {
         return (
             <div>
                 <Header
+                passdata={this.state.id}
                 checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
-                <Bodypage dataCourseProps={this.props.dataCourseProps}/>
+                <Bodypage  dataCourseProps={this.props.dataCourseProps} />
                 <Footer/>
             </div>
         );
@@ -24,3 +34,4 @@ class Page extends Component {
 }
 
 export default Page;
+

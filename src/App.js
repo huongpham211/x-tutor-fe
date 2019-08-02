@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect,BrowserRouter  } from "react-router-dom";
 import axios from './axios';
-import qs from "qs";
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
 import Page from './Containers/Page';
@@ -15,9 +14,9 @@ import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
 import Courses from './Containers/Courses';
-
+import setAuthorizationToken from './setAuthorizationToken';
 import config from './config';
-
+import history from './history';
 
 class App extends Component {
   constructor(props, context) {
@@ -34,13 +33,16 @@ class App extends Component {
       username: '',
       rolesId: '',
       signInPassword: '',
-      signInUsername: ''
+      signInUsername: '',
+      loggedIn:false
     }
     this.onSignUp = this.onSignUp.bind(this);
     this.onLogin = this.onLogin.bind(this);
-  }
+    
+  };
 
  
+
 
 
   contentSearch = (dl) => {
@@ -50,51 +52,46 @@ class App extends Component {
     // console.log('du bo lieu nhan duoc la ' + this.state.searchText);
   }
 
-  onSignUp = (signUpUsername,signUpPassword,signUpEmail,signUpRole) => {
-    // this.setState({
-    //   username:signUpUsername,
-    //   password:signUpPassword,
-    //   email:signUpEmail,
-    //   rolesId:signUpRole
-    // })
-    // const params = {
-    //   username: this.state.username,
-    //   password: this.state.password,
-    //   email: this.state.email,
-    //   rolesId: this.state.rolesId
-    // }
-    // console.log(this.state);
+  onSignUp = (signUpUsername, signUpPassword, signUpEmail, signUpRole) => {
+
     const header = {
-      'content-type': 'application/json',    
+      'content-type': 'application/json',
     };
-    
+
     axios
-    .post('api/v1/users',{
-      username:signUpUsername,
-      password:signUpPassword,
-      email:signUpEmail,
-      rolesId:signUpRole
-    },header)
-    .then((response) => {       
-      console.log(response);
-    })
-    .catch(err => console.log(err));
+      .post(`api/v1/auth/register`, {
+        username: signUpUsername,
+        password: signUpPassword,
+        email: signUpEmail,
+        rolesId: signUpRole
+      }, header)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch(err => console.log(err));
   }
 
 
   onLogin = (signInPassword, signInUsername) => {
+
+    
     axios
       .post(`${config.rootPath}/api/v1/auth`, {
         username: signInUsername,
         password: signInPassword
       })
-      .then(response => {                
-        this.setState({        
-          signInUsername: response.data.userFound.username
+      .then(response => {
+        const token = response.data.token;
+        localStorage.setItem('signJwt', token);
+        this.setState({
+          signInUsername: response.data.userFound.username,
+          signInPassword: response.data.userFound.password,
+          id:response.data.userFound._id
         })
-
-
+        setAuthorizationToken(token)
+        const id = this.state.id
         //set token
+        history.push(`/page/${id}`);
         console.log(response.data)
         // axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
 
@@ -109,19 +106,20 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-    // console.log(ketqua);
-
+  const loggedIn = this.state.loggedIn;
+  
     return (
-      <Router>
+      <Router history={history}>
         <div>
+        
           <Route exact path="/" render={(props) =>
             <Home
               {...props}
               onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
-              onSignUp={(signUpUsername,signUpPassword,signUpEmail,signUpRole) =>this.onSignUp(signUpUsername,signUpPassword,signUpEmail,signUpRole)}
+              onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
           } />
-          <Route path="/page" render={(props) =>
+          <Route path={`/page/:id`} render={(props) =>
             <Page
               {...props}
               checkConnectProps={(dl) => this.contentSearch(dl)}
@@ -135,16 +133,16 @@ class App extends Component {
               dataCourseProps={ketqua}
             />
           } />
-          <Route path="/account_setting" component={Account_settings} />
-          <Route path="/change_password" component={Change_password} />
-          <Route path="/payment_info" component={Payment_method} />
+          <Route path={"/account_setting/:id"} component={Account_settings} />
+          <Route path={"/change_password/:id"} component={Change_password} />
+          <Route path={"/payment_info/:id"} component={Payment_method} />
           <Route path="/add_tuition" component={Add_Tuition} />
           <Route path="/tuition_preference" component={Tuition_preference} />
           <Route path="/tuitor_profile" component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
           <Route path="/checkout" component={Checkout} />
         </div>
-      </Router>
+      </Router >
 
     );
   }
