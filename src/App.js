@@ -138,7 +138,7 @@ class App extends Component {
           <Route path={"/payment_info/:id"} component={Payment_method} />
           <Route path="/add_tuition" component={Add_Tuition} />
           <Route path="/tuition_preference" component={Tuition_preference} />
-          <Route path="/tuitor_profile" component={Tuitor_profile} />
+          <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
           <Route path="/checkout" component={Checkout} />
         </div>

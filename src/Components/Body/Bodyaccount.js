@@ -102,10 +102,17 @@ class Bodyaccount extends Component {
       dateOfBirth:e.target.value
     })
   }
+  
+  onTextboxLanguage(e){
+    // console.log(event.target.value);
+    this.setState({
+      language:e.target.value
+    })
+  }
 
   
   render() {
-  
+    
     return (
 
       <div className="account-setting">
@@ -170,7 +177,7 @@ class Bodyaccount extends Component {
                   </div>
                   <div className="form-group">
                     <label htmlFor="">Current Education Level</label>
-                    <input type="text" className="form-control" name="CurrentAcademicLevel" id="" aria-describedby="helpId" placeholder=""  onChange={(e) => this.onTextboxCurrentAcademicLevel(e)}/>
+                    <input type="text" className="form-control" name="CurrentAcademicLevel" id="" aria-describedby="helpId" placeholder={this.state.CurrentAcademicLevel}  onChange={(e) => this.onTextboxCurrentAcademicLevel(e)}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="">Date of birth</label>
@@ -185,8 +192,8 @@ class Bodyaccount extends Component {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="">Postal code</label>
-                    <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
+                    <label htmlFor="">Language</label>
+                    <input type="text" className="form-control" name="language" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onTextboxLanguage(e)}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="">Address</label>
@@ -215,7 +222,7 @@ class Bodyaccount extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <button name="" id="update_avatar" className="btn btn-primary " type="submit" role="button" onClick={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.props.getData(this.state.country,this.state.firstName,this.state.lastName,this.state.otherName,this.state.address,this.state.nationality,this.state.raceName,this.state.gender,this.state.religion,this.state.email,this.state.CurrentAcademicLevel,this.state.city,this.state.dateOfBirth)}>Save &amp; Update</button>
+                <button name="" id="update_avatar" className="btn btn-primary " type="submit" role="button" onClick={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth,language) => this.props.getData(this.state.country,this.state.firstName,this.state.lastName,this.state.otherName,this.state.address,this.state.nationality,this.state.raceName,this.state.gender,this.state.religion,this.state.email,this.state.CurrentAcademicLevel,this.state.city,this.state.dateOfBirth)}>Save &amp; Update</button>
               </div>
             </div>
 

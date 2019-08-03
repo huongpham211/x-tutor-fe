@@ -4,6 +4,15 @@
     z-index: 999;
 }
 
+#throne {
+    flex-direction: row;
+    display: flex;
+}
+
+form#change {
+    flex-direction: column;
+}
+
 .some_info {
     margin-top: 40px;
 }
@@ -1345,7 +1354,7 @@ button.navbar-toggler.d-lg-none {
         margin: 20px 15px;
     }
 
-    form#throne {
+    #throne {
         flex-direction:column;
     }
 

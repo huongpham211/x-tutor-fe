@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Components/Header/Header';
 import Bodyaccount from '../Components/Body/Bodyaccount';
 import Footer from '../Components/Footer';
+import axios from '../axios';
 
 
 
@@ -37,13 +38,34 @@ class Account_settings extends Component {
       
 
 
-    // getData = (country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => {         
-    //     const headers = {
-    //         "Accept": "application/json",
-    //         "Content-type": "application/json",
-    //         "Authorization": "Bearer " + localStorage.getItem('jwt')
-    //     }
-    // }  
+    getData = (country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth,language) => {         
+        var config = {
+            headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
+        };
+        
+        
+        axios
+        .put(`api/v1/users/${this.state.id}`,{
+            country:country,
+            firstName:firstName,
+            lastName:lastName,
+            otherName:otherName,
+            address:address,
+            nationality:nationality,
+            raceName:raceName,
+            gender:gender,
+            religion:religion,
+            email:email,
+            CurrentAcademicLevel:CurrentAcademicLevel,
+            city:city,
+            dateOfBirth:dateOfBirth,
+            language:language
+        },config)
+        .then((response) =>{
+            console.log(response.data);   
+        })
+        .catch(err => console.log(err));
+    }  
 
     render() {
         return (

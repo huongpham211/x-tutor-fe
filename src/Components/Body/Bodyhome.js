@@ -24,9 +24,7 @@ class Bodyhome extends Component {
     this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpRole = this.onTextboxChangeSignUpRole.bind(this);
-    // this.onLogin = this.onLogin.bind(this);
-    // this.onSignUp = this.onSignUp.bind(this);
-    // this.logout = this.logout.bind(this);
+
   }
 
   onTextboxChangeSignInUsername = (event) => {
