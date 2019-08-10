@@ -4,6 +4,7 @@ import Headertutor from '../Components/Header/Headertutor';
 import Bodypage from '../Components/Body/Bodypage';
 import Footer from '../Components/Footer';
 import axios from '../axios';
+import Data from '../Containers/Data.json';
 
 
 
@@ -12,13 +13,28 @@ class Page extends Component {
        super(props, context);
        this.state = {
         id : this.props.match.params.id,
-        rolesId:null
+        rolesId:null,
+        data:Data,
+        dataDb:''
     }
    }
 
+   componentWillMount() {
+    var config = {
+        headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
+    };
+    axios
+    .get(`api/v1/users/all-tutors`,config)
+    .then((response) =>{
+       this.setState({
+           dataDb:response.data
+       });
+    })
+    .catch(err => console.log(err));
+   }
    
    
-   componentWillMount(){
+   componentDidMount(){
     var config = {
         headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
     };
@@ -55,7 +71,9 @@ class Page extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodypage  dataCourseProps={this.props.dataCourseProps} />
+                <Bodypage  
+                dataTutor={this.state.dataDb}
+                dataCourseProps={this.state.data} />
                 <Footer/>
             </div>
         );

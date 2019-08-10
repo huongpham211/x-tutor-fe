@@ -11,10 +11,31 @@ class Change_password extends Component {
         super(props, context);
         this.state = {
             id:this.props.match.params.id,  
-            rolesId:null
+            rolesId:null,
+            oldPassword:'',
+            newPassword:''
         }
     }
     
+
+    changePassword(oldPassword,newPassword,confirmNewPassword){
+        var config = {
+            headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
+        };
+        if(newPassword !== confirmNewPassword){
+            alert("Passwords don't match");
+        } else {
+            axios
+            .patch(`api/v1/users/password`,{
+                oldPassword:oldPassword,
+                newPassword:newPassword
+            },config)
+            .then((response) =>{
+                console.log(response.data);             
+            })
+            .catch(err => console.log(err));
+        }       
+    }
 
     componentWillMount(){
         var config = {
@@ -49,7 +70,7 @@ class Change_password extends Component {
         return (
             <div>
                  {this.showheader()}
-               <Bodypassword passdata={this.state.id}/>
+               <Bodypassword changePassword={(oldPassword,newPassword,confirmNewPassword) => this.changePassword(oldPassword,newPassword,confirmNewPassword)} passdata={this.state.id}/>
                <Footer/>
             </div>
         );

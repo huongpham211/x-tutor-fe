@@ -206,7 +206,7 @@ class Bodyupdatecard extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <button type="submit" name="" id="update_avatar" className="btn btn-primary " href="#" role="button" onClick={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.props.infoPayment(this.state.cardType,this.state.nameOnCard,this.state.cardNumber,this.state.expiredDate,this.state.remarks,this.state.residentialAddress,this.state.city,this.state.province,this.state.country,this.state.postalCode)}>Save payment info</button>
+                <button type="submit" name="" id="" className="btn btn-primary " href="#" role="button" onClick={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.props.infoPayment(this.state.cardType,this.state.nameOnCard,this.state.cardNumber,this.state.expiredDate,this.state.remarks,this.state.residentialAddress,this.state.city,this.state.province,this.state.country,this.state.postalCode)}>Save payment info</button>
               </div>
             </div>
           </div>

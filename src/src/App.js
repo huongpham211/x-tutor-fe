@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect,BrowserRouter  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 import axios from './axios';
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
@@ -8,8 +8,8 @@ import Page from './Containers/Page';
 import Change_password from './Containers/Change_password';
 import Payment_method from './Containers/Payment_method';
 import Add_Tuition from './Containers/Add_tuition';
-import Tuition_preference from './Containers/Tuition_preference';
-import Tuitor_profile from './Containers/Tuitor_profile';
+import Tutor_preference from './Containers/Tutor_preference';
+import Tuitor_profile from './Containers/Tutor_profile';
 import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
@@ -19,6 +19,7 @@ import config from './config';
 import history from './history';
 import Infocard from './Containers/Infocard';
 import UpdateCard from './Containers/UpdateCard';
+import Test from './Containers/Test';
 
 class App extends Component {
   constructor(props, context) {
@@ -108,24 +109,22 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-  const loggedIn = this.state.loggedIn;
   
     return (
       <Router history={history}>
         <div>
-        
+          
           <Route exact path="/" render={(props) =>
             <Home
               {...props}
               onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
               onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
-          } />
+          } />    
           <Route path={`/page/:id`} render={(props) =>
             <Page
               {...props}
               checkConnectProps={(dl) => this.contentSearch(dl)}
-              dataCourseProps={this.state.data}
             />
           } />
           <Route path="/courses" render={(props) =>
@@ -141,10 +140,11 @@ class App extends Component {
           <Route path={"/edit_card/:id"} component={UpdateCard} />
           <Route path={"/create_card/:id"} component={Payment_method} />
           <Route path="/add_tuition/:id" component={Add_Tuition} />
-          <Route path="/tuition_preference/:id" component={Tuition_preference} />
+          <Route path="/tuition_preference/:id" component={Tutor_preference} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/test" component={Test} />
         </div>
       </Router >
 

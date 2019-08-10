@@ -40,7 +40,7 @@ class Bodypage extends Component {
         <div className="top-courses1">
           <div className="container">
             <div className="title">
-              <h4>Top courses in X-Tutor</h4>
+              <h4>Top tutor in X-Tutor</h4>
             </div>
             <div className="top-course row">    
               {this.printData()}

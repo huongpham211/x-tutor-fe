@@ -21,11 +21,7 @@ class Bodycreatecard extends Component {
 
   }
 
-  // onCardType(e){
-  //   this.setState({
-  //     cardType:e.target.value
-  //   })
-  // }
+  
   changeNameOnCard(e){
     this.setState({
       nameOnCard:e.target.value
@@ -131,7 +127,7 @@ class Bodycreatecard extends Component {
                     <div className="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
                       <label className="btn paymentMethod active">
                         <div className="method visa" />
-                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'visa-card'} onChange={(e) => this.setState({ cardType: e.target.value })}/>
+                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'visa-card'} onChange={(e) => this.setState({ cardType: e.target.value })} />
                       </label>
                       <label className="btn paymentMethod">
                         <div className="method master-card" />
@@ -150,15 +146,15 @@ class Bodycreatecard extends Component {
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Name On Card</label>
-                      <input type="text" className="form-control" name="nameOnCard" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeNameOnCard(e)}/>
+                      <input type="text" className="form-control" name="nameOnCard" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeNameOnCard(e)} required/>
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Card Number</label>
-                      <input type="text" className="form-control" name="cardNumber" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeCardNumber(e)}/>
+                      <input type="text" className="form-control" name="cardNumber" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeCardNumber(e)} required/>
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Expired Date</label>
-                      <input type="text" className="form-control" name="expiredDate" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeExpiredDate(e)}/>
+                      <input type="text" className="form-control" name="expiredDate" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.changeExpiredDate(e)} required/>
                     </div>
 
                     <div className="form-group">

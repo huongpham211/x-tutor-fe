@@ -44,7 +44,7 @@ class Header extends Component {
                   </Link>
                 </li>
                 <li className="nav-item" data-toggle="modal" data-target="#formFilter">
-                  <a className="nav-link" >Filter</a>
+                <a className="nav-link" >Filter</a>
                 </li>
                 <li className="nav-item avatar d-flex align-items-center">
                   <img src={require('../img/member6.jpg')} alt="" />

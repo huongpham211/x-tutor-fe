@@ -6,29 +6,52 @@ class Bodyaddtuition extends Component {
       <div>
         <div className="modal fade" id="add_schedule" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header text-center">
-                <h4 className="modal-title w-100 font-weight-bold">Login</h4>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">x</span>
-                </button>
-                
-              </div>
-              {/* modal header */}
-              <div className="modal-body text-center">
-                <div className="md-form my-4">
-                  <input type="email" id="defaultForm-email" className="form-control validate" placeholder=" Enter your emai" />
-                </div>
-                <div className="md-form mb-2">
-                  <input type="password" id="defaultForm-pass" className="form-control validate" placeholder="Enter your password" />
-                </div>
-                
-              </div>
-              <div className="modal-footer d-flex justify-content-center ">
-                <a name="" id="" className="btn btn-primary" href="#" role="button">Login</a>
-              </div>
-              <h5 className="text-center mb-3">Not a member ?<span>Sign up now</span></h5>
-            </div>
+          <div className="modal-content">
+  <div className="modal-header text-center">
+    <h4 className="modal-title w-100 font-weight-bold">Add Schedule</h4>
+    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  {/* het modal header */}
+  <div className="modal-body text-center">
+    <div className="md-form my-4" id="noclass">
+      <div className="khung">
+        <div id="time">10 Mar 18 - 10 Mar 18 <br />Every Saturdat 08:30 hrs - 09:30 hrs</div>
+        <div className id="button2">
+          <i className="fas fa-trash-alt" />
+          <i className="fas fa-edit" />
+        </div>
+      </div>
+      {/* end khung */}
+      <a name id="add" className="btn btn-primary" href="#" role="button">Add Schedule</a>
+    </div>
+    <div className="md-form my-4">
+      <h3 id="payper1">Pay per 1 lessons</h3>
+      <div className="ttin_trai d-flex justify-content-between">
+        <div className="ttin_chung ">
+          <h4>Fee per hour:</h4>
+          <h4>Fee per hour:</h4>
+          <h4>Fee per hour:</h4>
+          <h4>Fee per hour:</h4>
+          <h4>Fee per hour:</h4>
+        </div>
+        <div className="ttin_phai">
+          <h4>10</h4>
+          <h4>10</h4>
+          <h4>10</h4>
+          <h4>10</h4>
+          <h4>10</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  {/* het modal body */}
+  <div className="modal-footer d-flex justify-content-center ">
+    <a name id="add2" className="btn btn-primary" href="#" role="button">Book Tuition</a>
+  </div>
+</div>
+
           </div>
         </div>
 

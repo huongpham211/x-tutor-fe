@@ -17,11 +17,9 @@ class UpdateCard extends Component {
             city:'',
             province:'',
             country:'',
-            postalCode:'',
-            
+            postalCode:'',         
         }
-        this.checkConnect = this.checkConnect.bind(this);
-
+        // this.checkConnect = this.checkConnect.bind(this);
     }
 
     componentDidMount() {
@@ -34,20 +32,9 @@ class UpdateCard extends Component {
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
-      
-
         axios
         .put(`api/v1/cards/${this.state.cardId}`,{
             cardType:cardType,
-            nameOnCard:nameOnCard,
-            cardNumber:cardNumber,
-            expiredDate:expiredDate,
-            remarks:remarks,
-            residentialAddress:residentialAddress,
-            city:city,
-            province:province,
-            country:country,
-            postalCode:postalCode
         },config)
         .then((response) =>{
             console.log(response.data);    

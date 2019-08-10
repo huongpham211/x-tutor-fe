@@ -3,7 +3,13 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Bodycard from './Bodycard';
 
 class Bodyinfocard extends Component {
-
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+         id:this.props.passid
+        }
+    }
+    
     deleteButtonClick = (e) => {
         this.props.deletefunction (e);    
     }
@@ -68,7 +74,7 @@ class Bodyinfocard extends Component {
                                     <h5>Payment Card</h5>
                                 </div>
                             </div>
-                            <Link to={`/create_card`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
+                            <Link to={`/create_card/${this.state.id}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
                             <div className="payment_card">
                             {this.getData()}
                                 

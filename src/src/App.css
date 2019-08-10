@@ -4,6 +4,17 @@
     z-index: 999;
 }
 
+.teaching_subject input.btn.logbtn.save_info {
+    width: 39%;
+}
+.teaching_subject tfoot tr td {
+    display: flex;
+}
+
+.teaching_ex .save_info {
+    margin-left: -15px;
+}
+
 #info_card span, #info_card h1 {
     font-size: 17px;
     font-weight: 400;
@@ -477,7 +488,7 @@ h3#year {
     display: flex;
 }
 
-#addrow, #addrow2 {
+#addrow, #addrow2,#addrow1 {
     font-weight: 700;
     font-size: 14px;
     line-height: 26px;

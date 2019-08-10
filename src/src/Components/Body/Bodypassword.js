@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Bodypassword extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      oldPassword:'',
+      newPassword:'',
+      confirmNewPassword:''
+    }
+  }
+  
+  onOldPassword(e){
+    this.setState({
+      oldPassword:e.target.value
+    })
+  }
+  onNewPassword(e){
+    this.setState({
+      newPassword:e.target.value
+    })
+  }
+  onConfirmNewPassword(e){
+    this.setState({
+      confirmNewPassword:e.target.value
+    })
+  }
+
   render() {
     return (
       <div className="account-setting">
@@ -46,17 +71,17 @@ class Bodypassword extends Component {
                   <div className="col-md-5 change_password">
                     <div className="form-group">
                       <label htmlFor="">Current password</label>
-                      <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
+                      <input type="password" className="form-control" name="oldPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) =>this.onOldPassword(e)}/>
                     </div>
                     <div className="form-group">
                       <label htmlFor="">New password</label>
-                      <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
+                      <input type="password" className="form-control" name="newPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onNewPassword(e)}/>
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Re-type new password</label>
-                      <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
+                      <input type="password" className="form-control" name="confirmNewPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onConfirmNewPassword(e)}/>
                     </div>
-                    <a name="" id="update_avatar" className="btn btn-primary" href="#" role="button">Change password</a>
+                    <a name="" type="submit" id="update_avatar" className="btn btn-primary" href="#" role="button" onClick={(oldPassword,newPassword,confirmNewPassword) => this.props.changePassword(this.state.oldPassword,this.state.newPassword,this.state.confirmNewPassword)}>Change password</a>
                   </div>
                 </form>
               </div>
