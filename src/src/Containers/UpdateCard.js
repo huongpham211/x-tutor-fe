@@ -22,7 +22,7 @@ class UpdateCard extends Component {
         // this.checkConnect = this.checkConnect.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({
             cardId:this.props.match.params.id
         })          
@@ -35,6 +35,15 @@ class UpdateCard extends Component {
         axios
         .put(`api/v1/cards/${this.state.cardId}`,{
             cardType:cardType,
+            nameOnCard:nameOnCard,
+            cardNumber:cardNumber,
+            expiredDate:expiredDate,
+            remarks:remarks,
+            residentialAddress:residentialAddress,
+            city:city,
+            province:province,
+            country:country,
+            postalCode:postalCode
         },config)
         .then((response) =>{
             console.log(response.data);    
@@ -49,7 +58,7 @@ class UpdateCard extends Component {
         return (
             <div>
                 <Header/>
-                <Bodypayment passdata={this.state.id} infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
+                <Bodypayment  infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
                 <Footer/>
             </div>
         );

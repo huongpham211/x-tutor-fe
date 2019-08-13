@@ -6,11 +6,28 @@ class Header extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      tempValue: '', 
+      tempValue: '',
+      coursename: '',
+      tutor: '' 
     }
   }
 
+   onCourseName(e) {
+    this.setState({
+      coursename: e.target.value
+    });
+  }
 
+  onTutor(e) {
+    this.setState({
+      tutor: e.target.value
+    });
+  }
+
+  logoutHandler() {
+    localStorage.clear();
+    window.location.href = '/';
+}
 
   isChange = (event) => {
     console.log(event.target.value);
@@ -46,28 +63,27 @@ class Header extends Component {
                 <li className="nav-item" data-toggle="modal" data-target="#formFilter">
                   <a className="nav-link" >Filter</a>
                 </li>
-                <li className="nav-item avatar d-flex align-items-center">
-                  <img src={require('../img/member6.jpg')} alt="" />
+                <li className="nav-item avatar d-flex align-items-center" >
+                  <img src={require('../img/member6.jpg')} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <h4>Daniel Queen</h4>
+                    <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <Link to={`/account_setting/${this.props.passdata}`} className="">
+                              Account Settings
+                      </Link>
+                      <Link to={`/tuition_preference/${this.props.passdata}`} className="">
+                              Tuition preference
+                      </Link>
+                      <Link to={`/tutor_profile/${this.props.passdata}`} className="">
+                              Tutor Detail
+                      </Link>
+                      <a href="#" onClick={this.logoutHandler}>Logout</a>
+                    </ul>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <div className="slide_menu">
-          <ul>
-          <Link to={`/account_setting/${this.props.passdata}`} className="">
-                  Account Settings
-          </Link>
-          <Link to={`/tuition_preference/${this.props.passdata}`} className="">
-                  Tuition preference
-          </Link>
-          <Link to={`/tutor_profile/${this.props.passdata}`} className="">
-                  Tutor Detail
-          </Link>
-            
-          </ul>
-        </div>
+      
         <div className="modal fade" id="formFilter" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -81,14 +97,16 @@ class Header extends Component {
                   <span data-placeholder="Country subject in taught" />
                 </div>
                 <div className="txtb">
-                  <input type="text" />
-                  <span data-placeholder="All courses here" />
+                  <input type="text"  onChange={(e) => this.onCourseName(e)}/>
+                  <span data-placeholder="All courses here"/>
                 </div>
                 <div className="txtb">
-                  <input type="password" />
-                  <span data-placeholder="Your academic level" />
+                  <input type="text"  onChange={(e) => this.onTutor(e)}/>
+                  <span data-placeholder="Your academic level"/>
                 </div>
-                <input type="submit" className="logbtn" value="Filter" />
+                <Link to="/filter_course">
+                <button  className="logbtn" onClick={(coursename,tutor) => this.props.filterFunction(this.state.coursename,this.state.tutor)}>Filter</button>
+                </Link>
               </form>
             </div>
           </div>

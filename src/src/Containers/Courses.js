@@ -9,7 +9,7 @@ class Courses extends Component {
         return (
             <div>
                 <Header checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
-                <Bodycourses dataCourseProps={this.props.dataCourseProps}/>
+                <Bodycourses dataCourseProps={this.props.dataCourseProps} />
                 <Footer/>
             </div>
         );

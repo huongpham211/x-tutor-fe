@@ -15,7 +15,7 @@ class Page extends Component {
         id : this.props.match.params.id,
         rolesId:null,
         data:Data,
-        dataDb:''
+        dataDb:null
     }
    }
 
@@ -27,7 +27,7 @@ class Page extends Component {
     .get(`api/v1/users/all-tutors`,config)
     .then((response) =>{
        this.setState({
-           dataDb:response.data
+           dataDb:response.data.allTutor
        });
     })
     .catch(err => console.log(err));
@@ -46,14 +46,16 @@ class Page extends Component {
                 rolesId:response.data.userFound.rolesId
             })
         })
-        .catch(err =>console.log(err))
+        .catch(err =>console.log(err));
    }
    
    showheader = () => {
        if(this.state.rolesId === 'Tutor'){
-           return <Headertutor 
+           return <Headertutor
            passdata={this.state.id}
-           checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+           checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+           filterFunction={(coursename,tutor) => this.props.filterFunction(coursename,tutor)} 
+           />
        }
        else {
            return <Header
@@ -61,18 +63,22 @@ class Page extends Component {
             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
        }
    }
+
+     
+  
         
     
     render() {
-        // console.log(this.props.dataCourseProps);
-      
+        console.log(this.state.dataDb);
         
+  
 
         return (
             <div>
                 {this.showheader()}
-                <Bodypage  
-                dataTutor={this.state.dataDb}
+                <Bodypage
+                passdata={this.state.id}  
+                // error={this.state.dataDb}
                 dataCourseProps={this.state.data} />
                 <Footer/>
             </div>

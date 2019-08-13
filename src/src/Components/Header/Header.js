@@ -10,7 +10,10 @@ class Header extends Component {
     }
   }
 
-
+  logoutHandler() {
+    localStorage.clear();
+    window.location.href = '/';
+}
 
   isChange = (event) => {
     console.log(event.target.value);
@@ -47,27 +50,26 @@ class Header extends Component {
                 <a className="nav-link" >Filter</a>
                 </li>
                 <li className="nav-item avatar d-flex align-items-center">
-                  <img src={require('../img/member6.jpg')} alt="" />
+                  <img src={require('../img/member6.jpg')} alt=""  className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <h4>Daniel Queen</h4>
+                  <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                      <Link to={`/account_setting/${this.props.passdata}`} className="">
+                              Account Settings
+                      </Link>
+                      <Link to={`/tuition_preference/${this.props.passdata}`} className="">
+                              Tuition preference
+                      </Link>
+                      <Link to={`/tutor_profile/${this.props.passdata}`} className="">
+                              Tutor Detail
+                      </Link>
+                      <a href="#" onClick={this.logoutHandler}>Logout</a>
+                    </ul>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-        <div className="slide_menu">
-          <ul>
-          <Link to={`/account_setting/${this.props.passdata}`} className="">
-                  Account Settings
-          </Link>
-          <Link to={`/account_setting/${this.props.passdata}`} className="">
-                  Tuition Detail
-          </Link>
-          <Link to={`/account_setting/${this.props.passdata}`} className="">
-                  My calendar
-          </Link>
-            
-          </ul>
-        </div>
+      
         <div className="modal fade" id="formFilter" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -88,7 +90,7 @@ class Header extends Component {
                   <input type="password" />
                   <span data-placeholder="Your academic level" />
                 </div>
-                <input type="submit" className="logbtn" value="Filter" />
+                <button  className="logbtn" value="Filter" ></button>
               </form>
             </div>
           </div>

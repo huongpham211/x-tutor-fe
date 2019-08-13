@@ -220,8 +220,8 @@ class Bodyhome extends Component {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat similique ipsum id, modi incidunt el</p>
             </div>
             <div className="group-button">
-              <button name="" id="" className="btn btn-warning" href="" role="button">Purchase Courses</button>
-              <button name="" id="" className="btn btn-primary" href="" role="button">Start Learning Now</button>
+              <button name="" id="" className="btn btn-warning" href="">Purchase Courses</button>
+              <button name="" id="" className="btn btn-primary" href="">Start Learning Now</button>
             </div>
           </div>
         </div>

@@ -14,9 +14,9 @@ class Tuition_preference extends Component {
             id : this.props.match.params.id,
             education:[{
             }],
-            major:'',
-            institute:'',
-            certificate:'',
+            // major:'',
+            // institute:'',
+            // certificate:'',
             workingExperience:[{}],
             teachingSubject:[{}],
             basesIn:''

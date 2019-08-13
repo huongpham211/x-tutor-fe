@@ -2,7 +2,46 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Bodytuitorprofile extends Component {
+  constructor(props, context) {
+    super(props, context);
+    
+  }
+  
+  getData(){
+    if(this.props.dataTutor !== null){
+      return this.props.dataTutor.map((value,key) =>(
+        <h3 key={key}>{value.certificate}</h3>
+      ))
+    }
+  }
+
+  dataTechingSubject(){
+    if(this.props.dataTeaching !== null){
+      return this.props.dataTeaching.map((value,key) =>(
+        <h3 key={key}>{value.course}</h3>
+      ))
+    }
+  }
+
+  education(){
+    if(this.props.dataTutor !== null){
+      return this.props.dataTutor.map((value,key) =>(
+        <div className="giaoduc" key={key}>
+          <div className="univer">
+            <h3 className="col-md-6" id="univer">{value.institute} </h3>
+            <h3 className="col-md-6" id="year">OCT 2010 - MAY 2014</h3>
+          </div>
+          <h3 id="major">{value.major}</h3>
+        </div>
+      ))
+    }
+  }
+
+
   render() {
+    console.log(this.props.dataTeaching);
+    console.log(this.props.dataTutor);
+    
     return (
       <div className="account-setting">
         <div className="container">
@@ -20,11 +59,11 @@ class Bodytuitorprofile extends Component {
               <div className="info_tuitor">
                 <div className="gtinh">
                   <i className="fas fa-user" />
-                  <h5>Male</h5>
+                  <h5>{this.props.gender}</h5>
                 </div>
                 <div className="noio">
                   <i className="fas fa-map-marker-alt" />
-                  <h5>Singapore</h5>
+                  <h5>{this.props.basedIn}</h5>
                 </div>
               </div>
               {/* end info_tuitor */}
@@ -37,9 +76,7 @@ class Bodytuitorprofile extends Component {
                   <h5>Certification</h5>
                 </div>
                 <div id="bangcap">
-                  <h3>Google Certified Professional Cloud Architect</h3>
-                  <h3>Project Management Professional</h3>
-                  <h3>Certified ScrumMaster</h3>
+                  {this.getData()}
                 </div>
               </div>
               {/* end ceetification */}
@@ -48,13 +85,7 @@ class Bodytuitorprofile extends Component {
                   <i className="fas fa-graduation-cap" />
                   <h5>Education</h5>
                 </div>
-                <div className="giaoduc">
-                  <div className="univer">
-                    <h3 className="col-md-6" id="univer">Western New England University </h3>
-                    <h3 className="col-md-6" id="year">OCT 2010 - MAY 2014</h3>
-                  </div>
-                  <h3 id="major">Computer Engineering</h3>
-                </div>
+                {this.education()}
               </div>
               {/* end education */}
               <div id="experience">
@@ -77,9 +108,7 @@ class Bodytuitorprofile extends Component {
                   <h5>Teaching Subject</h5>
                 </div>
                 <div className="monday">
-                  <h3>Python Fundamentals</h3>
-                  <h3>Web Development with Django and AngularJS</h3>
-                  <h3>Full Stack Web Development with Python (WEB2PY)</h3>
+                  {this.dataTechingSubject()}
                 </div>
               </div>
               {/* end subject */}

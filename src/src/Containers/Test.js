@@ -1,50 +1,56 @@
-import React, { Component } from 'react'
-import '../App.css'
-import  CheckBox  from './CheckBox'
+import React, { Component } from 'react';
 
 class Test extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      fruites: [
-        {id: 1, value: "banana", isChecked: false},
-        {id: 2, value: "apple", isChecked: false},
-        {id: 3, value: "mango", isChecked: false},
-        {id: 4, value: "grap", isChecked: false}
-      ]
-    }
+  constructor(props, context) {
+    super(props, context);
+    
   }
   
-  handleAllChecked = (event) => {
-    let fruites = this.state.fruites
-    fruites.forEach(fruite => fruite.isChecked = event.target.checked) 
-    this.setState({fruites: fruites})
-  }
+  handleSubmit = (e) => {
+    e.preventDefault();
 
-  handleCheckChieldElement = (event) => {
-    let fruites = this.state.fruites
-    fruites.forEach(fruite => {
-       if (fruite.value === event.target.value)
-          fruite.isChecked =  event.target.checked
-    })
-    this.setState({fruites: fruites})
+    //  extract the node list from the form
+    //  it looks like an array, but lacks array methods
+    const { pet } = this.form;
+
+    // convert node list to an array
+    const checkboxArray = Array.prototype.slice.call(pet);
+
+    // extract only the checked checkboxes
+    const checkedCheckboxes = checkboxArray.filter(input => input.checked);
+    console.log('checked array:', checkedCheckboxes);
+
+    // use .map() to extract the value from each checked checkbox
+    const checkedCheckboxesValues = checkedCheckboxes.map(input => input.value);
+    console.log('checked array values:', checkedCheckboxesValues);
+    this.setState({
+      preferDay:checkedCheckboxesValues
+    });
   }
 
   render() {
     return (
-      <div className="App">
-      <h1> Check and Uncheck All Example </h1>
-      <input type="checkbox" onClick={this.handleAllChecked}  value="checkedall" /> Check / Uncheck All
-        <ul>
-        {
-          this.state.fruites.map((fruite) => {
-            return (<CheckBox onChange={this.handleCheckChieldElement}  {...fruite} />)
-          })
-        }
-        </ul>
+      <div>
+        <form
+          onSubmit={this.handleSubmit}
+          ref={form => this.form = form}>
+          <label>
+            Cat
+            <input type="checkbox" value="cat" name="pet" />
+          </label>
+          <label>
+            Dog
+            <input type="checkbox" value="dog" name="pet" />
+          </label>
+          <label>
+            <input type="checkbox" value="ferret" name="pet" />
+             Ferret
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }
 }
 
-export default Test
+export default Test;

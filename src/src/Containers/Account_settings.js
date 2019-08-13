@@ -88,9 +88,7 @@ class Account_settings extends Component {
     getData = (country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth,language) => {         
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
-        };
-        
-        
+        };                
         axios
         .put(`api/v1/users/${this.state.id}`,{
             country:country,
@@ -115,7 +113,6 @@ class Account_settings extends Component {
     }  
 
     render() {
-        console.log(this.state.id);
         
         return (
             <div>

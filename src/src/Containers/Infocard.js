@@ -82,7 +82,7 @@ class Infocard extends Component {
 
     
     render() {
-        console.log(this.state.id);
+        // console.log(this.state.id);
         
         return (
             <div>

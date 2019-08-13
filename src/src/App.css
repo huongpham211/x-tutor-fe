@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    z-index: 999;
 }
 
 .teaching_subject input.btn.logbtn.save_info {
@@ -509,21 +508,9 @@ h3#year {
     padding: 20px 10px;
 }
 
-.slide_menu {
-    position: absolute;
-    right: 6%;
-    border: 1px solid #bcb8b866;
-    background: white;
-    z-index: 9999;
-    /* display:none; */
-}
-
-.slide_menu ul li {
-    padding: 10px 30px;
-}
-
-.slide_menu ul {
-    list-style: none;
+ul.slide_menu.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
 }
 
 .tieude {

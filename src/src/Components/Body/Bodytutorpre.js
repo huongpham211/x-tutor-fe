@@ -102,7 +102,7 @@ class Bodytuitionpre extends Component {
                   <label htmlFor="">Hourly Rate</label>
                   <input type="text" placeholder="" onChange={(e) => this.onChangeHourlyRate(e)} />
                 </div>
-                <a name="" id="" className="btn logbtn btn-primary" href="#" role="button" onClick={(aboutme,hourlyrate) => this.props.pushIntroduction(this.state.aboutme,this.state.hourlyrate)}>Update Introduction</a>
+                <a name="" id="" className="btn logbtn btn-primary"  role="button" onClick={(aboutme,hourlyrate) => this.props.pushIntroduction(this.state.aboutme,this.state.hourlyrate)}>Update Introduction</a>
               </div>
             </div>
 
