@@ -12,6 +12,15 @@ class Bodycourses extends Component {
                 price={value.price}
                 />)
             )
+
+    //     filterCourse = () =>  this.props.filterCourse.map((value,key)=>
+    //     (<Coursespage
+    //     key={key}
+    //     courseName={value.course_name}
+    //     tuitor={value.tuitor}
+    //     price={value.price}
+    //     />)
+    // )
     render() {
         return (
             <div>
@@ -22,6 +31,7 @@ class Bodycourses extends Component {
                         </div>
                         <div className="top-course row">
                             {this.printData()}
+                            {/* {this.filterCourse()} */}
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./App.css">
+    <link rel="stylesheet" href="../App.css">
   </head>
   <body>
     
@@ -55,16 +55,20 @@
         <div class="account-setting">
             <div class="container">
                 <div class="edit-info row">
-                    <div class="col-md-3 left">
-                        <div class="up text-center">
-                            <img src="./img/member6.jpg" alt="">
+                    <f class="col-md-3 left">
+                        <form class="up" method="">
+                            <div class="uploadava">
+                                <img class="image" id="output">
+                                <input class="upload" type="file" name="profile_photo" id="fileInput" onchange="loadFile(event)" required>
+                            </div>
+                       
                             <h5>Daniela Queen</h5>
                             <div class="setting_button">
                                 <a name="" id="update_avatar" class="btn btn-primary" href="#" role="button">Update Avatar</a>        
                                 <a name="" id="delete_avatar" class="btn btn-primary" href="#" role="button">Delete</a>        
                             </div>
                           
-                        </div>
+                        </form>
                         <div class="down">
                             <div class="edit justify-content-center">
                                 <i class="fas fa-user"></i>
@@ -238,8 +242,16 @@
 
             </div>
         </footer>
-        <i class="fas fa-chevron-down"></i>
-    
+        <script>
+                var loadFile = function(event) {
+                    var reader = new FileReader();
+                    reader.onload = function(){
+                      var output = document.getElementById('output');
+                      output.src = reader.result;
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                };
+            </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

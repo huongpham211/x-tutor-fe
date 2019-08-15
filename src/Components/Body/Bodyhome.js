@@ -220,8 +220,8 @@ class Bodyhome extends Component {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat similique ipsum id, modi incidunt el</p>
             </div>
             <div className="group-button">
-              <button name="" id="" className="btn btn-warning" href="" role="button">Purchase Courses</button>
-              <button name="" id="" className="btn btn-primary" href="" role="button">Start Learning Now</button>
+              <button name="" id="" className="btn btn-warning" href="">Purchase Courses</button>
+              <button name="" id="" className="btn btn-primary" href="">Start Learning Now</button>
             </div>
           </div>
         </div>
@@ -378,7 +378,7 @@ class Bodyhome extends Component {
                 <p>There are many variations of passages of available, but the majority have suffered alteration
                   in some form,  by injected humour, or randomised words which don't look even slightly believable.
                   </p>
-                <button name="" id="" className="btn btn-primary" role="button">Start Learning Now</button>
+                <button name="" id="" className="btn btn-primary" >Start Learning Now</button>
               </div>
               <div className="col-md-4 right">
                 <img src={require('../img/girl-1.png')} alt="" />
@@ -452,7 +452,7 @@ class Bodyhome extends Component {
                 <h3>Join thousand of instructors and earn money hassle free!</h3>
               </div>
               <div className="col-md-4 right">
-                <button name="" id="" className="btn btn-primary" role="button">Start Learning Now</button>
+                <button name="" id="" className="btn btn-primary" >Start Learning Now</button>
               </div>
             </div>
           </div>

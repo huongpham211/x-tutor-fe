@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class Header extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      tempValue: '', 
+      tempValue: '',
+      coursename: '',
+      tutor: '' 
     }
+  }
+
+   onCourseName(e) {
+    this.setState({
+      coursename: e.target.value
+    });
+  }
+
+  onTutor(e) {
+    this.setState({
+      tutor: e.target.value
+    });
   }
 
   logoutHandler() {
@@ -22,6 +36,8 @@ class Header extends Component {
     });
     this.props.checkConnectProps(this.state.tempValue);
   }
+
+  
   
 
   render() {
@@ -42,17 +58,17 @@ class Header extends Component {
               <ul className="navbar-nav mt-2 mt-lg-0">
                 <li className="nav-item form-search">
                   <input type="text" name="search" onChange={(event) => this.isChange(event)} placeholder="Do you want to learn today ?" />
-                  <Link to="/courses">
+                  <Link to={`/courses/${this.props.passdata}`}>
                     <i type="reset" className="fas fa-search" onClick={(dl) => this.props.checkConnectProps(this.state.tempValue)}></i>
                   </Link>
                 </li>
                 <li className="nav-item" data-toggle="modal" data-target="#formFilter">
-                <a className="nav-link" >Filter</a>
+                  <a className="nav-link" >Filter</a>
                 </li>
-                <li className="nav-item avatar d-flex align-items-center">
-                  <img src={require('../img/member6.jpg')} alt=""  className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+                <li className="nav-item avatar d-flex align-items-center" >
+                  <img src={require('../img/member6.jpg')} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <h4>Daniel Queen</h4>
-                  <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                       <Link to={`/account_setting/${this.props.passdata}`} className="">
                               Account Settings
                       </Link>
@@ -83,14 +99,16 @@ class Header extends Component {
                   <span data-placeholder="Country subject in taught" />
                 </div>
                 <div className="txtb">
-                  <input type="text" />
-                  <span data-placeholder="All courses here" />
+                  <input type="text"  onChange={(e) => this.onCourseName(e)}/>
+                  <span data-placeholder="All courses here"/>
                 </div>
                 <div className="txtb">
-                  <input type="password" />
-                  <span data-placeholder="Your academic level" />
+                  <input type="text"  onChange={(e) => this.onTutor(e)}/>
+                  <span data-placeholder="Your academic level"/>
                 </div>
-                <button  className="logbtn" value="Filter" ></button>
+                <Link to="/filter_course">
+                <button  className="logbtn" onClick={(coursename,tutor) => this.props.filterFunction(this.state.coursename,this.state.tutor)}>Filter</button>
+                </Link>
               </form>
             </div>
           </div>

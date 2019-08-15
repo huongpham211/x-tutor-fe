@@ -4,7 +4,7 @@ import Bodypayment from '../Components/Body/Bodycreatecard';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 
-class Payment_method extends Component {
+class UpdateCard extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -17,22 +17,23 @@ class Payment_method extends Component {
             city:'',
             province:'',
             country:'',
-            postalCode:'',
-            id:this.props.match.params.id
+            postalCode:'',         
         }
-        this.checkConnect = this.checkConnect.bind(this);
-
+        // this.checkConnect = this.checkConnect.bind(this);
     }
 
+    componentWillMount() {
+        this.setState({
+            cardId:this.props.match.params.id
+        })          
+    }
 
     checkConnect = (cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) =>{
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
-      
-
         axios
-        .post(`api/v1/cards`,{
+        .put(`api/v1/cards/${this.state.cardId}`,{
             cardType:cardType,
             nameOnCard:nameOnCard,
             cardNumber:cardNumber,
@@ -51,14 +52,17 @@ class Payment_method extends Component {
     }
 
     render() {
+    //    console.log(this.state.id);
+       
+        
         return (
             <div>
                 <Header/>
-                <Bodypayment  passdata={this.state.id} infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
+                <Bodypayment  infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Payment_method;
+export default UpdateCard;

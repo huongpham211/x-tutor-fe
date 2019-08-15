@@ -1,7 +1,77 @@
 * {
     margin: 0;
     padding: 0;
-    z-index: 999;
+}
+
+.top-course a {
+    width: 100%;
+    display: flex;
+}
+
+.teaching_subject input.btn.logbtn.save_info {
+    width: 39%;
+}
+.teaching_subject tfoot tr td {
+    display: flex;
+}
+
+.teaching_ex .save_info {
+    margin-left: -15px;
+}
+
+#info_card span, #info_card h1 {
+    font-size: 17px;
+    font-weight: 400;
+    color: #353C40;
+}
+
+#edit_card {
+    background: #b7b2b2ba;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.onecard:hover #edit_card {
+    opacity: 1;
+    visibility: visible;
+}
+
+.onecard {
+    border: 1px solid gray;
+    margin-top: 40px;
+    margin-right: 80px;
+}
+
+#info_card {
+    padding: 20px 0;
+}
+
+#addcard {
+    margin-left: 50px;
+}
+
+#edit_card .fas.fa-edit {
+    color: #86BC42;
+    font-size: 30px;
+    padding-right: 20px;
+}
+#edit_card i.fas.fa-trash-alt {
+    color: red;
+    font-size: 30px;
+}
+
+.payment_card {
+    margin-left: 50px;
+    display: flex;
+    margin-bottom: 60px;
 }
 
 #throne {
@@ -422,7 +492,7 @@ h3#year {
     display: flex;
 }
 
-#addrow, #addrow2 {
+#addrow, #addrow2,#addrow1 {
     font-weight: 700;
     font-size: 14px;
     line-height: 26px;
@@ -443,21 +513,9 @@ h3#year {
     padding: 20px 10px;
 }
 
-.slide_menu {
-    position: absolute;
-    right: 6%;
-    border: 1px solid #bcb8b866;
-    background: white;
-    z-index: 9999;
-    display:none;
-}
-
-.slide_menu ul li {
-    padding: 10px 30px;
-}
-
-.slide_menu ul {
-    list-style: none;
+ul.slide_menu.dropdown-menu.show {
+    display: flex;
+    flex-direction: column;
 }
 
 .tieude {
@@ -471,6 +529,8 @@ h3#year {
 .duoi1 .form-check {
     padding: 0;
 }
+
+
 
 input#exampleCheck1 {
     box-sizing: unset;
@@ -513,6 +573,9 @@ i.fas.fa-chevron-down {
     font-weight: 600;
     margin-left: 10px;
 }
+
+
+
 
 .edit-info .up h5, .edit-info1 .up h5 {
     margin-top: 20px;
@@ -770,6 +833,42 @@ form label, .tren1 h3, .edit-info2 tr th, #condition h5, .form-check.check_out l
 
 .save_info a#update_avatar {
     margin-bottom: 35px;
+}
+
+.up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 85px;
+    height: 85px;
+    background: #bcb8b866;
+    border-radius: 99px;
+    margin-top: 44px;
+}
+
+.upload {
+    width: 85px;
+    height: 42.5px;
+    background: #3e3c3c66;
+    border-bottom-left-radius: 85px;
+    border-bottom-right-radius: 85px;
+    position: absolute;
+    top: 86px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.uploadava:hover .upload {
+    opacity: 1;
+    visibility: visible;
+}
+
+.uploadava {
+    display: flex;
+    flex-direction: column;
 }
 
 .edit-info img, .edit-info1 .up img {
@@ -1328,6 +1427,15 @@ button.navbar-toggler.d-lg-none {
 @media only screen and (max-width: 991px) {
     * {}
 
+    #addcard {
+        margin-left: 15px;
+    }
+
+    .payment_card {
+        flex-direction: column;
+        margin: 0 15px;
+    }
+
     .tieude.khac {
         padding: 0 15px;
     }
@@ -1372,7 +1480,7 @@ button.navbar-toggler.d-lg-none {
         margin: 0 -15px !important;
     }
     .second i.fas.fa-lock, .second i.fas.fa-money-check-alt {
-        margin: 20px 0;
+        margin: 20px 0 20px 15px
     }
     /* .structor a.btn.btn-primary {
         right: -29px;

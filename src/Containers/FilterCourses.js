@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header/Header';
-import Bodycourses from '../Components/Body/Bodycourses';
-import Footer from '../Components/Footer';
 import Headertutor from '../Components/Header/Headertutor';
+import Footer from '../Components/Footer';
+import BodyFilterCourse from '../Components/Body/BodyFilterCourse';
 import axios from '../axios';
 
-class Courses extends Component {
+class FilterCourses extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            id:this.props.match.params.id,
+            rolesId:null,
         }
     }
-    
-    componentWillMount(){
+
+    componentDidMount(){
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
@@ -27,30 +27,31 @@ class Courses extends Component {
             })
             .catch(err =>console.log(err))
        }
-       
-       showheader = () => {
-           if(this.state.rolesId === 'Tutor'){
-               return <Headertutor 
-               passdata={this.state.id}
-               checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
-           }
-           else {
-               return <Header
-               passdata={this.state.id}
-                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
-           }
-       }
-            
+    
+    showheader = () => {
+        if(this.state.rolesId === 'Tutor'){
+            return <Headertutor
+            passdata={this.state.id}
+            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+            filterFunction={(coursename,tutor) => this.props.filterFunction(coursename,tutor)} 
+            />
+        }
+        else {
+            return <Header
+            passdata={this.state.id}
+             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+        }
+    }
 
     render() {
         return (
             <div>
                 {this.showheader()}
-                <Bodycourses dataCourseProps={this.props.dataCourseProps} />
+                <BodyFilterCourse filterCourse={this.props.courseFilter}/>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Courses;
+export default FilterCourses;

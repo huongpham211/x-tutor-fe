@@ -12,133 +12,69 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            box-sizing: border-box
-        }
-
-        body {
-            min-height: 100vh;
-            background-image: linear-gradient(120deg,#3498db,#8e44ad);
-        }
-
-        .login-form {
-            width: 360px;
-            background: #f1f1f1;
-            height: 580px;
-            padding: 80px 40px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-        }
-
-        .login-form h1  {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .txtb {
-            border-bottom: 2px solid #adadad;
+        div.top {
             position: relative;
-            margin: 30px 0;
+            left: 205px;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #000000;
+        } 
+        
+        div.left {
+            position: relative;
+            top: 0px;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #000000;
         }
-
-        .txtb input {
-            font-size: 15px;
-            color: #333;
-            border: none;
-            width: 100%;
-            outline: none;
-            background: none;
-            padding: 0 5px;
-            height: 40px;
+        div.right {
+            position: relative;
+            bottom: 205px;
+            left: 410px;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #000000;
         }
-
-        .txtb span:before {
-            content: attr(data-placeholder);
-            position: absolute;
-            top: 50%;
-            left: 5px;
-            color: #adadad;
-            transform: translateY(-50%);
-            z-index: -1;
-            transition: 0.5s;
+        div.bottom {
+            position: relative;
+            bottom: 205px;
+            left: 205px;
+            width: 200px;
+            height: 200px;
+            border: 3px solid #000000;
         }
-
-        .txtb span::after {
-            content: '';
-            position: absolute;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(120deg,#3498db,#8e44ad);
-            transition: .5s;
-        }
-
-        .focus + span::before {
-            top:-5px;
-        }
-
-        .focus + span::after {
-            width: 100%;
-        }
-
-        .logbtn {
-            display: block;
-            width: 100%;
-            height: 50px;
-            border: none;
-            background: linear-gradient(120deg,#3498db,#8e44ad,#3498db);
-            background-size: 200%;
-            color: #fff;
-            outline: none;
-            cursor: pointer;
-            transition: .5s;
-        }
-
-        .logbtn:hover {
-            background-position: right;
-        }
-
-        .bottom-text {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 13px;
-        }
-    </style>
+        </style>
+       
  
   </head>
   <body>
-     <form action="" class="login-form">
-         <h1>Login</h1>
-         <div class="txtb">
-             <input type="text">
-             <span data-placeholder="Username"></span>
-         </div>
-         
-         <div class="txtb">
-             <input type="password">
-             <span data-placeholder="Password"></span>
-         </div>
-         <input type="submit" class="logbtn" value="Login">
-         <div class="bottom-text">
-             Don't have account? <a href="#">Sign up</a>
-         </div>
-
-     </form>
-     <script type="text/javascript">
-        $(".txtb input").on("focus",function(){
-            $(this).addClass("focus");
-        });
+        <div class="top"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="bottom"></div>
         
-        $(".txtb input").on("blur",function(){
-            if($(this).val() == "")
-            $(this).removeClass("focus");
-        })
-     </script>   
+        <button type="button">Image 1</button>
+        <button type="button">Image 2</button>
+        <button type="button">Image 3</button>
+        <button type="button">Image 4</button>
+
+
+    <input type="file" name="profile_photo" id="fileInput" onchange="loadFile(event)" required>
+    <div>
+        <img class="" id="output"> // This is where the image will be shown
+    </div>
+    
+    <script>
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+              var output = document.getElementById('output');
+              output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+    </script>
 
 
   </body>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 
 class Bodyaccount extends Component {
   constructor(props, context) {
@@ -18,11 +18,16 @@ class Bodyaccount extends Component {
       CurrentAcademicLevel:'',
       city:'',
       dateOfBirth:'',
-      language:''
-
+      language:'',
+      avatar:''
     }
   }
   
+  onAvatar(e){
+    let avatar = e.target.files;
+    this.setState({ avatar: avatar[0] }, () => { console.log(this.state.avatar) });
+  }
+
   onTextboxcountry(e){
     // console.log(event.target.value);
     this.setState({
@@ -119,14 +124,18 @@ class Bodyaccount extends Component {
         <div className="container">
           <div className="edit-info row">
             <div className="col-md-3 left">
-              <div className="up text-center">
-                <img src={require('../img/member6.jpg')} alt="" />
+              <form className="up" method="">
+                <div className="uploadava">
+                  <img className="image" id="output" />
+                  <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)}  required />
+                </div>
+
                 <h5>Daniela Queen</h5>
                 <div className="setting_button">
-                  <a name="" id="update_avatar" className="btn btn-primary" href="#" role="button">Update Avatar</a>
+                  <a name="" type="submit" id="update_avatar" className="btn btn-primary" href="#" role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
                   <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
                 </div>
-              </div>
+              </form>
               <div className="down">
                 <Link to={`/account_setting/${this.props.passdata}`} className="edit justify-content-center">
                   <i className="fas fa-user" />

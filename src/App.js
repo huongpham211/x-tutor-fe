@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Switch, Redirect,BrowserRouter  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 import axios from './axios';
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
@@ -8,8 +8,8 @@ import Page from './Containers/Page';
 import Change_password from './Containers/Change_password';
 import Payment_method from './Containers/Payment_method';
 import Add_Tuition from './Containers/Add_tuition';
-import Tuition_preference from './Containers/Tuition_preference';
-import Tuitor_profile from './Containers/Tuitor_profile';
+import Tutor_preference from './Containers/Tutor_preference';
+import Tuitor_profile from './Containers/Tutor_profile';
 import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
@@ -17,6 +17,10 @@ import Courses from './Containers/Courses';
 import setAuthorizationToken from './setAuthorizationToken';
 import config from './config';
 import history from './history';
+import Infocard from './Containers/Infocard';
+import UpdateCard from './Containers/UpdateCard';
+import Test from './Containers/Test';
+import FilterCourses from './Containers/FilterCourses';
 
 class App extends Component {
   constructor(props, context) {
@@ -34,7 +38,10 @@ class App extends Component {
       rolesId: '',
       signInPassword: '',
       signInUsername: '',
-      loggedIn:false
+      loggedIn:false,
+      coursename:'',
+      tutor:'',
+      id:''
     }
     this.onSignUp = this.onSignUp.bind(this);
     this.onLogin = this.onLogin.bind(this);
@@ -42,7 +49,14 @@ class App extends Component {
   };
 
  
-
+  filterFunction(coursename,tutor){
+    console.log('dl nhan duoc ' + coursename);
+    console.log('dl nhan duoc ' + tutor);
+    this.setState({
+      coursename:coursename,
+      tutor:tutor
+    })
+  }
 
 
   contentSearch = (dl) => {
@@ -72,9 +86,7 @@ class App extends Component {
   }
 
 
-  onLogin = (signInPassword, signInUsername) => {
-
-    
+  onLogin = (signInPassword, signInUsername) => {  
     axios
       .post(`${config.rootPath}/api/v1/auth`, {
         username: signInUsername,
@@ -106,41 +118,64 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-  const loggedIn = this.state.loggedIn;
+
+    var filter = [];
+    this.state.data.forEach((items) =>{
+      if(items.course_name.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1 && items.tuitor.toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1){
+        filter.push(items)
+      }
+    })
   
     return (
       <Router history={history}>
         <div>
-        
+          
           <Route exact path="/" render={(props) =>
             <Home
               {...props}
               onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
               onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
-          } />
+          } />    
           <Route path={`/page/:id`} render={(props) =>
             <Page
               {...props}
+              filterFunction={(coursename,tutor) => this.filterFunction(coursename,tutor)}
               checkConnectProps={(dl) => this.contentSearch(dl)}
-              dataCourseProps={this.state.data}
             />
           } />
-          <Route path="/courses" render={(props) =>
+          <Route path={`/courses/:id`} render={(props) =>
             <Courses
               {...props}
               checkConnectProps={(dl) => this.contentSearch(dl)}
               dataCourseProps={ketqua}
             />
           } />
+          
+          <Route path="/filter_course" render={(props) =>
+            <FilterCourses
+              {...props}
+              checkConnectProps={(dl) => this.contentSearch(dl)}
+             courseFilter={filter}
+            />
+          } />
+
           <Route path={"/account_setting/:id"} component={Account_settings} />
           <Route path={"/change_password/:id"} component={Change_password} />
-          <Route path={"/payment_info/:id"} component={Payment_method} />
-          <Route path="/add_tuition" component={Add_Tuition} />
-          <Route path="/tuition_preference" component={Tuition_preference} />
+          <Route path={"/payment_info/:id"} component={Infocard} />
+          <Route path={"/edit_card/:id"} component={UpdateCard} />
+          <Route path={"/create_card/:id"} component={Payment_method} />
+          <Route path={`/add_tuition/:id`} render={(props) =>
+            <Add_Tuition
+              {...props}
+              id={this.state.id}
+            />
+          } />
+          <Route path="/tuition_preference/:id" component={Tutor_preference} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/test" component={Test} />
         </div>
       </Router >
 
