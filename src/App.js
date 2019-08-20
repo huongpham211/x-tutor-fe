@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter  } from "react-router-dom";
 import axios from './axios';
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
@@ -14,13 +14,14 @@ import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
 import Courses from './Containers/Courses';
-import setAuthorizationToken from './setAuthorizationToken';
 import config from './config';
 import history from './history';
 import Infocard from './Containers/Infocard';
 import UpdateCard from './Containers/UpdateCard';
 import Test from './Containers/Test';
 import FilterCourses from './Containers/FilterCourses';
+import Login from './Containers/Signin';
+import Signup from './Containers/Signup';
 
 class App extends Component {
   constructor(props, context) {
@@ -32,19 +33,10 @@ class App extends Component {
       searchText: '',
       signUpError: '',
       signInError: '',
-      email: '',
-      password: '',
-      username: '',
-      rolesId: '',
-      signInPassword: '',
-      signInUsername: '',
-      loggedIn:false,
       coursename:'',
       tutor:'',
-      id:''
+      id:'',
     }
-    this.onSignUp = this.onSignUp.bind(this);
-    this.onLogin = this.onLogin.bind(this);
     
   };
 
@@ -59,6 +51,8 @@ class App extends Component {
   }
 
 
+ 
+
   contentSearch = (dl) => {
     this.setState({
       searchText: dl
@@ -66,52 +60,12 @@ class App extends Component {
     // console.log('du bo lieu nhan duoc la ' + this.state.searchText);
   }
 
-  onSignUp = (signUpUsername, signUpPassword, signUpEmail, signUpRole) => {
-
-    const header = {
-      'content-type': 'application/json',
-    };
-
-    axios
-      .post(`api/v1/auth/register`, {
-        username: signUpUsername,
-        password: signUpPassword,
-        email: signUpEmail,
-        rolesId: signUpRole
-      }, header)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch(err => console.log(err));
-  }
 
 
-  onLogin = (signInPassword, signInUsername) => {  
-    axios
-      .post(`${config.rootPath}/api/v1/auth`, {
-        username: signInUsername,
-        password: signInPassword
-      })
-      .then(response => {
-        const token = response.data.token;
-        localStorage.setItem('signJwt', token);
-        this.setState({
-          signInUsername: response.data.userFound.username,
-          signInPassword: response.data.userFound.password,
-          id:response.data.userFound._id
-        })
-        setAuthorizationToken(token)
-        const id = this.state.id
-        //set token
-        history.push(`/page/${id}`);
-        console.log(response.data)
-        // axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
-
-      })
-      .catch(err => console.log(err.response));
-  }
+ 
 
   render() {
+    
     var ketqua = [];
     this.state.data.forEach((item) => {
       if (item.course_name.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1) {
@@ -133,7 +87,7 @@ class App extends Component {
           <Route exact path="/" render={(props) =>
             <Home
               {...props}
-              onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
+              // onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
               onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
           } />    
@@ -176,6 +130,8 @@ class App extends Component {
           <Route path="/mycalendar" component={Selectable} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/test" component={Test} />
+          <Route path="/signin" component={Login} />
+          <Route path="/signup" component={Signup} />
         </div>
       </Router >
 

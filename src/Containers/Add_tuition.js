@@ -3,6 +3,7 @@ import Header from '../Components/Header/Header';
 import Bodyaddtuition from '../Components/Body/Bodyaddtuition';
 import Footer from '../Components/Footer';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class Add_tuition extends Component {
     constructor(props, context) {
@@ -45,6 +46,13 @@ class Add_tuition extends Component {
     }
 
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
             <div>
                 <Header/>

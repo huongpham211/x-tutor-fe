@@ -4,6 +4,8 @@ import Bodyinfocard from '../Components/Body/Bodyinfocard';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 import Headertutor from '../Components/Header/Headertutor';
+import { Redirect} from 'react-router-dom';
+
 
 class Infocard extends Component {
     constructor(props, context) {
@@ -82,6 +84,13 @@ class Infocard extends Component {
 
     
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         // console.log(this.state.id);
         
         return (

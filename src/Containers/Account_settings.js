@@ -4,7 +4,7 @@ import Bodyaccount from '../Components/Body/Bodyaccount';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 import Headertutor from '../Components/Header/Headertutor';
-
+import { Redirect} from 'react-router-dom';
 
 
 class Account_settings extends Component {
@@ -112,7 +112,14 @@ class Account_settings extends Component {
     }  
 
     render() {
-        
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
+
         return (
             <div>
                 {this.showheader()}

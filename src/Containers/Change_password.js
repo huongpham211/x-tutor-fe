@@ -4,7 +4,7 @@ import Bodypassword from '../Components/Body/Bodypassword';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 import Headertutor from '../Components/Header/Headertutor';
-
+import { Redirect} from 'react-router-dom';
 
 class Change_password extends Component {
     constructor(props, context) {
@@ -67,6 +67,13 @@ class Change_password extends Component {
     
 
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
             <div>
                  {this.showheader()}

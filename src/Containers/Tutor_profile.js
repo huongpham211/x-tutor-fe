@@ -4,6 +4,7 @@ import Bodytuitorprofile from '../Components/Body/Bodytutorprofile';
 import Footer from '../Components/Footer';
 import Headertutor from '../Components/Header/Headertutor';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class Tuitor_profile extends Component {
     constructor(props, context) {
@@ -51,6 +52,13 @@ class Tuitor_profile extends Component {
 
     
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
             <div>
                 {this.showheader()}

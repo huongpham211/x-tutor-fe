@@ -16,6 +16,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../App.css">
+    <link rel="stylesheet" href="../../swiper.css">
 </head>
 
 <body>
@@ -106,10 +107,48 @@
                         </div>
                     </div>
                     <a name="" id="addcard" class="btn btn-primary" href="#" role="button">Add new card</a>
-                    <div class="payment_card">
-                           
+                    <div class="payment_card">    
+                                    <div class="onecard">
+                                        <div class="sliderText">
+                                            <h3>Master Card</h3>
+                                        </div>
+                                        <div id="info_card">
+                                            <div id="nameOnCard">
+                                                <h1><span>Name on card:</span> Tung</h1>
+                                            </div>
 
-                        <div class="col-md-5 onecard">
+                                            <div id="cardNumber">
+                                                <h1><span>Card number:</span>1234567890</h1>
+                                            </div>
+                                            <div id="expiredDate">
+                                                <h1><span>Expired date:</span>2019-08-05</h1>
+                                            </div>
+                                            <div id="residentialAddress">
+                                                <h1><span>Residential address:</span>91 NCT</h1>
+                                            </div>
+                                            <div id="city">
+                                                <h1><span>City:</span>HaNoi</h1>
+                                            </div>
+                                            <div id="province">
+                                                <h1><span>Province:</span>HANOI</h1>
+                                            </div>
+                                            <div id="country">
+                                                <h1><span>Country:</span>VietNam</h1>
+                                            </div>
+                                            <div id="postalCode">
+                                                <h1><span>Postal code:</span>10000</h1>
+                                            </div>
+                                            <div id="remarks">
+                                                <h1><span>Remarks:</span>No remarks</h1>
+                                            </div>
+                                        </div>
+                                        <div id="edit_card">
+                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-trash-alt"></i>
+                                        </div>                                 
+                        </div>
+
+                    <!-- <div class="col-md-5 onecard">
                             <div id="info_card">
                                 <div id="nameOnCard">
                                     <h1><span>Name on card:</span> Tung</h1>
@@ -145,45 +184,7 @@
                                 <i class="fas fa-trash-alt"></i>
                             </div>
 
-                        </div>
-                        
-                        <div class="col-md-5 onecard">
-                            <div id="info_card">
-                                <div id="nameOnCard">
-                                    <h1><span>Name on card:</span> Tung</h1>
-                                </div>
-
-                                <div id="cardNumber">
-                                    <h1><span>Card number:</span>1234567890</h1>
-                                </div>
-                                <div id="expiredDate">
-                                    <h1><span>Expired date:</span>2019-08-05</h1>
-                                </div>
-                                <div id="residentialAddress">
-                                    <h1><span>Residential address:</span>91 NCT</h1>
-                                </div>
-                                <div id="city">
-                                    <h1><span>City:</span>HaNoi</h1>
-                                </div>
-                                <div id="province">
-                                    <h1><span>Province:</span>HANOI</h1>
-                                </div>
-                                <div id="country">
-                                    <h1><span>Country:</span>VietNam</h1>
-                                </div>
-                                <div id="postalCode">
-                                    <h1><span>Postal code:</span>10000</h1>
-                                </div>
-                                <div id="remarks">
-                                    <h1><span>Remarks:</span>No remarks</h1>
-                                </div>
-                            </div>
-                            <div id="edit_card">
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-trash-alt"></i>
-                            </div>
-
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -249,17 +250,23 @@
 
         </div>
     </footer>
-
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="./stylejs.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./stylejs.js"></script>
+    <script>
+        $('.payment_card').carousel();
+
+ </script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
-class Header extends Component {
+class Headertutor extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -95,20 +95,20 @@ class Header extends Component {
                   <span aria-hidden="true">x</span>
                 </button>
                 <div className="txtb">
-                  <input type="text" />
+                  <input id=""  type="text" />
                   <span data-placeholder="Country subject in taught" />
                 </div>
                 <div className="txtb">
-                  <input type="text"  onChange={(e) => this.onCourseName(e)}/>
+                  <input id=""  type="text"  onChange={(e) => this.onCourseName(e)}/>
                   <span data-placeholder="All courses here"/>
                 </div>
                 <div className="txtb">
-                  <input type="text"  onChange={(e) => this.onTutor(e)}/>
+                  <input id=""  type="text"  onChange={(e) => this.onTutor(e)}/>
                   <span data-placeholder="Your academic level"/>
                 </div>
-                <Link to="/filter_course">
+                <a href="/filter_course">
                 <button  className="logbtn" onClick={(coursename,tutor) => this.props.filterFunction(this.state.coursename,this.state.tutor)}>Filter</button>
-                </Link>
+                </a>
               </form>
             </div>
           </div>
@@ -118,4 +118,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Headertutor;

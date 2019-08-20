@@ -3,6 +3,7 @@ import Header from '../Components/Header/Header';
 import Bodypayment from '../Components/Body/Bodycreatecard';
 import Footer from '../Components/Footer';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class UpdateCard extends Component {
     constructor(props, context) {
@@ -53,7 +54,13 @@ class UpdateCard extends Component {
 
     render() {
     //    console.log(this.state.id);
-       
+    const isLogged = localStorage.getItem('signJwt');
+
+    if (!isLogged) {
+        return (
+            <Redirect to="/" />
+        )
+    }
         
         return (
             <div>

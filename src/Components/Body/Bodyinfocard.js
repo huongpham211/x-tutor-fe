@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Bodycard from './Bodycard';
+import Swiper from 'react-id-swiper';
 
-class Bodyinfocard extends Component {
+class Bodyinfocard extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-         id:this.props.passid
+            id: this.props.passid,
+
+
         }
     }
-    
+
+
+
     deleteButtonClick = (e) => {
-        this.props.deletefunction (e);    
+        this.props.deletefunction(e);
     }
 
     getData = () => {
-        if(this.props.passinfocard !== null){
-            return this.props.passinfocard.map((value,key) =>
+        if (this.props.passinfocard !== null) {
+            return this.props.passinfocard.map((value, key) =>
                 (<Bodycard
-                    deleteButtonClick={(e) =>this.deleteButtonClick(e)}
+                    deleteButtonClick={(e) => this.deleteButtonClick(e)}
                     key={key}
-                    id={value._id}        
+                    id={value._id}
                     nameoncard={value.nameOnCard}
                     cardnumber={value.cardNumber}
                     expireddate={value.expiredDate}
@@ -29,13 +34,13 @@ class Bodyinfocard extends Component {
                     province={value.province}
                     country={value.country}
                     postalcode={value.postalCode}
-                    remarks={value.remarks}/>)
+                    remarks={value.remarks} />)
             )
         }
     }
 
     render() {
-  
+
         return (
             <div className="account-setting">
                 <div className="container">
@@ -76,8 +81,7 @@ class Bodyinfocard extends Component {
                             </div>
                             <Link to={`/create_card/${this.state.id}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
                             <div className="payment_card">
-                            {this.getData()}
-                                
+                                            {this.getData()}
                             </div>
                         </div>
                     </div>

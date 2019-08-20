@@ -53,15 +53,15 @@ class Header extends Component {
                   <img src={require('../img/member6.jpg')} alt=""  className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <h4>Daniel Queen</h4>
                   <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <Link to={`/account_setting/${this.props.passdata}`} className="">
+                      <a href="" className="">
                               Account Settings
-                      </Link>
-                      <Link to={`/tuition_preference/${this.props.passdata}`} className="">
-                              Tuition preference
-                      </Link>
-                      <Link to={`/tutor_profile/${this.props.passdata}`} className="">
-                              Tutor Detail
-                      </Link>
+                      </a>
+                      <a  href="" className="">
+                              My calendar
+                      </a>
+                      <a  href="" className="">
+                              Tuition Detail
+                      </a>
                       <a href="#" onClick={this.logoutHandler}>Logout</a>
                     </ul>
                 </li>
@@ -74,23 +74,25 @@ class Header extends Component {
           <div className="modal-dialog" role="document">
             <div className="modal-content">
               <form action="" className="login-form">
-                <h1>Filter</h1>
+              <h1>Filter</h1>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">x</span>
                 </button>
                 <div className="txtb">
-                  <input type="text" />
+                  <input id=""  type="text" />
                   <span data-placeholder="Country subject in taught" />
                 </div>
                 <div className="txtb">
-                  <input type="text" />
-                  <span data-placeholder="All courses here" />
+                  <input id=""  type="text"  onChange={(e) => this.onCourseName(e)}/>
+                  <span data-placeholder="All courses here"/>
                 </div>
                 <div className="txtb">
-                  <input type="password" />
-                  <span data-placeholder="Your academic level" />
+                  <input id=""  type="text"  onChange={(e) => this.onTutor(e)}/>
+                  <span data-placeholder="Your academic level"/>
                 </div>
-                <button  className="logbtn" value="Filter" ></button>
+                <Link to="/filter_course">
+                <button  className="logbtn" onClick={(coursename,tutor) => this.props.filterFunction(this.state.coursename,this.state.tutor)}>Filter</button>
+                </Link>
               </form>
             </div>
           </div>

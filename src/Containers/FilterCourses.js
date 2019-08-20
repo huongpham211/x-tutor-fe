@@ -4,6 +4,7 @@ import Headertutor from '../Components/Header/Headertutor';
 import Footer from '../Components/Footer';
 import BodyFilterCourse from '../Components/Body/BodyFilterCourse';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class FilterCourses extends Component {
     constructor(props, context) {
@@ -44,6 +45,13 @@ class FilterCourses extends Component {
     }
 
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
             <div>
                 {this.showheader()}

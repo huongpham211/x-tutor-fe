@@ -4,6 +4,7 @@ import Bodycourses from '../Components/Body/Bodycourses';
 import Footer from '../Components/Footer';
 import Headertutor from '../Components/Header/Headertutor';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class Courses extends Component {
     constructor(props, context) {
@@ -43,6 +44,13 @@ class Courses extends Component {
             
 
     render() {
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
         return (
             <div>
                 {this.showheader()}

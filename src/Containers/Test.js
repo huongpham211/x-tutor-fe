@@ -1,37 +1,31 @@
-import React, { Component } from 'react';
-import axios from '../axios';
-class Test extends Component {
-  constructor(props, context) {
-    super(props, context);
-    
+import React from 'react';
+import Swiper from 'react-id-swiper';
+const Test = () => {
+  const params = {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true
+    },
+    pagination: {
+      el: '.swiper-pagination'
+    }
   }
-  componentWillMount() {
-    var config = {
-      headers: { 'Authorization': "Bearer " + localStorage.getItem('signJwt') }
-    };
-    axios
-      .get(`api/v1/users/all-tutors`, config)
-      .then((response) => {
-        this.setState({
-          dataDb: response.data.allTutor,
-          loading: false
-        });
-        console.log(this.state.dataDb);
-
-      })
-      .catch(err => console.log(err));
-
-  }
-
-  render() {
-    
-    return (
-      <div>
-        <form/>
-
-      </div>
-    );
-  }
-}
-
+  return (
+    <Swiper {...params}>
+      <div style={{ backgroundImage:'url(http://lorempixel.com/600/600/nature/1)' }} />
+      <div style={{ backgroundImage:'url(http://lorempixel.com/600/600/nature/2)' }} />
+      <div style={{ backgroundImage:'url(http://lorempixel.com/600/600/nature/3)' }} />
+      <div style={{ backgroundImage:'url(http://lorempixel.com/600/600/nature/4)' }} />
+      <div style={{ backgroundImage:'url(http://lorempixel.com/600/600/nature/5)' }} />
+    </Swiper>
+  )
+};
 export default Test;
+  

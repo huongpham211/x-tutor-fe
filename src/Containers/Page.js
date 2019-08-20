@@ -5,7 +5,7 @@ import Bodypage from '../Components/Body/Bodypage';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 import Data from '../Containers/Data.json';
-
+import { Redirect} from 'react-router-dom';
 
 
 class Page extends Component {
@@ -15,6 +15,7 @@ class Page extends Component {
         id : this.props.match.params.id,
         rolesId:null,
         data:Data,
+        loggedin:''
         // dataDb:''
     }
    }
@@ -36,7 +37,8 @@ class Page extends Component {
             })
         })
         .catch(err =>console.log(err));
-   }
+           
+    }
    
    showheader = () => {
        if(this.state.rolesId === 'Tutor'){
@@ -59,7 +61,13 @@ class Page extends Component {
         
     
     render() {
-        
+        const isLogged = localStorage.getItem('signJwt');
+
+        if (!isLogged) {
+            return (
+                <Redirect to="/" />
+            )
+        }
   
 
         return (

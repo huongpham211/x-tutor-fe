@@ -4,6 +4,7 @@ import Bodytuitionpre from '../Components/Body/Bodytutorpre';
 import Footer from '../Components/Footer';
 import axios from '../axios';
 import Headertutor from '../Components/Header/Headertutor';
+import { Redirect} from 'react-router-dom';
 
 class Tuition_preference extends Component {
     constructor(props, context) {
@@ -136,7 +137,13 @@ class Tuition_preference extends Component {
 
     render() {
     //    console.log(this.state.id);
-       
+    const isLogged = localStorage.getItem('signJwt');
+
+    if (!isLogged) {
+        return (
+            <Redirect to="/" />
+        )
+    }
         return (
             <div>
                  {this.showheader()}

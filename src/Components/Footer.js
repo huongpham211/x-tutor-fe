@@ -34,7 +34,7 @@ class Footer extends Component {
                   <h3>Maling</h3>
                   <p>Sign up for our mailing list to get latest 
                     updates and offers.</p>
-                  <input type="text" defaultValue placeholder="Enter your email here" />
+                  <input type="text"  placeholder="Enter your email here" />
                   <i className="fas fa-check" />
                 </div>
               </div>
