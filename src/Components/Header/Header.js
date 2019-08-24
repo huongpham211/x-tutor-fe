@@ -53,7 +53,7 @@ class Header extends Component {
                   <img src={require('../img/member6.jpg')} alt=""  className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
                   <h4>Daniel Queen</h4>
                   <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a href="" className="">
+                      <a href={`/account_setting/${this.props.passdata}`} className="">
                               Account Settings
                       </a>
                       <a  href="" className="">

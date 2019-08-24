@@ -17,11 +17,9 @@ class Bodypage extends Component {
 
 
   componentWillMount(){
-    var config = {
-        headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
-    };
+  
        axios
-       .get(`api/v1/users/all-tutors`,config)
+       .get(`api/v1/users/all-tutors`)
         .then((response) =>{ 
             this.setState({
                 dataDb:response.data.allTutor

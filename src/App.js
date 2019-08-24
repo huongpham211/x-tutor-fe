@@ -18,10 +18,10 @@ import config from './config';
 import history from './history';
 import Infocard from './Containers/Infocard';
 import UpdateCard from './Containers/UpdateCard';
-import Test from './Containers/Test';
 import FilterCourses from './Containers/FilterCourses';
 import Login from './Containers/Signin';
 import Signup from './Containers/Signup';
+import Bill from './Containers/Bill';
 
 class App extends Component {
   constructor(props, context) {
@@ -128,10 +128,10 @@ class App extends Component {
           <Route path="/tuition_preference/:id" component={Tutor_preference} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/test" component={Test} />
+          <Route path={"/checkout/:id"} component={Checkout} />
           <Route path="/signin" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path={"/bill/:id"} component={Bill} />
         </div>
       </Router >
 

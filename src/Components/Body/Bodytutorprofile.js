@@ -39,8 +39,8 @@ class Bodytuitorprofile extends Component {
 
 
   render() {
-    console.log(this.props.dataTeaching);
-    console.log(this.props.dataTutor);
+    // console.log(this.props.dataTeaching);
+    // console.log(this.props.dataTutor);
     
     return (
       <div className="account-setting">

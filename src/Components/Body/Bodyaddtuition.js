@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import axios from '../../axios';
+import { Link } from 'react-router-dom';
 class Bodyaddtuition extends Component {
   constructor(props, context) {
     super(props, context);
@@ -7,7 +8,9 @@ class Bodyaddtuition extends Component {
       periodeStart:'',
       lessionsPerCourse:'',
       hoursPerLession:'',
-      hourStart:''
+      hourStart:'',
+      feePerHour:'',
+      feeTotal:''
     }
   }
 
@@ -40,21 +43,37 @@ class Bodyaddtuition extends Component {
   
   onLessionsPerCourse(e) {
     this.setState({
-      lessionsPerCourse:e.target.value
+      lessionsPerCourse:Number(e.target.value)
     });
   }
 
   onHoursPerLession(e) {
     this.setState({
-      hoursPerLession:e.target.value
+      hoursPerLession:Number(e.target.value)
     });
   }
 
   onHourStart(e){
     this.setState({
-      hourStart:e.target.value
+      hourStart:Number(e.target.value)
     });
   }
+  onAcademicLevel(e){
+    this.setState({
+      academicLevel:e.target.value
+    });
+  }
+
+  
+  // componentWillMount() {
+
+  //   var config = {
+  //     headers:{"Authorization": "Bearer " + localStorage.getItem("signJwt")}
+  //   }
+   
+  // }
+  
+
 
   render() {
     return (
@@ -82,28 +101,27 @@ class Bodyaddtuition extends Component {
                   <a name="" id="add" className="btn btn-primary" href="#" role="button">Add Schedule</a>
                 </div>
                 <div className="md-form my-4">
-                  <h3 id="payper1">Pay per 1 lessons</h3>
+                  <h3 id="payper1">Pay all lessons</h3>
                   <div className="ttin_trai d-flex justify-content-between">
                     <div className="ttin_chung ">
                       <h4>Fee per hour:</h4>
-                      <h4>Fee per hour:</h4>
-                      <h4>Fee per hour:</h4>
-                      <h4>Fee per hour:</h4>
-                      <h4>Fee per hour:</h4>
+                      <h4>Hour prer lesson:</h4>
+                      <h4>Lessons per course:</h4>
+                      <h4>Fee per course:</h4>
+                     
                     </div>
                     <div className="ttin_phai">
-                      <h4>10</h4>
-                      <h4>10</h4>
-                      <h4>10</h4>
-                      <h4>10</h4>
-                      <h4>10</h4>
+                      <h4>{this.props.feePerHour}</h4>
+                      <h4>{this.state.hoursPerLession}</h4>
+                      <h4>{this.state.lessionsPerCourse}</h4>
+                      <h4>{this.props.feeTotal}</h4>
                     </div>
                   </div>
                 </div>
               </div>
               {/* het modal body */}
               <div className="modal-footer d-flex justify-content-center ">
-                <a name="" id="add2" className="btn btn-primary" href="#" role="button">Book Tuition</a>
+                <a href={`/checkout/${this.props.id}`}  name="" id="add2" className="btn btn-primary" role="button">Book Tuition</a>
               </div>
             </div>
 
@@ -130,8 +148,8 @@ class Bodyaddtuition extends Component {
                       Tuesday
                     </label>
                     <label>                
-                      <input type="checkbox" value="Wesneday" name="pet" />
-                      Wesneday
+                      <input type="checkbox" value="Wednesday" name="pet" />
+                      Wednesday
                     </label>
                     <label>                
                       <input type="checkbox" value="Thursday" name="pet" />
@@ -158,22 +176,12 @@ class Bodyaddtuition extends Component {
                       <label htmlFor="">Start date*</label>
                       <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/>
                     </div>
-                    <div className="form-check">
-                      <label htmlFor="">Recurring</label>
-                      <div id="radio">
-                        <div className="col-md-2 radio">
-                          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1" />
-                          <label className="form-check-label" htmlFor="exampleRadios1">No</label>
-                        </div>
-                        <div className="col-md-2 radio">
-                          <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1" />
-                          <label className="form-check-label" htmlFor="exampleRadios1">Yes</label>
-                        </div>
-                        <div className="col-md-8 radio">
-                          <input type="text" className="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
-                        </div>
-                      </div>
+                   
+                    <div className="form-group">
+                      <label htmlFor="">Academic level</label>
+                      <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onAcademicLevel(e)}/>
                     </div>
+                   
                     <div className="form-check condition">
                       <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                       <label className="form-check-label" htmlFor="exampleCheck1">I understand that this tutor may not be available subsequent months</label>
@@ -185,7 +193,7 @@ class Bodyaddtuition extends Component {
                       <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onLessionsPerCourse(e)}/>
                     </div>
                     <div className="form-group">
-                      <label htmlFor="">Last lesson</label>
+                      <label htmlFor="">Hour start</label>
                       <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onHourStart(e)}/>
                     </div>
                     <div className="form-group">
@@ -196,7 +204,7 @@ class Bodyaddtuition extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <a name="" type="submit" id="update_avatar" data-toggle="modal" data-target="#add_schedule" className="btn btn-primary " href="#" role="button" onClick={(preferDay,periodeStart,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
+                <a name="" type="submit" id="update_avatar" data-toggle="modal" data-target="#add_schedule" className="btn btn-primary " href="#" role="button" onClick={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
               </div>
             </div>
           </div>

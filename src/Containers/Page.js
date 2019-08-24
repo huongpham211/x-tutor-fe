@@ -25,11 +25,9 @@ class Page extends Component {
  
    
    componentDidMount(){
-    var config = {
-        headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
-    };
+   
        axios
-       .get(`api/v1/users/${this.state.id}`,config)
+       .get(`api/v1/users/${this.state.id}`)
         .then((response) =>{
            
             this.setState({

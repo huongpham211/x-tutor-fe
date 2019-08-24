@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import axios from '../../axios';
 
 class Headertutor extends Component {
   constructor(props, context) {
@@ -11,6 +11,22 @@ class Headertutor extends Component {
       tutor: '' 
     }
   }
+  
+  componentWillMount() {
+   
+    axios
+           .get(`api/v1/users/${this.props.passdata}`)
+            .then((response) =>{
+               console.log(response.data);
+               
+                this.setState({
+                    firstName:response.data.userFound.firstName,
+                    lastName:response.data.userFound.lastName
+                })
+            })
+            .catch(err =>console.log(err))
+  }
+  
 
    onCourseName(e) {
     this.setState({
@@ -67,7 +83,7 @@ class Headertutor extends Component {
                 </li>
                 <li className="nav-item avatar d-flex align-items-center" >
                   <img src={require('../img/member6.jpg')} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-                  <h4>Daniel Queen</h4>
+                  <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
                     <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                       <Link to={`/account_setting/${this.props.passdata}`} className="">
                               Account Settings

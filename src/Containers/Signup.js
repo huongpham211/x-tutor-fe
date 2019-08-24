@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../axios';
+import { Redirect} from 'react-router-dom';
 
 class Signup extends Component {
     constructor(props, context) {
@@ -9,12 +10,10 @@ class Signup extends Component {
             isLoading: true,
             token: '',
             signUpError: '',
-            signInError: '',
             signUpEmail: '',
             signUpPassword: '',
             signUpUsername: '',
             signUpRole: ''
-
         }
         this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
         this.onTextboxChangeSignUpUsername = this.onTextboxChangeSignUpUsername.bind(this);
@@ -64,6 +63,9 @@ class Signup extends Component {
             rolesId: signUpRole
           }, header)
           .then((response) => {
+            this.setState({
+                redirectsignup:true
+            });
             console.log(response.data);
           })
           .catch(err => console.log(err));
@@ -71,13 +73,14 @@ class Signup extends Component {
     
 
     render() {
+        if(this.state.redirectsignup === true){
+            return <Redirect to="/" />
+        }
         return (
             <div className="bglogin1">
                 <form action="" className="login-form1">
                     <h1>Sign up</h1>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
+                   
                     <div className="txtb">
                         <input type="text" onChange={(event) => this.onTextboxChangeSignUpUsername(event)} />
                         <span data-placeholder="Username" />
@@ -100,7 +103,7 @@ class Signup extends Component {
                     </div>
                     <input type="submit" className="logbtn" value="Sign up" onClick={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(this.state.signUpUsername, this.state.signUpPassword, this.state.signUpEmail, this.state.signUpRole)} />
                     <div className="bottom-text">
-                        Have already account ? <a href="/login">Login here</a>
+                        Have already account ? <a href="/signin">Login here</a>
                     </div>
                 </form>
             </div>

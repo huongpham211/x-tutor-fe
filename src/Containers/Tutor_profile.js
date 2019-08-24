@@ -4,7 +4,6 @@ import Bodytuitorprofile from '../Components/Body/Bodytutorprofile';
 import Footer from '../Components/Footer';
 import Headertutor from '../Components/Header/Headertutor';
 import axios from '../axios';
-import { Redirect} from 'react-router-dom';
 
 class Tuitor_profile extends Component {
     constructor(props, context) {
@@ -12,10 +11,24 @@ class Tuitor_profile extends Component {
         this.state = {
             id : this.props.match.params.id,
             data:null,
-            dataTeaching:null
+            dataTeaching:null,
+            idcourse:this.props.idcourse
         }
         
     }
+
+    componentDidMount(){
+           axios
+           .get(`api/v1/users/${this.state.id}`)
+            .then((response) =>{
+               
+                this.setState({
+                    rolesId:response.data.userFound.rolesId
+                })
+            })
+            .catch(err =>console.log(err));
+               
+        }
 
     componentWillMount(){
         var config = {
@@ -52,13 +65,7 @@ class Tuitor_profile extends Component {
 
     
     render() {
-        const isLogged = localStorage.getItem('signJwt');
-
-        if (!isLogged) {
-            return (
-                <Redirect to="/" />
-            )
-        }
+       
         return (
             <div>
                 {this.showheader()}

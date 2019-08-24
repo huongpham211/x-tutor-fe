@@ -3,9 +3,18 @@ import Header from '../Components/Header/Header';
 import Bodycheckout from '../Components/Body/Bodycheckout';
 import Footer from '../Components/Footer';
 import { Redirect} from 'react-router-dom';
-
+import axios from '../axios';
 
 class Checkout extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            idcourse : this.props.match.params.id,
+        }
+    }
+    
+ 
+
     render() {
         const isLogged = localStorage.getItem('signJwt');
 
@@ -17,7 +26,7 @@ class Checkout extends Component {
         return (
             <div>
                 <Header/>
-                <Bodycheckout/>
+                <Bodycheckout idcourse={this.state.idcourse}/>
                 <Footer/>
             </div>
         );

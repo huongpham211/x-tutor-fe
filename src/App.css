@@ -3,6 +3,48 @@
     padding: 0;
 }
 
+.bill {
+    width: 700px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    transform: translateX(50%);
+}
+
+.allcard .onecreditcard {
+    border: 1px solid;
+    margin-right: 10px;
+}
+
+.outsidecard {
+    display: flex;
+    margin: 30px 0;
+}
+
+.allcard h4, h5 {
+    font-size: 17px;
+    font-weight: 400;
+    color: #353C40;
+    text-transform: capitalize;
+}
+
+#billinginfo h4 {
+    font-size: 17px;
+    font-weight: 400;
+    color: #353C40;
+    text-transform: capitalize;
+    border-bottom: 1px solid #bcb8b866;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-top: 39px;
+}
+
+h4 span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .bglogin,.bglogin1 {
     min-height: 100vh;
     background: linear-gradient(120deg, #C4E538, #009432, #C4E538);
@@ -1352,7 +1394,7 @@ body, html {
     color: #242C42;
 }
 
-a.btn.btn-primary, a.btn.btn-warning,input.checkout_button {
+a.btn.btn-primary, a.btn.btn-warning,a.checkout_button {
     background: #86BC42;
     border-color: #86BC42;
     border-radius: 0;
@@ -1362,7 +1404,12 @@ a.btn.btn-primary, a.btn.btn-warning,input.checkout_button {
     padding: 8px 25px;
     margin-top: 40px;
 }
-button.btn.btn-primary, button.btn.btn-warning,input.checkout_button {
+
+a.checkout_button{
+    color: #fff !important; 
+}
+
+button.btn.btn-primary, button.btn.btn-warning {
     background: #86BC42;
     border-color: #86BC42;
     border-radius: 0;

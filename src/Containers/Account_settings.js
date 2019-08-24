@@ -35,11 +35,9 @@ class Account_settings extends Component {
   
 
       componentWillMount(){
-        var config = {
-            headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
-        };
+      
            axios
-           .get(`api/v1/users/${this.state.id}`,config)
+           .get(`api/v1/users/${this.state.id}`)
             .then((response) =>{
                
                 this.setState({
@@ -65,16 +63,16 @@ class Account_settings extends Component {
 
      
     updateAvatar(e){
+        
       
         var config = {
             headers: {
                 'Authorization': "Bearer " + localStorage.getItem('signJwt'),
-                'content-type': 'multipart/form-data'
             }          
         };
         const formData = new FormData();
-        formData.append('myImage',e);
-        // console.log('avatar nhan duoc la ' + e.name);
+        formData.append('avatar',e);
+        console.log('avatar nhan duoc la ' + formData);
         axios
         .patch(`api/v1/users/${this.state.id}/avatar`,formData,config)
         .then((response) =>{

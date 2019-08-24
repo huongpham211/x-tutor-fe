@@ -124,7 +124,7 @@ class Bodyaccount extends Component {
         <div className="container">
           <div className="edit-info row">
             <div className="col-md-3 left">
-              <form className="up" method="">
+              <form className="up" method="" encType="multipart/form-data">
                 <div className="uploadava">
                   <img className="image" id="output" />
                   <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)}  required />
@@ -132,8 +132,8 @@ class Bodyaccount extends Component {
 
                 <h5>Daniela Queen</h5>
                 <div className="setting_button">
-                  <a name="" type="submit" id="update_avatar" className="btn btn-primary" href="#" role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
-                  <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+                  <a name="" type="submit" id="update_avatar" className="btn btn-primary"  role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
+                  <a name="" id="delete_avatar" className="btn btn-primary"  role="button">Delete</a>
                 </div>
               </form>
               <div className="down">
