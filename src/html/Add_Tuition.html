@@ -260,3 +260,25 @@
 </body>
 
 </html>
+
+
+test() {
+    if (this.state.dataDb.length > 0) {
+      return this.state.dataDb.map((info,index) =>(
+        <>   
+          {info.tutorData.teachingSubject.map((value, key) => (
+          <Coursespage
+            key={key}
+            courseName={value.course}
+            tuitor={value.academicLevel}
+            price={value.price}
+            index={info.index}
+          />
+        ))}
+        </>
+      )
+       
+
+      )
+    }
+  }

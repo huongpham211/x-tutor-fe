@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
 import { Link } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 class Bodyaddtuition extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      periodeStart:'',
+      periodeStart:new Date(),
       lessionsPerCourse:'',
       hoursPerLession:'',
       hourStart:'',
@@ -35,9 +38,9 @@ class Bodyaddtuition extends Component {
     });
   }
 
-  onStartDate(e) {
+  onStartDate(date) {
     this.setState({
-      periodeStart:e.target.value
+      periodeStart:date
     });
   }
   
@@ -172,9 +175,13 @@ class Bodyaddtuition extends Component {
                 </div>
                 <div className="duoi1 row">
                   <div className="col-md-6 trai">
-                    <div className="form-group">
+                    <div className="form-group change">
                       <label htmlFor="">Start date*</label>
-                      <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/>
+                      {/* <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/> */}
+                      <DatePicker
+                        selected={this.state.startDate}
+                        onChange={(date) => this.onStartDate(date)}
+                      />
                     </div>
                    
                     <div className="form-group">

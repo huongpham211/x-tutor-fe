@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 class coursespage extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      idtutor:this.props.index
+    }
+  }
+  
   render() {
     return (
-      <div className="col-md-3 col-xs-6">
+      <Link to={`/tutor_profile/${this.state.idtutor}`} className="col-md-3 col-xs-6">
         <div className="your-courses1">
           <img src={require('../img/625204_436a_2.jpg')} alt="" />
           <div className="outside">
@@ -18,7 +25,7 @@ class coursespage extends Component {
             <h1>{this.props.price}</h1>
           </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

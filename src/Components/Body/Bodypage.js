@@ -47,17 +47,18 @@ class Bodypage extends Component {
 
   test() {
     if (this.state.dataDb.length > 0) {
-      return this.state.dataDb.map((value,key) =>(
-        <Link key={key} to={`/tutor_profile/${value._id}`}>   
-          {value.tutorData.teachingSubject.map((value, key) => (
+      return this.state.dataDb.map((info,index) =>(
+        <>   
+          {info.tutorData.teachingSubject.map((value, key) => (
           <Coursespage
             key={key}
             courseName={value.course}
             tuitor={value.academicLevel}
             price={value.price}
+            index={info._id}
           />
         ))}
-        </Link>
+        </>
       )
        
 
@@ -66,14 +67,14 @@ class Bodypage extends Component {
   }
 
 
-  printData = () => this.props.dataCourseProps.map((value, key) =>
-    (<Coursespage
-      key={key}
-      courseName={value.course_name}
-      tuitor={value.tuitor}
-      price={value.price}
-    />)
-  )
+  // printData = () => this.props.dataCourseProps.map((value, key) =>
+  //   (<Coursespage
+  //     key={key}
+  //     courseName={value.course_name}
+  //     tuitor={value.tuitor}
+  //     price={value.price}
+  //   />)
+  // )
   render() {
     // if (this.state.dataDb.length > 0) {
     //   const polls = this.state.dataDb
@@ -112,7 +113,7 @@ class Bodypage extends Component {
             </div>
             <div className="top-course row">
               {this.test()}
-              {this.printData()}
+              {/* {this.printData()} */}
             </div>
           </div>
         </div>

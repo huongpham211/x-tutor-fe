@@ -41,7 +41,8 @@ class Account_settings extends Component {
             .then((response) =>{
                
                 this.setState({
-                    rolesId:response.data.userFound.rolesId
+                    rolesId:response.data.userFound.rolesId,
+                    avatar:response.data.userFound.avatar
                 })
             })
             .catch(err =>console.log(err))
@@ -121,7 +122,7 @@ class Account_settings extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodyaccount passAvatar={(e) => this.updateAvatar(e)} passdata={this.state.id} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
+                <Bodyaccount avatar={this.state.avatar} passAvatar={(e) => this.updateAvatar(e)} passdata={this.state.id} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
                 <Footer/>
             </div>
            

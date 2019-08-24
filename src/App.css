@@ -3,13 +3,82 @@
     padding: 0;
 }
 
+.react-datepicker__input-container {
+    width: 100%;
+}
+
+.react-datepicker__input-container {
+    width: 100%;
+}
+
+.react-datepicker__input-container input {
+    height: 43px;
+    width:100%;
+}
+.form-group.change {
+    display: flex;
+    flex-direction: column;
+}
+
+.infouserpay h3, .paymentbill h3 {
+    font-size: 17px;
+}
+
+h4#address {
+    padding-top: 10px;
+}
+
+#someinfo {
+    border-top: 1px solid #e74c3ced;
+    width: 60%;
+    border-bottom: 1px solid #e74c3c;
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.infocourse {
+    display: flex;
+    border-top: 1px solid gray;
+    padding: 20px 0;
+    justify-content: space-between;
+}
+
+h4.totaltien {
+    border-top: 1px solid gray;
+    padding-top: 10px;
+    color: #e74c3ced;
+}
+
+#update_avatar {
+    color:#fff
+}
+
+
 .bill {
-    width: 700px;
-    height: 800px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
     transform: translateX(50%);
+    padding: 10px 20px;
+}
+
+.bill .top {
+    display: flex;
+    align-items: center;
+}
+
+.bill .top .phai {
+    position: absolute;
+    right: 15px;
+}
+
+.bill .phai h3 {
+    font-size: 17px;
+}
+
+.bill h4 {
+    font-size: 15px;
 }
 
 .allcard .onecreditcard {

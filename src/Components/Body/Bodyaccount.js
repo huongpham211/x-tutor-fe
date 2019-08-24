@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
-
 class Bodyaccount extends Component {
   constructor(props, context) {
     super(props, context);
@@ -126,7 +125,7 @@ class Bodyaccount extends Component {
             <div className="col-md-3 left">
               <form className="up" method="" encType="multipart/form-data">
                 <div className="uploadava">
-                  <img className="image" id="output" />
+                  <img className="image" id="output" src={`http://localhost:3000${this.props.avatar}`}/>
                   <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)}  required />
                 </div>
 
