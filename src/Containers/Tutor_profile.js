@@ -12,14 +12,17 @@ class Tuitor_profile extends Component {
             id : this.props.match.params.id,
             data:null,
             dataTeaching:null,
-            idcourse:this.props.idcourse
+            idcourse:this.props.idcourse,
+            iduser:props.location.iduser.iduser
         }
         
     }
 
+
+
     componentDidMount(){
            axios
-           .get(`api/v1/users/${this.state.id}`)
+           .get(`api/v1/users/${this.state.iduser}`)
             .then((response) =>{
                
                 this.setState({
@@ -50,6 +53,7 @@ class Tuitor_profile extends Component {
     showheader = () => {
         if(this.state.rolesId === 'Tutor'){
             return <Headertutor
+            iduser={this.state.iduser}
             passdata={this.state.id}
             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
             filterFunction={(coursename,tutor) => this.props.filterFunction(coursename,tutor)} 
@@ -57,8 +61,10 @@ class Tuitor_profile extends Component {
         }
         else {
             return <Header
+            iduser={this.state.iduser}
             passdata={this.state.id}
-             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+             />
         }
     }
 
@@ -66,11 +72,13 @@ class Tuitor_profile extends Component {
     
     render() {
        
+       
         return (
             <div>
                 {this.showheader()}
                 <Bodytuitorprofile
-                id={this.props.match.params.id}
+                iduser={this.state.iduser}
+                id={this.state.id}
                 basedIn={this.state.basedIn}
                 gender={this.state.gender}
                 dataTeaching={this.state.dataTeaching}

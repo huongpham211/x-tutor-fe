@@ -4,7 +4,6 @@ import Headertutor from '../Components/Header/Headertutor';
 import Bodypage from '../Components/Body/Bodypage';
 import Footer from '../Components/Footer';
 import axios from '../axios';
-import Data from '../Containers/Data.json';
 import { Redirect} from 'react-router-dom';
 
 
@@ -12,9 +11,8 @@ class Page extends Component {
    constructor(props, context) {
        super(props, context);
        this.state = {
-        id : this.props.match.params.id,
+        iduser : this.props.match.params.id,
         rolesId:null,
-        data:Data,
         loggedin:''
         // dataDb:''
     }
@@ -41,16 +39,17 @@ class Page extends Component {
    showheader = () => {
        if(this.state.rolesId === 'Tutor'){
            return <Headertutor
-           passdata={this.state.id}
+           iduser={this.state.iduser}
            test={this.state.dataDb}
            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
-           filterFunction={(coursename,tutor) => this.props.filterFunction(coursename,tutor)} 
+         
            />
        }
        else {
            return <Header
-           passdata={this.state.id}
-            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+           iduser={this.state.iduser}
+            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+           />
        }
    }
 
@@ -59,6 +58,8 @@ class Page extends Component {
         
     
     render() {
+        
+        
         const isLogged = localStorage.getItem('signJwt');
 
         if (!isLogged) {
@@ -72,7 +73,7 @@ class Page extends Component {
             <div>
                 {this.showheader()}
                 <Bodypage
-                passdata={this.state.id}  
+                iduser={this.state.iduser}  
                 dataCourseProps={this.state.data} />
                 <Footer/>
             </div>

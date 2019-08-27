@@ -8,7 +8,8 @@ class Bodypage extends Component {
     super(props, context);
     this.state = {
       dataDb: '',
-      nameTutor: null
+      nameTutor: null,
+      iduser:this.props.iduser
     }
 
   }
@@ -28,21 +29,7 @@ class Bodypage extends Component {
         .catch(err =>console.log(err));
    }
 
-   getData() {
-    if (this.state.dataDb.length > 0) {
-      return this.state.dataDb.map(value =>
-        value.tutorData.teachingSubject.map((value, key) => (
-          <Coursespage
-            key={key}
-            courseName={value.course}
-            tuitor={value.academicLevel}
-            price={value.price}
-          />
-        ))
-
-      )
-    }
-  }
+   
   
 
   test() {
@@ -52,10 +39,12 @@ class Bodypage extends Component {
           {info.tutorData.teachingSubject.map((value, key) => (
           <Coursespage
             key={key}
+            iduser={this.state.iduser}
             courseName={value.course}
-            tuitor={value.academicLevel}
-            price={value.price}
+            academicLevel={value.academicLevel}
+            idcourse={value._id}
             index={info._id}
+            name={info.firstName + info.lastName}
           />
         ))}
         </>

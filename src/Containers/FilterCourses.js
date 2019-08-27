@@ -11,6 +11,7 @@ class FilterCourses extends Component {
         super(props, context);
         this.state = {
             rolesId:null,
+            id:this.props.match.params.id,
         }
     }
 
@@ -31,14 +32,13 @@ class FilterCourses extends Component {
         if(this.state.rolesId === 'Tutor'){
             return <Headertutor
             passdata={this.state.id}
-            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
-            filterFunction={(coursename,tutor) => this.props.filterFunction(coursename,tutor)} 
+          
             />
         }
         else {
             return <Header
             passdata={this.state.id}
-             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+             />
         }
     }
 
@@ -53,7 +53,7 @@ class FilterCourses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <BodyFilterCourse filterCourse={this.props.courseFilter}/>
+                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={this.props.courseFilter}/>
                 <Footer/>
             </div>
         );

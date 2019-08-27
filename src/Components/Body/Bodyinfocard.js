@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Bodycard from './Bodycard';
-import Swiper from 'react-id-swiper';
-
+import axios from '../../axios';
 class Bodyinfocard extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -13,7 +12,21 @@ class Bodyinfocard extends React.Component {
         }
     }
 
+    componentWillMount() {
 
+        axios
+            .get(`api/v1/users/${this.state.id}`)
+            .then((response) => {
+                console.log(response.data);
+
+                this.setState({
+                    firstName: response.data.userFound.firstName,
+                    lastName: response.data.userFound.lastName,
+                    avatar: response.data.userFound.avatar
+                })
+            })
+            .catch(err => console.log(err))
+    }
 
     deleteButtonClick = (e) => {
         this.props.deletefunction(e);
@@ -46,14 +59,18 @@ class Bodyinfocard extends React.Component {
                 <div className="container">
                     <div className="edit-info1 row">
                         <div className="col-md-3 left">
-                            <div className="up text-center">
-                                <img src="./img/member6.jpg" alt="" />
-                                <h5>Daniela Queen</h5>
-                                <div className="setting_button">
-                                    <a name="" id="update_avatar" className="btn btn-primary" href="#" role="button">Update Avatar</a>
-                                    <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+                            <form className="up" method="" encType="multipart/form-data">
+                                <div className="uploadava">
+                                    <img className="image" id="output" src={`http://localhost:3000${this.state.avatar}`} />
+                                    <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)} required />
                                 </div>
-                            </div>
+
+                                <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
+                                <div className="setting_button">
+                                    <a name="" type="submit" id="update_avatar" className="btn btn-primary" role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
+                                    <a name="" id="delete_avatar" className="btn btn-primary" role="button">Delete</a>
+                                </div>
+                            </form>
                             <div className="down">
                                 <Link to={`/account_setting/${this.props.passid}`} className="edit justify-content-center">
                                     <i className="fas fa-user" />
@@ -81,7 +98,7 @@ class Bodyinfocard extends React.Component {
                             </div>
                             <Link to={`/create_card/${this.state.id}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
                             <div className="payment_card">
-                                            {this.getData()}
+                                {this.getData()}
                             </div>
                         </div>
                     </div>

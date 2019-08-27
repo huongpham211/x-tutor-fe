@@ -120,7 +120,7 @@ h4 span {
 }
 
 .bglogin1 {
-    height: 900px;
+    height: 580px;
 }
 
 .slide_menu a {
@@ -187,6 +187,7 @@ h4 span {
 .top-course a {
     width: 100%;
     display: flex;
+    text-decoration: none;
 }
 
 .teaching_subject input.btn.logbtn.save_info {
@@ -484,9 +485,16 @@ input.checkout_button {
     background: #f1f1f1;
 }
 
-form.login-form1 {
-    height: 720px;
-    transform: translate(-50%, -34%);
+
+form.login-form1 a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+form.login-form1 a:hover {
+    color: #fff;
 }
 
 .login-form h1, .login-form1 h1 {
@@ -1606,7 +1614,7 @@ i.far.fa-money-bill-alt {
 }
 
 .outside h1 {
-    font-size: 29px;
+    font-size: 20px;
     color: #353C40;
     padding: 20px 0;
 }
@@ -1621,9 +1629,15 @@ i.fas.fa-star {
     color: #CAC8C8;
 }
 
+
 .top-course .outside h2 {
-    padding-top:5px;
-    font-size: 17px;
+    padding-top: 20px;
+    font-size: 16px;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 235px;
 }
 
 .your-courses img, .your-courses1 img {

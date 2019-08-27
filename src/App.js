@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter  } from "react-router-dom";
-import axios from './axios';
+import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from "react-router-dom";
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
 import Page from './Containers/Page';
@@ -14,14 +13,15 @@ import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
 import Data from './Containers/Data.json';
 import Courses from './Containers/Courses';
-import config from './config';
 import history from './history';
 import Infocard from './Containers/Infocard';
 import UpdateCard from './Containers/UpdateCard';
 import FilterCourses from './Containers/FilterCourses';
 import Login from './Containers/Signin';
 import Signup from './Containers/Signup';
+import Filter from './Containers/Filter';
 import Bill from './Containers/Bill';
+import axios from './axios';
 
 class App extends Component {
   constructor(props, context) {
@@ -33,84 +33,137 @@ class App extends Component {
       searchText: '',
       signUpError: '',
       signInError: '',
+      coursename: '',
+      tutor: '',
+      id: '',
+      dataDb:null,
       coursename:'',
-      tutor:'',
-      id:'',
+      tutor:''
     }
-    
+
   };
 
- 
-  filterFunction(coursename,tutor){
-    console.log('dl nhan duoc ' + coursename);
-    console.log('dl nhan duoc ' + tutor);
+  componentWillMount(){
+    axios
+    .get(`api/v1/users/all-tutors`)
+     .then((response) =>{ 
+         this.setState({
+             dataDb:response.data.allTutor
+         })
+     })
+     .catch(err =>console.log(err));
+}
+
+iduser(iduser){
+  console.log("iduser la :" + iduser)
+}
+
+  filterFunction(coursename,tutor) {
     this.setState({
       coursename:coursename,
       tutor:tutor
     })
+  
+    console.log("du lieu nhan duoc la " + coursename)
+    console.log("du lieu nhan duoc la " + tutor)
   }
 
 
- 
-
   contentSearch = (dl) => {
+    
     this.setState({
       searchText: dl
     })
-    // console.log('du bo lieu nhan duoc la ' + this.state.searchText);
+    console.log('du bo lieu nhan duoc la ' + this.state.searchText);
   }
 
 
-
- 
-
   render() {
-    
+
     var ketqua = [];
-    this.state.data.forEach((item) => {
-      if (item.course_name.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1) {
-        ketqua.push(item);
-      }
-    })
+    if(this.state.dataDb !==  null){
+      this.state.dataDb.map((item) => {
+        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || item.tutorData.teachingSubject.forEach((value) =>{
+          if(value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
+            ketqua.push(item);
+          }
+        }))
+        // console.log(item);  
+        item.tutorData.teachingSubject.forEach((value) =>{
+         
+        })
+      })
+    }
+    // this.state.data.forEach((item) => {
+    //   console.log();
+      
+    //   // item.forEach((value) =>{
+    //   //   if (value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1) {
+    //   //     ketqua.push(item);
+    //   //   }
+    //   // })
+    // })
+
+
+   
 
     var filter = [];
-    this.state.data.forEach((items) =>{
-      if(items.course_name.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1 && items.tuitor.toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1){
-        filter.push(items)
-      }
-    })
-  
+    if(this.state.dataDb !==  null){
+      this.state.dataDb.map((item) => {
+        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
+          if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
+            filter.push(item);
+          }
+        }))
+        // console.log(item);  
+        item.tutorData.teachingSubject.forEach((value) =>{
+         
+        })
+      })
+    }
+
     return (
       <Router history={history}>
         <div>
-          
+
           <Route exact path="/" render={(props) =>
             <Home
               {...props}
               // onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
               onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
-          } />    
+          } />
           <Route path={`/page/:id`} render={(props) =>
             <Page
               {...props}
-              filterFunction={(coursename,tutor) => this.filterFunction(coursename,tutor)}
+              // filterFunction={(coursename,tutor) => this.filterFunction(coursename,tutor)}
               checkConnectProps={(dl) => this.contentSearch(dl)}
+              iduser={(iduser) => this.iduser(iduser)}
             />
           } />
+          
+          <Route path={`/filter/:id`} render={(props) =>
+            <Filter
+              {...props}
+              filterFunction={(coursename,tutor) => this.filterFunction(coursename,tutor)}
+            />
+          } />
+
           <Route path={`/courses/:id`} render={(props) =>
             <Courses
               {...props}
-              checkConnectProps={(dl) => this.contentSearch(dl)}
+              checkConnectProps={this.state.searchText}
               dataCourseProps={ketqua}
             />
           } />
           
-          <Route path="/filter_course" render={(props) =>
+
+          <Route path={`/filter_course/:id`} render={(props) =>
             <FilterCourses
               {...props}
-              checkConnectProps={(dl) => this.contentSearch(dl)}
-             courseFilter={filter}
+              coursename={(dl) => this.state.coursename}
+              tutor={(dl) => this.state.tutor}
+              courseFilter={filter}
             />
           } />
 

@@ -1,17 +1,56 @@
 import React, { Component } from 'react';
+import axios from '../../axios';
+import Coursespage from './Coursespage';
 
 class Bodyhome extends Component {
- 
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      dataDb: '',
+    }
+  }
 
-  
+
+  componentWillMount() {
+
+    axios
+      .get(`api/v1/users/all-tutors`)
+      .then((response) => {
+        this.setState({
+          dataDb: response.data.allTutor
+        })
+      })
+      .catch(err => console.log(err));
+  }
 
 
-  
-  
+  test() {
+    if (this.state.dataDb.length > 0) {
+      return this.state.dataDb.map((info,index) =>(
+        <>   
+          {info.tutorData.teachingSubject.map((value, key) => (
+          <Coursespage
+            key={key}
+            courseName={value.course}
+            academicLevel={value.academicLevel}
+            price={value.price}
+            index={info._id}
+            name={info.firstName + info.lastName}
+          />
+        ))}
+        </>
+      )      
+      )
+    }
+  }
+
+
+
+
   render() {
-   
+
     return (
-      <div> 
+      <div>
         <div className="slogan text-center">
           <div className="container">
             <h3>You only have to know one thing</h3>
@@ -112,134 +151,7 @@ class Bodyhome extends Component {
           </div>
           <div className="container">
             <div className="top-course row">
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-xs-6">
-                <div className="your-courses">
-                  <img src={require('../img/625204_436a_2.jpg')} alt="" />
-                  <div className="outside">
-                    <h2 className="title">Understanding Typescript</h2>
-                    <h3 className="author">Andrew Maed</h3>
-                    <div className="star">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <h1>$32.5</h1>
-                  </div>
-                </div>
-              </div>
+              {this.test()}
             </div>
           </div>
         </div>

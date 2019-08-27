@@ -13,6 +13,15 @@ class Courses extends Component {
             id:this.props.match.params.id,
         }
     }
+
+    
+//   contentSearch = (dl) => {
+    
+//     this.setState({
+//       searchText: dl
+//     })
+//     console.log('du bo lieu nhan duoc la ' + this.state.searchText);
+//   }
     
     componentWillMount(){
         var config = {
@@ -33,17 +42,18 @@ class Courses extends Component {
            if(this.state.rolesId === 'Tutor'){
                return <Headertutor 
                passdata={this.state.id}
-               checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+              />
            }
            else {
                return <Header
                passdata={this.state.id}
-                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
+               />
            }
        }
             
 
     render() {
+        
         const isLogged = localStorage.getItem('signJwt');
 
         if (!isLogged) {
@@ -54,7 +64,7 @@ class Courses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodycourses dataCourseProps={this.props.dataCourseProps} />
+                <Bodycourses checkConnectProps={this.props.checkConnectProps} dataCourseProps={this.props.dataCourseProps} />
                 <Footer/>
             </div>
         );

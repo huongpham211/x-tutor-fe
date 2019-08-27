@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from '../../axios';
 class Bodypassword extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      oldPassword:'',
-      newPassword:'',
-      confirmNewPassword:''
+      oldPassword: '',
+      newPassword: '',
+      confirmNewPassword: ''
     }
   }
-  
-  onOldPassword(e){
+
+  componentWillMount() {
+
+    axios
+      .get(`api/v1/users/${this.props.passdata}`)
+      .then((response) => {
+        console.log(response.data);
+
+        this.setState({
+          firstName: response.data.userFound.firstName,
+          lastName: response.data.userFound.lastName,
+          avatar: response.data.userFound.avatar
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  onOldPassword(e) {
     this.setState({
-      oldPassword:e.target.value
+      oldPassword: e.target.value
     })
   }
-  onNewPassword(e){
+  onNewPassword(e) {
     this.setState({
-      newPassword:e.target.value
+      newPassword: e.target.value
     })
   }
-  onConfirmNewPassword(e){
+  onConfirmNewPassword(e) {
     this.setState({
-      confirmNewPassword:e.target.value
+      confirmNewPassword: e.target.value
     })
   }
 
@@ -33,16 +49,20 @@ class Bodypassword extends Component {
         <div className="container">
           <div className="edit-info1 row">
             <div className="col-md-3 left">
-              <div className="up text-center">
-                <img src={require('../img/member6.jpg')} alt="" />
-                <h5>Daniela Queen</h5>
-                <div className="setting_button">
-                  <a name="" id="update_avatar" className="btn btn-primary" href="#" role="button">Update Avatar</a>
-                  <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+              <form className="up" method="" encType="multipart/form-data">
+                <div className="uploadava">
+                  <img className="image" id="output" src={`http://localhost:3000${this.state.avatar}`} />
+                  <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)} required />
                 </div>
-              </div>
+
+                <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
+                <div className="setting_button">
+                  <a name="" type="submit" id="update_avatar" className="btn btn-primary" role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
+                  <a name="" id="delete_avatar" className="btn btn-primary" role="button">Delete</a>
+                </div>
+              </form>
               <div className="down">
-              <Link to={`/account_setting/${this.props.passdata}`} className="edit justify-content-center">
+                <Link to={`/account_setting/${this.props.passdata}`} className="edit justify-content-center">
                   <i className="fas fa-user" />
                   <h5>Account Settings</h5>
                   <i className="fas fa-chevron-right" />
@@ -60,33 +80,33 @@ class Bodypassword extends Component {
               </div>
             </div>
             <div className="col-md-9 right">
-         
-                <div className="tieude khac">
-                  <div className="col-md-6 second ">
-                    <i className="fas fa-lock"></i>
-                    <h5>Change Password</h5>
-                  </div>
-                </div>
-                <form action="" className="khac">
-                  <div className="col-md-5 change_password">
-                    <div className="form-group">
-                      <label htmlFor="">Current password</label>
-                      <input type="password" className="form-control" name="oldPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) =>this.onOldPassword(e)}/>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="">New password</label>
-                      <input type="password" className="form-control" name="newPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onNewPassword(e)}/>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="">Re-type new password</label>
-                      <input type="password" className="form-control" name="confirmNewPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onConfirmNewPassword(e)}/>
-                    </div>
-                    <a name="" type="submit" id="update_avatar" className="btn btn-primary" href="#" role="button" onClick={(oldPassword,newPassword,confirmNewPassword) => this.props.changePassword(this.state.oldPassword,this.state.newPassword,this.state.confirmNewPassword)}>Change password</a>
-                  </div>
-                </form>
-              </div>
 
-           
+              <div className="tieude khac">
+                <div className="col-md-6 second ">
+                  <i className="fas fa-lock"></i>
+                  <h5>Change Password</h5>
+                </div>
+              </div>
+              <form action="" className="khac">
+                <div className="col-md-5 change_password">
+                  <div className="form-group">
+                    <label htmlFor="">Current password</label>
+                    <input type="password" className="form-control" name="oldPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onOldPassword(e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="">New password</label>
+                    <input type="password" className="form-control" name="newPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onNewPassword(e)} />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="">Re-type new password</label>
+                    <input type="password" className="form-control" name="confirmNewPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onConfirmNewPassword(e)} />
+                  </div>
+                  <a name="" type="submit" id="update_avatar" className="btn btn-primary" href="#" role="button" onClick={(oldPassword, newPassword, confirmNewPassword) => this.props.changePassword(this.state.oldPassword, this.state.newPassword, this.state.confirmNewPassword)}>Change password</a>
+                </div>
+              </form>
+            </div>
+
+
           </div>
         </div>
       </div>
