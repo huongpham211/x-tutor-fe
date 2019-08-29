@@ -9,7 +9,6 @@ class Infotuition extends Component {
             feeTotal:props.location.feeTotal.feeTotal,
             lessionsPerCourse:props.location.lessionsPerCourse.lessionsPerCourse,
             hoursPerLession:props.location.hoursPerLession.hoursPerLession,
-            idtuition:props.location.idtuition.idtuition,
             idtutor:this.props.match.params.id,
             courseName:props.location.courseName.courseName,
             iduser:props.location.iduser.iduser

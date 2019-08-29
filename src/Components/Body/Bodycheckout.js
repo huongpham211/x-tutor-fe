@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../axios';
+import { Link} from 'react-router-dom';
 class Bodycheckout extends Component {
   constructor(props, context) {
     super(props, context);
@@ -126,6 +127,7 @@ class Bodycheckout extends Component {
     }
   }
 
+
   showcard = () => {
     if (this.state.data !== null) {
       return (
@@ -225,7 +227,8 @@ class Bodycheckout extends Component {
                       <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                       <h5>Remember this card</h5>
                     </div>
-                    <a type="submit" href={`/bill/${this.props.idcourse}`} className="checkout_button" >Complete payment</a>
+                    <Link type="submit" to={{pathname:`/bill/${this.props.idcourse}`,courseName:{courseName:this.props.courseName}}} className="checkout_button" >Complete payment</Link>
+                    <button type="submit" name="" id="update_avatar" className="btn btn-primary " href="#"  onClick={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.props.infoPayment(this.state.cardType,this.state.nameOnCard,this.state.cardNumber,this.state.expiredDate,this.state.remarks,this.state.residentialAddress,this.state.city,this.state.province,this.state.country,this.state.postalCode)}>Save payment info</button>
                   </div>
                 </form>
                 {/* end credit_card */}

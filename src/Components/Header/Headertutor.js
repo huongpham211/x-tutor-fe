@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import axios from '../../axios';
 
 class Headertutor extends Component {
@@ -75,7 +75,7 @@ class Headertutor extends Component {
               <ul className="navbar-nav mt-2 mt-lg-0">
                 <li className="nav-item form-search">
                   <input type="text" name="search" onChange={(event) => this.isChange(event)} placeholder="Do you want to learn today ?" />
-                  <Link to={`/courses/${this.props.passdata}`}>
+                  <Link to={`/courses/${this.props.iduser}`}>
                     <i type="reset" className="fas fa-search" onClick={(dl) => this.props.checkConnectProps(this.state.tempValue)}></i>
                   </Link>
                 </li>
@@ -92,10 +92,10 @@ class Headertutor extends Component {
                     <a href={`/tuition_preference/${this.props.iduser}`} className="">
                       Tuition preference
                       </a>
-                    <Link to={`/tutor_profile/${this.props.iduser}`} className="">
+                    <Link to={{pathname:`/tutor_profile/${this.props.iduser}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}} className="">
                       Tutor Detail
                       </Link>
-                    <a href="#" onClick={this.logoutHandler}>Logout</a>
+                    <a href="/" onClick={this.logoutHandler}>Logout</a>
                   </ul>
                 </li>
               </ul>

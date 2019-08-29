@@ -10,9 +10,10 @@ class Tuition_preference extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
+            tutorData:null,
             aboutMe:'',
             hourlyRate:'',
-            id : this.props.match.params.id,
+            iduser : this.props.match.params.id,
             education:[{
             }],
             // major:'',
@@ -27,11 +28,16 @@ class Tuition_preference extends Component {
     componentDidMount(){
         
            axios
-           .get(`api/v1/users/${this.state.id}`)
+           .get(`api/v1/users/${this.state.iduser}`)
             .then((response) =>{
                
                 this.setState({
-                    rolesId:response.data.userFound.rolesId
+                    rolesId:response.data.userFound.rolesId,
+                    avatar:response.data.userFound.avatar,
+                    firstName:response.data.userFound.firstName,
+                    lastName:response.data.userFound.lastName,
+                    tutorData:response.data.userFound.tutorData.education
+                    
                 })
             })
             .catch(err =>console.log(err))
@@ -40,24 +46,25 @@ class Tuition_preference extends Component {
        showheader = () => {
            if(this.state.rolesId === 'Tutor'){
                return <Headertutor 
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
            else {
                return <Header
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                 checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
        }
     
     pushEducation(someinfo){
+        console.log(someinfo)
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
      
 
         axios
-        .patch(`api/v1/users/${this.state.id}/tutor-reference`,{
+        .patch(`api/v1/users/${this.state.iduser}/tutor-reference`,{
            education:someinfo
         },config)
         .then((response) => {
@@ -78,7 +85,7 @@ class Tuition_preference extends Component {
         newArray.push(itemToBeAdded)
         this.setState({workingExperience:newArray});
         axios
-        .patch(`api/v1/user/${this.state.id}/tutor-working-exprerience`,{
+        .patch(`api/v1/user/${this.state.iduser}/tutor-working-exprerience`,{
             workingExperience:this.state.workingExperience
         },config)
         .then((response) =>{
@@ -101,7 +108,7 @@ class Tuition_preference extends Component {
         newArray.push(itemToBeAdded)
         this.setState({teachingSubject:newArray});
         axios
-        .patch(`api/v1/users/${this.state.id}/tutor-teaching-subject`,{
+        .patch(`api/v1/users/${this.state.iduser}/tutor-teaching-subject`,{
             basedIn:basedIn,
             teachingSubject:this.state.teachingSubject     
         },config)
@@ -116,7 +123,7 @@ class Tuition_preference extends Component {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
         axios
-        .patch(`api/v1/users/${this.state.id}/tutor-intro`,{
+        .patch(`api/v1/users/${this.state.iduser}/tutor-intro`,{
             aboutMe:aboutme,
             hourlyRate:hourlyrate
         },config)
@@ -138,7 +145,7 @@ class Tuition_preference extends Component {
         return (
             <div>
                  {this.showheader()}
-                <Bodytuitionpre
+                <Bodytuitionpre iduser={this.state.iduser} tutorData={this.state.tutorData} avatar={this.state.avatar} firstName={this.state.firstName} lastName={this.state.lastName}
                 pushTeachingSubject={(basedIn,course,academicLevel,note) => this.pushTeachingSubject(basedIn,course,academicLevel,note)}
                 pushEducation={(someinfo) => this.pushEducation(someinfo)}
                 pushworkingExperience={(year,experience) => this.pushworkingExperience(year,experience)} 

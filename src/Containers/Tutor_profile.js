@@ -27,7 +27,10 @@ class Tuitor_profile extends Component {
             .then((response) =>{
                
                 this.setState({
-                    rolesId:response.data.userFound.rolesId
+                    rolesId:response.data.userFound.rolesId,
+                    avatar:response.data.userFound.avatar,
+                    firstName:response.data.userFound.firstName,
+                    lastName:response.data.userFound.lastName,
                 })
             })
             .catch(err =>console.log(err));
@@ -78,6 +81,9 @@ class Tuitor_profile extends Component {
             <div>
                 {this.showheader()}
                 <Bodytuitorprofile
+                firstName={this.state.firstName} 
+                lastName={this.state.lastName} 
+                avatar={this.state.avatar}
                 courseName={this.state.courseName}
                 iduser={this.state.iduser}
                 id={this.state.id}

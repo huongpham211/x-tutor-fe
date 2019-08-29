@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Bodycard from './Bodycard';
 import axios from '../../axios';
@@ -61,14 +61,14 @@ class Bodyinfocard extends React.Component {
                         <div className="col-md-3 left">
                             <form className="up" method="" encType="multipart/form-data">
                                 <div className="uploadava">
-                                    <img className="image" id="output" src={`http://localhost:3000${this.state.avatar}`} />
+                                    <img alt="" className="image" id="output" src={`http://localhost:3000${this.state.avatar}`} />
                                     <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)} required />
                                 </div>
 
                                 <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
                                 <div className="setting_button">
-                                    <a name="" type="submit" id="update_avatar" className="btn btn-primary" role="button" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</a>
-                                    <a name="" id="delete_avatar" className="btn btn-primary" role="button">Delete</a>
+                                    <button name="" type="submit" id="update_avatar" className="btn btn-primary" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</button>
+                                    <button name="" id="delete_avatar" className="btn btn-primary" >Delete</button>
                                 </div>
                             </form>
                             <div className="down">

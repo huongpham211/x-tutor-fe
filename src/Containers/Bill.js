@@ -8,6 +8,7 @@ class Bill extends Component {
         super(props, context);
         this.state = {
             idcourse:this.props.match.params.id,
+            courseName:props.location.courseName.courseName
         }
     }
 
@@ -83,7 +84,7 @@ class Bill extends Component {
                         <h4>Hour</h4>
                     </div>
                     <div className="phai">
-                        <h4>{this.state.coursecode}</h4>
+                        <h4>{this.state.courseName}</h4>
                         <h4>{this.state.feePerHour}</h4>
                         <h4>{this.state.hour}</h4>
                         <h4 className="totaltien">Total<span> {this.state.feeTotal}</span></h4>

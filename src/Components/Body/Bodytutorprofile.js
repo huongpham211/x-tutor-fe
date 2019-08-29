@@ -48,8 +48,12 @@ class Bodytuitorprofile extends Component {
           <div className="edit-info1 row">
             <div className="col-md-3 left">
               <div className="up text-center">
-                <img src={require('../img/member6.jpg')} alt="" />
-                <h5>Daniela Queen</h5>
+              <div className="uploadava">
+                  <img alt="" className="image" id="output" src={`http://localhost:3000${this.props.avatar}`}/>
+                  <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)}  required />
+                </div>
+
+                <h4 >{this.props.firstName} <span>{this.props.lastName}</span></h4>
               </div>
               <div className="setting_button">
                 <Link to={{pathname:`/add_tuition/${this.props.id}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}>

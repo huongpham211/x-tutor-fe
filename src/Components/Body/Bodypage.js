@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Coursespage from './Coursespage';
-import { map } from 'lodash';
 import axios from '../../axios';
-import {Link} from 'react-router-dom'
 class Bodypage extends Component {
   constructor(props, context) {
     super(props, context);

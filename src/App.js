@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Account_settings from './Containers/Account_settings';
 import Home from './Containers/Home';
 import Page from './Containers/Page';
@@ -34,8 +34,6 @@ class App extends Component {
       searchText: '',
       signUpError: '',
       signInError: '',
-      coursename: '',
-      tutor: '',
       id: '',
       dataDb:null,
       coursename:'',

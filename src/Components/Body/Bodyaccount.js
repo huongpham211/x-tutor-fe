@@ -129,7 +129,7 @@ class Bodyaccount extends Component {
                   <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)}  required />
                 </div>
 
-                <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
+                <h4 >{this.props.firstName} <span>{this.props.lastName}</span></h4>
                 <div className="setting_button">
                   <button name="" type="submit" id="update_avatar" className="btn btn-primary" onClick={(e) => this.props.passAvatar(this.state.avatar)}>Update Avatar</button>
                   <button name="" id="delete_avatar" className="btn btn-primary" >Delete</button>
