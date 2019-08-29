@@ -25,9 +25,8 @@ class Page extends Component {
    componentDidMount(){
    
        axios
-       .get(`api/v1/users/${this.state.id}`)
+       .get(`api/v1/users/${this.state.iduser}`)
         .then((response) =>{
-           
             this.setState({
                 rolesId:response.data.userFound.rolesId
             })

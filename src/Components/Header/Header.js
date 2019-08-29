@@ -19,7 +19,6 @@ class Header extends Component {
       .get(`api/v1/users/${this.props.iduser}`)
       .then((response) => {
         console.log(response.data);
-
         this.setState({
           firstName: response.data.userFound.firstName,
           lastName: response.data.userFound.lastName,
@@ -75,17 +74,17 @@ class Header extends Component {
               <ul className="navbar-nav mt-2 mt-lg-0">
                 <li className="nav-item form-search">
                   <input type="text" name="search" onChange={(event) => this.isChange(event)} placeholder="Do you want to learn today ?" />
-                  <Link to={`/courses/${this.props.passdata}`}>
+                  <Link to={`/courses/${this.props.iduser}`}>
                     <i type="reset" className="fas fa-search" onClick={(dl) => this.props.checkConnectProps(this.state.tempValue)}></i>
                   </Link>
                 </li>
                 <li className="nav-item" data-toggle="modal" data-target="#formFilter">
-                  <a href={`/filter/${this.props.passdata}`} className="nav-link" >Filter</a>                </li>
+                  <a href={`/filter/${this.props.iduser}`} className="nav-link" >Filter</a>                </li>
                 <li className="nav-item avatar d-flex align-items-center">
                   <img src={`http://localhost:3000${this.state.avatar}`} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
                   <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
                   <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a href={`/account_setting/${this.props.passdata}`} className="">
+                    <a href={`/account_setting/${this.props.iduser}`} className="">
                       Account Settings
                       </a>
                     <a href="" className="">

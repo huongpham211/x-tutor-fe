@@ -81,56 +81,7 @@ class Bodyaddtuition extends Component {
   render() {
     return (
       <div>
-        <div className="modal fade" id="add_schedule" tabIndex={-1} role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header text-center">
-                <h4 className="modal-title w-100 font-weight-bold">Add Schedule</h4>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">x</span>
-                </button>
-              </div>
-              {/* het modal header */}
-              <div className="modal-body text-center">
-                <div className="md-form my-4" id="noclass">
-                  <div className="khung">
-                    <div id="time">10 Mar 18 - 10 Mar 18 <br />Every Saturdat 08:30 hrs - 09:30 hrs</div>
-                    <div className="" id="button2">
-                      <i className="fas fa-trash-alt" />
-                      <i className="fas fa-edit" />
-                    </div>
-                  </div>
-                  {/* end khung */}
-                  <a name="" id="add" className="btn btn-primary" href="#" role="button">Add Schedule</a>
-                </div>
-                <div className="md-form my-4">
-                  <h3 id="payper1">Pay all lessons</h3>
-                  <div className="ttin_trai d-flex justify-content-between">
-                    <div className="ttin_chung ">
-                      <h4>Fee per hour:</h4>
-                      <h4>Hour prer lesson:</h4>
-                      <h4>Lessons per course:</h4>
-                      <h4>Fee per course:</h4>
-                     
-                    </div>
-                    <div className="ttin_phai">
-                      <h4>{this.props.feePerHour}</h4>
-                      <h4>{this.state.hoursPerLession}</h4>
-                      <h4>{this.state.lessionsPerCourse}</h4>
-                      <h4>{this.props.feeTotal}</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* het modal body */}
-              <div className="modal-footer d-flex justify-content-center ">
-                <a href={`/checkout/${this.props.id}`}  name="" id="add2" className="btn btn-primary" role="button">Book Tuition</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+     
         <div className="addtuition">
           <div className="container">
             <div className="ngoai">
@@ -179,7 +130,7 @@ class Bodyaddtuition extends Component {
                       <label htmlFor="">Start date*</label>
                       {/* <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/> */}
                       <DatePicker
-                        selected={this.state.startDate}
+                        // selected={this.state.startDate}
                         onChange={(date) => this.onStartDate(date)}
                       />
                     </div>
@@ -211,7 +162,9 @@ class Bodyaddtuition extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <a name="" type="submit" id="update_avatar" data-toggle="modal" data-target="#add_schedule" className="btn btn-primary " href="#" role="button" onClick={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
+                <Link to={{pathname:`/infotuition/${this.props.idtutor}`,courseName:{courseName:this.props.courseName},iduser:{iduser:this.props.iduser},idtuition:{idtuition:this.props.idtuition},feePerHour:{feePerHour:this.props.feePerHour},feeTotal:{feeTotal:this.props.feeTotal},lessionsPerCourse:{lessionsPerCourse:this.state.lessionsPerCourse},hoursPerLession:{hoursPerLession:this.state.hoursPerLession}}}  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" >Check info</Link>
+
+                <a  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" onClick={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
               </div>
             </div>
           </div>

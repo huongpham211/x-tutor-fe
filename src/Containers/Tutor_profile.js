@@ -13,7 +13,8 @@ class Tuitor_profile extends Component {
             data:null,
             dataTeaching:null,
             idcourse:this.props.idcourse,
-            iduser:props.location.iduser.iduser
+            iduser:props.location.iduser.iduser,
+            courseName:props.location.courseName.courseName
         }
         
     }
@@ -77,6 +78,7 @@ class Tuitor_profile extends Component {
             <div>
                 {this.showheader()}
                 <Bodytuitorprofile
+                courseName={this.state.courseName}
                 iduser={this.state.iduser}
                 id={this.state.id}
                 basedIn={this.state.basedIn}

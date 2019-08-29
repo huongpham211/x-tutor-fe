@@ -10,7 +10,7 @@ class Courses extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            id:this.props.match.params.id,
+            iduser:this.props.match.params.id,
         }
     }
 
@@ -28,7 +28,7 @@ class Courses extends Component {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
            axios
-           .get(`api/v1/users/${this.state.id}`,config)
+           .get(`api/v1/users/${this.state.iduser}`,config)
             .then((response) =>{
                
                 this.setState({
@@ -41,12 +41,12 @@ class Courses extends Component {
        showheader = () => {
            if(this.state.rolesId === 'Tutor'){
                return <Headertutor 
-               passdata={this.state.id}
+               iduser={this.state.iduser}
               />
            }
            else {
                return <Header
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                />
            }
        }
@@ -64,7 +64,7 @@ class Courses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodycourses checkConnectProps={this.props.checkConnectProps} dataCourseProps={this.props.dataCourseProps} />
+                <Bodycourses iduser={this.state.iduser} checkConnectProps={this.props.checkConnectProps} dataCourseProps={this.props.dataCourseProps} />
                 <Footer/>
             </div>
         );

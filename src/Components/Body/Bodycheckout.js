@@ -149,9 +149,9 @@ class Bodycheckout extends Component {
                 <h4>Your course</h4>
               </div>
               <div id="info_courses">
-                <h4>Practical Transformation Using XSLT and XPath</h4>
-                <h5>By G. Ken Holman</h5>
-                <h3>$45.00</h3>
+                <h4>{this.props.courseName}</h4>
+                <h5>{this.props.name}</h5>
+                <h3>${this.props.feeTotal}</h3>
               </div>
             </div>
             {/* end checkout_left */}

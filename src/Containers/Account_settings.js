@@ -25,7 +25,7 @@ class Account_settings extends Component {
           city:'',
           dateOfBirth:'',
           language:'',
-          id:this.props.match.params.id,
+          iduser:this.props.match.params.id,
           photo:'',
           rolesId:null
             
@@ -37,7 +37,7 @@ class Account_settings extends Component {
       componentWillMount(){
       
            axios
-           .get(`api/v1/users/${this.state.id}`)
+           .get(`api/v1/users/${this.state.iduser}`)
             .then((response) =>{
                
                 this.setState({
@@ -50,12 +50,14 @@ class Account_settings extends Component {
        
        showheader = () => {
            if(this.state.rolesId === 'Tutor'){
-               return <Headertutor 
+               return <Headertutor
+               iduser={this.state.iduser}
                passdata={this.state.id}
                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
            else {
                return <Header
+               iduser={this.state.iduser}
                passdata={this.state.id}
                 checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
@@ -75,7 +77,7 @@ class Account_settings extends Component {
         formData.append('avatar',e);
         console.log('avatar nhan duoc la ' + formData);
         axios
-        .patch(`api/v1/users/${this.state.id}/avatar`,formData,config)
+        .patch(`api/v1/users/${this.state.iduser}/avatar`,formData,config)
         .then((response) =>{
             console.log(response.data);  
         })
@@ -88,7 +90,7 @@ class Account_settings extends Component {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };                
         axios
-        .put(`api/v1/users/${this.state.id}`,{
+        .put(`api/v1/users/${this.state.iduser}`,{
             country:country,
             firstName:firstName,
             lastName:lastName,
@@ -122,7 +124,7 @@ class Account_settings extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodyaccount avatar={this.state.avatar} passAvatar={(e) => this.updateAvatar(e)} passdata={this.state.id} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
+                <Bodyaccount avatar={this.state.avatar} passAvatar={(e) => this.updateAvatar(e)} iduser={this.state.iduser} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
                 <Footer/>
             </div>
            

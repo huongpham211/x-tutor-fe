@@ -22,6 +22,7 @@ import Signup from './Containers/Signup';
 import Filter from './Containers/Filter';
 import Bill from './Containers/Bill';
 import axios from './axios';
+import Infotuition from './Containers/Infotuition';
 
 class App extends Component {
   constructor(props, context) {
@@ -83,12 +84,11 @@ iduser(iduser){
     var ketqua = [];
     if(this.state.dataDb !==  null){
       this.state.dataDb.map((item) => {
-        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || item.tutorData.teachingSubject.forEach((value) =>{
+        if(item.tutorData.teachingSubject.forEach((value) =>{
           if(value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
             ketqua.push(item);
           }
         }))
-        // console.log(item);  
         item.tutorData.teachingSubject.forEach((value) =>{
          
         })
@@ -107,20 +107,20 @@ iduser(iduser){
 
    
 
-    var filter = [];
-    if(this.state.dataDb !==  null){
-      this.state.dataDb.map((item) => {
-        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
-          if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
-            filter.push(item);
-          }
-        }))
-        // console.log(item);  
-        item.tutorData.teachingSubject.forEach((value) =>{
+    // var filter = [];
+    // if(this.state.dataDb !==  null){
+    //   this.state.dataDb.map((item) => {
+    //     if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
+    //       if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
+    //         filter.push(item);
+    //       }
+    //     }))
+    //     // console.log(item);  
+    //     item.tutorData.teachingSubject.forEach((value) =>{
          
-        })
-      })
-    }
+    //     })
+    //   })
+    // }
 
     return (
       <Router history={history}>
@@ -163,7 +163,7 @@ iduser(iduser){
               {...props}
               coursename={(dl) => this.state.coursename}
               tutor={(dl) => this.state.tutor}
-              courseFilter={filter}
+              // courseFilter={filter}
             />
           } />
 
@@ -179,6 +179,7 @@ iduser(iduser){
             />
           } />
           <Route path="/tuition_preference/:id" component={Tutor_preference} />
+          <Route path="/infotuition/:id" component={Infotuition} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path="/mycalendar" component={Selectable} />
           <Route path={"/checkout/:id"} component={Checkout} />

@@ -52,7 +52,7 @@ class Bodytuitorprofile extends Component {
                 <h5>Daniela Queen</h5>
               </div>
               <div className="setting_button">
-                <Link to={`/add_tuition/${this.props.id}`}>
+                <Link to={{pathname:`/add_tuition/${this.props.id}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}>
                 <button name="" id="update_avatar" className="btn btn-primary" role="button">Add Tuition </button>
                 </Link>
                 <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>

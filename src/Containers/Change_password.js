@@ -10,7 +10,7 @@ class Change_password extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            id:this.props.match.params.id,  
+            iduser:this.props.match.params.id,  
             rolesId:null,
             oldPassword:'',
             newPassword:''
@@ -40,7 +40,7 @@ class Change_password extends Component {
     componentWillMount(){
       
            axios
-           .get(`api/v1/users/${this.state.id}`)
+           .get(`api/v1/users/${this.state.iduser}`)
             .then((response) =>{
                
                 this.setState({
@@ -53,12 +53,12 @@ class Change_password extends Component {
        showheader = () => {
            if(this.state.rolesId === 'Tutor'){
                return <Headertutor 
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
            else {
                return <Header
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                 checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
        }
@@ -75,7 +75,7 @@ class Change_password extends Component {
         return (
             <div>
                  {this.showheader()}
-               <Bodypassword changePassword={(oldPassword,newPassword,confirmNewPassword) => this.changePassword(oldPassword,newPassword,confirmNewPassword)} passdata={this.state.id}/>
+               <Bodypassword  changePassword={(oldPassword,newPassword,confirmNewPassword) => this.changePassword(oldPassword,newPassword,confirmNewPassword)} iduser={this.state.iduser}/>
                <Footer/>
             </div>
         );

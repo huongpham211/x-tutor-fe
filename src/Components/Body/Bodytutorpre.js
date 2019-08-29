@@ -15,7 +15,7 @@ class Bodytuitionpre extends Component {
       feePerHour:'',
       academicLevel:'',
       note:'',
-      basedIn:''
+      basedIn:'',
     }
   }
 

@@ -474,7 +474,12 @@ input.checkout_button {
     border: none;
 }
 
-.login-form, .login-form1 {
+form.login-form2 {
+    height: 660px;
+    width: 400px;
+}
+
+.login-form, .login-form1,.login-form2 {
     width: 360px;
     height: 560px;
     padding: 80px 40px;

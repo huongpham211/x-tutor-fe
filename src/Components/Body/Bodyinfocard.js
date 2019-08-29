@@ -6,7 +6,7 @@ class Bodyinfocard extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            id: this.props.passid,
+            iduser: this.props.iduser,
 
 
         }
@@ -15,7 +15,7 @@ class Bodyinfocard extends React.Component {
     componentWillMount() {
 
         axios
-            .get(`api/v1/users/${this.state.id}`)
+            .get(`api/v1/users/${this.state.iduser}`)
             .then((response) => {
                 console.log(response.data);
 
@@ -72,17 +72,17 @@ class Bodyinfocard extends React.Component {
                                 </div>
                             </form>
                             <div className="down">
-                                <Link to={`/account_setting/${this.props.passid}`} className="edit justify-content-center">
+                                <Link to={`/account_setting/${this.props.iduser}`} className="edit justify-content-center">
                                     <i className="fas fa-user" />
                                     <h5>Account Settings</h5>
                                     <i className="fas fa-chevron-right" />
                                 </Link>
-                                <Link to={`/change_password/${this.props.passid}`} className="change justify-content-center">
+                                <Link to={`/change_password/${this.props.iduser}`} className="change justify-content-center">
                                     <i className="fas fa-lock" />
                                     <h5>Change Password</h5>
                                     <i className="fas fa-chevron-right" />
                                 </Link>
-                                <Link to={`/payment_info/${this.props.passid}`} className="payment justify-content-center">
+                                <Link to={`/payment_info/${this.props.iduser}`} className="payment justify-content-center">
                                     <i className="far fa-credit-card" />
                                     <h5>Payment Info</h5>
                                     <i className="fas fa-chevron-right" />
@@ -96,7 +96,7 @@ class Bodyinfocard extends React.Component {
                                     <h5>Payment Card</h5>
                                 </div>
                             </div>
-                            <Link to={`/create_card/${this.state.id}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
+                            <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
                             <div className="payment_card">
                                 {this.getData()}
                             </div>

@@ -4,23 +4,27 @@ import Coursespage from './Coursespage';
 
 
 class Bodycourses extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            iduser:this.props.iduser
+        }
+    }
     
-  
-
-
 
 
       printData = () =>    this.props.dataCourseProps.map((info,index) =>(
         <>   
           {info.tutorData.teachingSubject.map((value, key) => {
-              if(value.course.toLowerCase().indexOf(this.props.checkConnectProps.toLowerCase()) !== -1){
+              if(value.course.toLowerCase().indexOf(this.props.checkConnectProps.toLowerCase()) !== -1  ){
                return (<Coursespage
-            key={key}
-            courseName={value.course}
-            academicLevel={value.academicLevel}
-            price={value.price}
-          
-            name={info.firstName + info.lastName}
+                key={key}
+                iduser={this.state.iduser}
+                courseName={value.course}
+                academicLevel={value.academicLevel}
+                idcourse={value._id}
+                index={info._id}
+                name={info.firstName + info.lastName}
           />)
               }
           
@@ -29,14 +33,7 @@ class Bodycourses extends Component {
       )      
       )
 
-    //     filterCourse = () =>  this.props.filterCourse.map((value,key)=>
-    //     (<Coursespage
-    //     key={key}
-    //     courseName={value.course_name}
-    //     tuitor={value.tuitor}
-    //     price={value.price}
-    //     />)
-    // )
+    
     render() {
         console.log(this.props.checkConnectProps);
         

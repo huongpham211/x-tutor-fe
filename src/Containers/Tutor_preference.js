@@ -50,22 +50,15 @@ class Tuition_preference extends Component {
            }
        }
     
-    pushEducation(major,institute,certificate){
+    pushEducation(someinfo){
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
-        var newArray = this.state.education
-        var itemToBeAdded = {
-            major : major,
-            institute : institute,
-            certificate:certificate
-          };
-          newArray.push(itemToBeAdded);
-          this.setState( {education:newArray} )
+     
 
         axios
         .patch(`api/v1/users/${this.state.id}/tutor-reference`,{
-           education:this.state.education
+           education:someinfo
         },config)
         .then((response) => {
             console.log(response.data);         
@@ -147,7 +140,7 @@ class Tuition_preference extends Component {
                  {this.showheader()}
                 <Bodytuitionpre
                 pushTeachingSubject={(basedIn,course,academicLevel,note) => this.pushTeachingSubject(basedIn,course,academicLevel,note)}
-                pushEducation={(major,institute,certificate) => this.pushEducation(major,institute,certificate)}
+                pushEducation={(someinfo) => this.pushEducation(someinfo)}
                 pushworkingExperience={(year,experience) => this.pushworkingExperience(year,experience)} 
                 pushIntroduction={(aboutme,hourlyrate) => this.pushIntroduction(aboutme,hourlyrate)}/>
                 <Footer/>

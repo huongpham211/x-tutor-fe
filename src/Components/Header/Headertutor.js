@@ -86,13 +86,13 @@ class Headertutor extends Component {
                   <img src={`http://localhost:3000${this.state.avatar}`} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
                   <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
                   <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <Link to={`/account_setting/${this.props.passdata}`} className="">
+                    <Link to={`/account_setting/${this.props.iduser}`} className="">
                       Account Settings
                       </Link>
-                    <a href={`/tuition_preference/${this.props.passdata}`} className="">
+                    <a href={`/tuition_preference/${this.props.iduser}`} className="">
                       Tuition preference
                       </a>
-                    <Link to={`/tutor_profile/${this.props.passdata}`} className="">
+                    <Link to={`/tutor_profile/${this.props.iduser}`} className="">
                       Tutor Detail
                       </Link>
                     <a href="#" onClick={this.logoutHandler}>Logout</a>

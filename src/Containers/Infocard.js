@@ -13,7 +13,7 @@ class Infocard extends Component {
         this.state = {
             data:null,
             cardId:null,
-            id : this.props.match.params.id,
+            iduser : this.props.match.params.id,
             rolesId:null
         }
     }
@@ -36,7 +36,7 @@ class Infocard extends Component {
     componentDidMount(){
        
            axios
-           .get(`api/v1/users/${this.state.id}`)
+           .get(`api/v1/users/${this.state.iduser}`)
             .then((response) =>{
                
                 this.setState({
@@ -49,12 +49,12 @@ class Infocard extends Component {
        showheader = () => {
            if(this.state.rolesId === 'Tutor'){
                return <Headertutor 
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
            else {
                return <Header
-               passdata={this.state.id}
+               iduser={this.state.iduser}
                 checkConnectProps={(dl) => this.props.checkConnectProps(dl)}/>
            }
        }
@@ -94,7 +94,7 @@ class Infocard extends Component {
         return (
             <div>
                  {this.showheader()}
-                <Bodyinfocard deletefunction={(e) =>this.deletefunction(e)} passinfocard={this.state.data} passid={this.state.id}/>
+                <Bodyinfocard deletefunction={(e) =>this.deletefunction(e)} passinfocard={this.state.data} iduser={this.state.iduser}/>
                 <Footer/>
             </div>
         );
