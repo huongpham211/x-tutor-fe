@@ -7,13 +7,17 @@ import * as BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/sass/styles.scss'
 import axios from '../axios';
 
+let allViews = Object.keys(Views).map(k => Views[k]) 
+
 const propTypes = {}
 
 class Selectable extends React.Component {
   constructor(...args) {
     super(...args)
 
-    this.state = { events }
+    this.state = {
+      events: [],
+    }
   }
 
   
@@ -23,28 +27,28 @@ class Selectable extends React.Component {
     }
     axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`,config)
     .then((res) =>{
-      this.setState({event:res.data.allSchedules});
+      console.log(res.data);
+      
+      const events = []
+      res.data.allSchedules.map((event) =>{
+        events.push({
+          start: moment(event.periodeStart).toDate(),
+          end: moment(event.periodeEnd).toDate(), 
+          title: event.courseCode,
+        })
+        console.log(events);
+        
+      })
+      this.setState({events:events});
     })
     .catch(err => console.log(err))
   }
   
 
-  handleSelect = ({ start, end }) => {
-    const title = window.prompt('New Event name')
-    if (title)
-      this.setState({
-        events: [
-          ...this.state.events,
-          {
-            start,
-            end,
-            title,
-          },
-        ],
-      })
-  }
+ 
 
   render() {
+    const {events} = this.state
     const localizer = BigCalendar.momentLocalizer(moment)
     return (
       <>
@@ -57,10 +61,11 @@ class Selectable extends React.Component {
         <Calendar
           selectable
           localizer={localizer}
-          events={this.state.events}
+          events={events}
+          views={allViews}
           defaultView={Views.WEEK}
-          scrollToTime={new Date(1970, 1, 1, 6)}
-          defaultDate={new Date(2015, 3, 12)}
+          // scrollToTime={new Date(1970, 1, 1, 6)}
+          defaultDate={new Date()}          
           onSelectEvent={event => alert(event.title)}
           onSelectSlot={this.handleSelect}
         />
