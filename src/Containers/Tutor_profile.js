@@ -81,6 +81,7 @@ class Tuitor_profile extends Component {
             <div>
                 {this.showheader()}
                 <Bodytuitorprofile
+                rolesId={this.state.rolesId}
                 firstName={this.state.firstName} 
                 lastName={this.state.lastName} 
                 avatar={this.state.avatar}

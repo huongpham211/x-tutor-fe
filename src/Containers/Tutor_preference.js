@@ -73,20 +73,20 @@ class Tuition_preference extends Component {
         .catch(err => console.log(err));   
     }
 
-    pushworkingExperience(year,experience){
+    pushworkingExperience(workingexp){
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
-        var newArray = this.state.pushworkingExperience
-        var itemToBeAdded = {
-            year:year,
-            experience:experience
-        }
-        newArray.push(itemToBeAdded)
-        this.setState({workingExperience:newArray});
+        // var newArray = this.state.pushworkingExperience
+        // var itemToBeAdded = {
+        //     year:year,
+        //     experience:experience
+        // }
+        // newArray.push(itemToBeAdded)
+        // this.setState({workingExperience:newArray});
         axios
         .patch(`api/v1/user/${this.state.iduser}/tutor-working-exprerience`,{
-            workingExperience:this.state.workingExperience
+            workingExperience:workingexp
         },config)
         .then((response) =>{
             console.log(response.data);          
@@ -95,22 +95,22 @@ class Tuition_preference extends Component {
     }
 
 
-    pushTeachingSubject(basedIn,course,academicLevel,note){
+    pushTeachingSubject(basedIn,teachingSubject){
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
-        var newArray = this.state.teachingSubject
-        var itemToBeAdded = {
-            course:course,
-            academicLevel:academicLevel,
-            note:note
-        }
-        newArray.push(itemToBeAdded)
-        this.setState({teachingSubject:newArray});
+        // var newArray = this.state.teachingSubject
+        // var itemToBeAdded = {
+        //     course:course,
+        //     academicLevel:academicLevel,
+        //     note:note
+        // }
+        // newArray.push(itemToBeAdded)
+        // this.setState({teachingSubject:newArray});
         axios
         .patch(`api/v1/users/${this.state.iduser}/tutor-teaching-subject`,{
             basedIn:basedIn,
-            teachingSubject:this.state.teachingSubject     
+            teachingSubject:teachingSubject    
         },config)
         .then((response) =>{
             console.log(response.data);       
@@ -148,7 +148,7 @@ class Tuition_preference extends Component {
                 <Bodytuitionpre iduser={this.state.iduser} tutorData={this.state.tutorData} avatar={this.state.avatar} firstName={this.state.firstName} lastName={this.state.lastName}
                 pushTeachingSubject={(basedIn,course,academicLevel,note) => this.pushTeachingSubject(basedIn,course,academicLevel,note)}
                 pushEducation={(someinfo) => this.pushEducation(someinfo)}
-                pushworkingExperience={(year,experience) => this.pushworkingExperience(year,experience)} 
+                pushworkingExperience={(workingexp) => this.pushworkingExperience(workingexp)} 
                 pushIntroduction={(aboutme,hourlyrate) => this.pushIntroduction(aboutme,hourlyrate)}/>
                 <Footer/>
             </div>

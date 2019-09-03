@@ -23,6 +23,17 @@ class Bodytuitorprofile extends Component {
     }
   }
 
+  showbutton(){
+    if(this.props.rolesId === 'Student'){
+      return (  <div className="setting_button">
+      <Link to={{pathname:`/add_tuition/${this.props.id}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}>
+      <button name="" id="update_avatar" className="btn btn-primary" role="button">Add Tuition </button>
+      </Link>
+      <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+    </div>)
+    }
+  }
+
   education(){
     if(this.props.dataTutor !== null){
       return this.props.dataTutor.map((value,key) =>(
@@ -55,12 +66,7 @@ class Bodytuitorprofile extends Component {
 
                 <h4 >{this.props.firstName} <span>{this.props.lastName}</span></h4>
               </div>
-              <div className="setting_button">
-                <Link to={{pathname:`/add_tuition/${this.props.id}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}>
-                <button name="" id="update_avatar" className="btn btn-primary" role="button">Add Tuition </button>
-                </Link>
-                <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
-              </div>
+              {this.showbutton()}
               {/* end setting_button */}
               <div className="info_tuitor">
                 <div className="gtinh">

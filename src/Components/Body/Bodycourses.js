@@ -26,7 +26,7 @@ class Bodycourses extends Component {
                 index={info._id}
                 name={info.firstName + info.lastName}
           />)
-              }
+              } else return <h3>No results</h3>
           
             })}
         </>

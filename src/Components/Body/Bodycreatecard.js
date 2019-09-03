@@ -5,7 +5,7 @@ class Bodycreatecard extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      cardType: 'Visa',
+      cardType: '',
       nameOnCard: '',
       cardNumber: 0,
       expiredDate: '',
@@ -18,7 +18,13 @@ class Bodycreatecard extends Component {
     }
     this.changeNameOnCard = this.changeNameOnCard.bind(this);
     this.changeCardNumber = this.changeCardNumber.bind(this);
+    this.radioChange = this.radioChange.bind(this);
+  }
 
+  radioChange(e) {
+    this.setState({
+      cardType: e.target.value
+    });
   }
 
   
@@ -127,11 +133,11 @@ class Bodycreatecard extends Component {
                     <div className="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
                       <label className="btn paymentMethod active">
                         <div className="method visa" />
-                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'visa-card'} onChange={(e) => this.setState({ cardType: e.target.value })} />
+                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'Visa'}    onChange={this.radioChange} />
                       </label>
                       <label className="btn paymentMethod">
                         <div className="method master-card" />
-                        <input type="radio" name="options" value="Master Card" checked={this.state.cardType === "master-card"} onChange={(e) => this.setState({cardType: e.target.value})}/>
+                        <input type="radio" name="options" value="Master Card" checked={this.state.cardType === "Master Card"}    onChange={this.radioChange}/>
                       </label>
                     </div>
                   </div>

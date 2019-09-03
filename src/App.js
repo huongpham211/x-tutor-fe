@@ -23,6 +23,8 @@ import Filter from './Containers/Filter';
 import Bill from './Containers/Bill';
 import axios from './axios';
 import Infotuition from './Containers/Infotuition';
+import Test from './Containers/Test';
+import About from './Containers/About';
 
 class App extends Component {
   constructor(props, context) {
@@ -30,7 +32,6 @@ class App extends Component {
     this.state = {
       isLoading: true,
       token: '',
-      data: Data,
       searchText: '',
       signUpError: '',
       signInError: '',
@@ -78,20 +79,23 @@ iduser(iduser){
 
 
   render() {
+    console.log(this.state.dataDb)
 
     var ketqua = [];
     if(this.state.dataDb !==  null){
       this.state.dataDb.map((item) => {
-        if(item.tutorData.teachingSubject.forEach((value) =>{
+        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || item.tutorData.teachingSubject.forEach((value) =>{
           if(value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
             ketqua.push(item);
           }
         }))
+        // console.log(item);  
         item.tutorData.teachingSubject.forEach((value) =>{
          
         })
       })
     }
+
     // this.state.data.forEach((item) => {
     //   console.log();
       
@@ -105,20 +109,20 @@ iduser(iduser){
 
    
 
-    // var filter = [];
-    // if(this.state.dataDb !==  null){
-    //   this.state.dataDb.map((item) => {
-    //     if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
-    //       if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
-    //         filter.push(item);
-    //       }
-    //     }))
-    //     // console.log(item);  
-    //     item.tutorData.teachingSubject.forEach((value) =>{
+    var filter = [];
+    if(this.state.dataDb !==  null){
+      this.state.dataDb.map((item) => {
+        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
+          if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
+            filter.push(item);
+          }
+        }))
+        // console.log(item);  
+        item.tutorData.teachingSubject.forEach((value) =>{
          
-    //     })
-    //   })
-    // }
+        })
+      })
+    }
 
     return (
       <Router history={history}>
@@ -128,7 +132,7 @@ iduser(iduser){
             <Home
               {...props}
               // onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
-              onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
+              // onSignUp={(signUpUsername, signUpPassword, signUpEmail, signUpRole) => this.onSignUp(signUpUsername, signUpPassword, signUpEmail, signUpRole)}
             />
           } />
           <Route path={`/page/:id`} render={(props) =>
@@ -161,7 +165,7 @@ iduser(iduser){
               {...props}
               coursename={(dl) => this.state.coursename}
               tutor={(dl) => this.state.tutor}
-              // courseFilter={filter}
+              courseFilter={filter}
             />
           } />
 
@@ -179,11 +183,13 @@ iduser(iduser){
           <Route path="/tuition_preference/:id" component={Tutor_preference} />
           <Route path="/infotuition/:id" component={Infotuition} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
-          <Route path="/mycalendar" component={Selectable} />
+          <Route path={"/mycalendar/:id"} component={Selectable} />
           <Route path={"/checkout/:id"} component={Checkout} />
           <Route path="/signin" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/aboutus" component={About} />
           <Route path={"/bill/:id"} component={Bill} />
+          <Route path={"/test/:id"} component={Test} />
         </div>
       </Router >
 

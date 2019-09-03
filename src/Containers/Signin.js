@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from '../axios';
 import config from '../config';
 import { Redirect } from 'react-router-dom';
-
+import { Link } from 'react-router-dom'
 class Signin extends Component {
     constructor(props, context) {
         super(props, context);
@@ -69,6 +69,9 @@ class Signin extends Component {
         }
         return (
             <div className="bglogin">
+                <Link to="/">
+                <i className="fas fa-chevron-left"></i>
+                </Link>
                 <form action="" className="login-form">
                     <h1>Login</h1>
                    

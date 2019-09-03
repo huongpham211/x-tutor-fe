@@ -11,7 +11,7 @@ class FilterCourses extends Component {
         super(props, context);
         this.state = {
             rolesId:null,
-            id:this.props.match.params.id,
+            iduser:this.props.match.params.id,
         }
     }
 
@@ -31,18 +31,29 @@ class FilterCourses extends Component {
     showheader = () => {
         if(this.state.rolesId === 'Tutor'){
             return <Headertutor
-            passdata={this.state.id}
+            iduser={this.state.iduser}
           
             />
         }
         else {
             return <Header
-            passdata={this.state.id}
+            iduser={this.state.iduser}
              />
         }
     }
 
     render() {
+        function removeDuplicates(array, key) {
+            let lookup = {};
+            let result = [];
+            array.forEach(element => {
+                if(!lookup[element[key]]) {
+                    lookup[element[key]] = true;
+                    result.push(element);
+                }
+            });
+            return result;
+        }
         const isLogged = localStorage.getItem('signJwt');
 
         if (!isLogged) {
@@ -53,7 +64,7 @@ class FilterCourses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={this.props.courseFilter}/>
+                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={removeDuplicates(this.props.courseFilter)}/>
                 <Footer/>
             </div>
         );

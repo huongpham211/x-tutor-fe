@@ -44,7 +44,9 @@ class Filter extends Component {
                         <input id="" type="text" onChange={(e) => this.onTutor(e)} />
                         <span data-placeholder="Tutor" />
                     </div>
-                    <Link className="logbtn"  to={`/filter_course/${this.props.match.params.id}`} onClick={(coursename, tutor) => this.props.filterFunction(this.state.coursename, this.state.tutor)}>Filter</Link>
+                    <Link to={`/filter_course/${this.props.match.params.id}`}>
+                        <button onClick={(coursename, tutor) => this.props.filterFunction(this.state.coursename, this.state.tutor)}>Filter</button>
+                    </Link>
                 </form>
             </div>
         );

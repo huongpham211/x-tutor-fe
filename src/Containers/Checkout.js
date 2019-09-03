@@ -19,10 +19,11 @@ class Checkout extends Component {
         }
     }
 
-    checkConnect = (cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) =>{
+    checkConnect = (cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,country,postalCode) =>{
         var config = {
             headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
         };
+        
         axios
         .post(`api/v1/cards`,{
             cardType:cardType,
@@ -32,7 +33,6 @@ class Checkout extends Component {
             remarks:remarks,
             residentialAddress:residentialAddress,
             city:city,
-            province:province,
             country:country,
             postalCode:postalCode
         },config)
@@ -101,7 +101,7 @@ class Checkout extends Component {
             <div>
                 {this.showheader()}
                 <Bodycheckout
-                infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}
+                infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,country,postalCode)}
                 feeTotal={this.state.feeTotal} courseName={this.state.courseName} name={this.state.name} idcourse={this.state.idcourse}/>
                 <Footer/>
             </div>

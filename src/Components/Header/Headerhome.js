@@ -24,7 +24,7 @@ class Headerhome extends Component {
               </li>
           
               <li className="nav-item">
-                <a href="/" className="nav-link" >Contact</a>
+                <a href="/aboutus" className="nav-link" >About us</a>
               </li>
 
               <li className="nav-item" data-toggle="modal" data-target="#modalLoginForm">

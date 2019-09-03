@@ -19,16 +19,14 @@ class Infotuition extends Component {
         return (
             <div className="bglogin">
             <form action="" className="login-form2">
+                <i className="fas fa-chevron-left"></i>
                 <h1>Add Schedule</h1>
                
                 <div className="modal-body text-center">
                 <div className="md-form my-4" id="noclass">
                   <div className="khung">
                     <div id="time">10 Mar 18 - 10 Mar 18 <br />Every Saturdat 08:30 hrs - 09:30 hrs</div>
-                    <div className="" id="button2">
-                      <i className="fas fa-trash-alt" />
-                      <i className="fas fa-edit" />
-                    </div>
+                   
                   </div>
                   {/* end khung */}
                 </div>

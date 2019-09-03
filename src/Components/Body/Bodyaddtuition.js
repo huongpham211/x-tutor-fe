@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from '../../axios';
 import { Link } from 'react-router-dom';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -162,7 +161,7 @@ class Bodyaddtuition extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <Link to={{pathname:`/infotuition/${this.props.idtutor}`,courseName:{courseName:this.props.courseName},iduser:{iduser:this.props.iduser},idtuition:{idtuition:this.props.idtuition},feePerHour:{feePerHour:this.props.feePerHour},feeTotal:{feeTotal:this.props.feeTotal},lessionsPerCourse:{lessionsPerCourse:this.state.lessionsPerCourse},hoursPerLession:{hoursPerLession:this.state.hoursPerLession}}}  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" >Check info</Link>
+                <Link to={{pathname:`/infotuition/${this.props.idtutor}`,courseName:{courseName:this.props.courseName},iduser:{iduser:this.props.iduser},idtuition:{idtuition:this.props.idtuition},feePerHour:{feePerHour:this.props.feePerHour},feeTotal:{feeTotal:this.props.feeTotal},lessionsPerCourse:{lessionsPerCourse:this.state.lessionsPerCourse},hoursPerLession:{hoursPerLession:this.state.hoursPerLession}}}  name="" type="submit" id="checkinfotuition" className="btn btn-primary " href="#" >Check info tuition</Link>
 
                 <a  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" onClick={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
               </div>

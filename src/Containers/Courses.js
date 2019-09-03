@@ -53,7 +53,18 @@ class Courses extends Component {
             
 
     render() {
-        
+        function removeDuplicates(array, key) {
+            let lookup = {};
+            let result = [];
+            array.forEach(element => {
+                if(!lookup[element[key]]) {
+                    lookup[element[key]] = true;
+                    result.push(element);
+                }
+            });
+            return result;
+        }
+        console.log(removeDuplicates(this.props.dataCourseProps))
         const isLogged = localStorage.getItem('signJwt');
 
         if (!isLogged) {
@@ -64,7 +75,7 @@ class Courses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodycourses iduser={this.state.iduser} checkConnectProps={this.props.checkConnectProps} dataCourseProps={this.props.dataCourseProps} />
+                <Bodycourses iduser={this.state.iduser} checkConnectProps={this.props.checkConnectProps} dataCourseProps={removeDuplicates(this.props.dataCourseProps)} />
                 <Footer/>
             </div>
         );

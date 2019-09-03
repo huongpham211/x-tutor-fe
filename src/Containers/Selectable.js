@@ -5,6 +5,7 @@ import ExampleControlSlot from './ExampleControlSlot'
 import moment from 'moment'
 import * as BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/sass/styles.scss'
+import axios from '../axios';
 
 const propTypes = {}
 
@@ -14,6 +15,19 @@ class Selectable extends React.Component {
 
     this.state = { events }
   }
+
+  
+  componentDidMount() {
+    var config = {
+      headers:{"Authorization": "Bearer " + localStorage.getItem("signJwt")}
+    }
+    axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`,config)
+    .then((res) =>{
+      this.setState({event:res.data.allSchedules});
+    })
+    .catch(err => console.log(err))
+  }
+  
 
   handleSelect = ({ start, end }) => {
     const title = window.prompt('New Event name')
