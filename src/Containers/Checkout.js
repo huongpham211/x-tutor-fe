@@ -25,7 +25,7 @@ class Checkout extends Component {
         };
         
         axios
-        .post(`api/v1/cards`,{
+        .post(`api/v1/schedules/${this.state.idcourse}/pay`,{
             cardType:cardType,
             nameOnCard:nameOnCard,
             cardNumber:cardNumber,

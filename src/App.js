@@ -11,7 +11,7 @@ import Tutor_preference from './Containers/Tutor_preference';
 import Tuitor_profile from './Containers/Tutor_profile';
 import Selectable from './Containers/Selectable';
 import Checkout from './Containers/Checkout';
-import Data from './Containers/Data.json';
+// import Data from './Containers/Data.json';
 import Courses from './Containers/Courses';
 import history from './history';
 import Infocard from './Containers/Infocard';
@@ -23,8 +23,11 @@ import Filter from './Containers/Filter';
 import Bill from './Containers/Bill';
 import axios from './axios';
 import Infotuition from './Containers/Infotuition';
-import Test from './Containers/Test';
+// import Test from './Containers/Test';
 import About from './Containers/About';
+import Yourcouses from './Containers/Yourcourses';
+import Detailcourses from './Containers/Detailcourses';
+import Coursestutor from './Containers/Coursestutor';
 
 class App extends Component {
   constructor(props, context) {
@@ -180,7 +183,7 @@ iduser(iduser){
               id={this.state.id}
             />
           } />
-          <Route path="/tuition_preference/:id" component={Tutor_preference} />
+          <Route path="/tutor_preference/:id" component={Tutor_preference} />
           <Route path="/infotuition/:id" component={Infotuition} />
           <Route path={"/tutor_profile/:id"} component={Tuitor_profile} />
           <Route path={"/mycalendar/:id"} component={Selectable} />
@@ -189,7 +192,10 @@ iduser(iduser){
           <Route path="/signup" component={Signup} />
           <Route path="/aboutus" component={About} />
           <Route path={"/bill/:id"} component={Bill} />
-          <Route path={"/test/:id"} component={Test} />
+          <Route path={"/yourcourses/:id"} component={Yourcouses} />
+          <Route path={"/detailcourses/:id"} component={Detailcourses} />
+          <Route path={"/coursestutor/:id"} component={Coursestutor} />
+          {/* <Route path={"/test/:id"} component={Test} /> */}
         </div>
       </Router >
 

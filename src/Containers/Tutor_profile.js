@@ -14,12 +14,11 @@ class Tuitor_profile extends Component {
             dataTeaching:null,
             idcourse:this.props.idcourse,
             iduser:props.location.iduser.iduser,
-            courseName:props.location.courseName.courseName
+            courseName:props.location.courseName.courseName,
+            workingExperience:[]
         }
         
     }
-
-
 
     componentDidMount(){
            axios
@@ -28,13 +27,10 @@ class Tuitor_profile extends Component {
                
                 this.setState({
                     rolesId:response.data.userFound.rolesId,
-                    avatar:response.data.userFound.avatar,
-                    firstName:response.data.userFound.firstName,
-                    lastName:response.data.userFound.lastName,
+                 
                 })
             })
-            .catch(err =>console.log(err));
-               
+            .catch(err =>console.log(err));   
         }
 
     componentWillMount(){
@@ -44,11 +40,19 @@ class Tuitor_profile extends Component {
         axios
         .get(`api/v1/users/${this.state.id}`,config)
         .then((response) => {
+            console.log(response.data);
+            
             this.setState({
                 data:response.data.userFound.tutorData.education,
                 dataTeaching:response.data.userFound.tutorData.teachingSubject,
                 gender:response.data.userFound.gender,
-                basedIn:response.data.userFound.tutorData.basedIn
+                basedIn:response.data.userFound.tutorData.basedIn,
+                workingExperience:response.data.userFound.tutorData.workingExperience,
+                aboutMe:response.data.userFound.tutorData.aboutMe,
+                hourlyRate:response.data.userFound.tutorData.hourlyRate,
+                avatar:response.data.userFound.avatar,
+                firstName:response.data.userFound.firstName,
+                lastName:response.data.userFound.lastName,
             });
         })
         .catch(err => console.log(err));
@@ -71,16 +75,15 @@ class Tuitor_profile extends Component {
              />
         }
     }
-
-
     
-    render() {
-       
-       
+    render() {        
         return (
             <div>
                 {this.showheader()}
                 <Bodytuitorprofile
+                workingExperience={this.state.workingExperience}
+                hourlyRate={this.state.hourlyRate}
+                aboutMe={this.state.aboutMe}
                 rolesId={this.state.rolesId}
                 firstName={this.state.firstName} 
                 lastName={this.state.lastName} 

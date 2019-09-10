@@ -51,7 +51,7 @@ class Bodypassword extends Component {
             <div className="col-md-3 left">
               <form className="up" method="" encType="multipart/form-data">
                 <div className="uploadava">
-                  <img alt="" className="image" id="output" src={`http://localhost:3000${this.state.avatar}`} />
+                  <img alt="" className="image" id="output" src={`http://localhost:3001${this.state.avatar}`} />
                   <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)} required />
                 </div>
 
@@ -82,9 +82,9 @@ class Bodypassword extends Component {
             <div className="col-md-9 right">
 
               <div className="tieude khac">
-                <div className="col-md-6 second ">
+                <div className="second ">
                   <i className="fas fa-lock"></i>
-                  <h5>Change Password</h5>
+                  <h5 id="change_password" className="col-md-9">Change Password</h5>
                 </div>
               </div>
               <form action="" className="khac">

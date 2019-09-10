@@ -17,7 +17,7 @@ class Infotuition extends Component {
     render() {
             
         return (
-            <div className="bglogin">
+            <div className="bglogin2">
             <form action="" className="login-form2">
                 <i className="fas fa-chevron-left"></i>
                 <h1>Add Schedule</h1>

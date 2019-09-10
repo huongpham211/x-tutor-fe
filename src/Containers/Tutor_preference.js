@@ -56,6 +56,25 @@ class Tuition_preference extends Component {
            }
        }
     
+    pushfreetime(periodeStart,periodeEnd,hourStart,hourEnd){
+        var config = {
+            headers: {'Authorization': "Bearer " + localStorage.getItem('signJwt')}
+        };
+        axios
+        .patch(`api/v1/users/${this.state.iduser}/tutor-free-time`,{
+            periodeStart:periodeStart,
+            periodeEnd:periodeEnd,
+            hourStart:hourStart,
+            hourEnd:hourEnd
+        },config)
+        .then((res) =>{
+            console.log(res);
+        })
+        .catch(err => console.log(err))
+        
+    }
+
+
     pushEducation(someinfo){
         console.log(someinfo)
         var config = {
@@ -149,7 +168,8 @@ class Tuition_preference extends Component {
                 pushTeachingSubject={(basedIn,course,academicLevel,note) => this.pushTeachingSubject(basedIn,course,academicLevel,note)}
                 pushEducation={(someinfo) => this.pushEducation(someinfo)}
                 pushworkingExperience={(workingexp) => this.pushworkingExperience(workingexp)} 
-                pushIntroduction={(aboutme,hourlyrate) => this.pushIntroduction(aboutme,hourlyrate)}/>
+                pushIntroduction={(aboutme,hourlyrate) => this.pushIntroduction(aboutme,hourlyrate)}
+                freetime={(periodeStart,periodeEnd,hourStart,hourEnd) => this.pushfreetime(periodeStart,periodeEnd,hourStart,hourEnd)}/>
                 <Footer/>
             </div>
         );

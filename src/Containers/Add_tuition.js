@@ -18,7 +18,7 @@ class Add_tuition extends Component {
             id : this.props.match.params.id,
             academicLevel:'',
             iduser:props.location.iduser.iduser,
-            courseName:props.location.courseName.courseName
+            courseName:props.location.courseName.courseName,
         }
     }
 
@@ -53,7 +53,7 @@ class Add_tuition extends Component {
  
     
 
-    dataAddtuition(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart){
+    dataAddtuition(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart){
         // this.setState({
         //     preferDay:preferDay,
         //     periodeStart:periodeStart,
@@ -67,7 +67,7 @@ class Add_tuition extends Component {
         .post(`api/v1/users/${this.state.id}/tuition-schedules`,{
             preferDay:preferDay,
             periodeStart:periodeStart,
-            lessionsPerCourse:lessionsPerCourse,
+            periodeEnd:periodeEnd,
             hoursPerLession:hoursPerLession,
             hourStart:hourStart,
             academicLevel:academicLevel
@@ -82,7 +82,7 @@ class Add_tuition extends Component {
                 feePerHour:response.data.tuiSchedule.feePerHour,
                 feeTotal:response.data.tuiSchedule.feeTotal,
                 idtuition:response.data.tuiSchedule._id,
-            
+                lessionsPerCourse:response.data.tuiSchedule.lessionsPerCourse,
               })
             })
             .catch(err => console.log(err))  
@@ -99,7 +99,7 @@ class Add_tuition extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodyaddtuition idtutor={this.state.id} courseName={this.state.courseName} iduser={this.state.iduser} idtuition={this.state.idtuition} feePerHour={this.state.feePerHour} feeTotal={this.state.feeTotal} dataAddtuition={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) => this.dataAddtuition(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart)}/>
+                <Bodyaddtuition lessionsPerCourse={this.state.lessionsPerCourse} idtutor={this.state.id} courseName={this.state.courseName} iduser={this.state.iduser} idtuition={this.state.idtuition} feePerHour={this.state.feePerHour} feeTotal={this.state.feeTotal} dataAddtuition={(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart) => this.dataAddtuition(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart)}/>
                 <Footer/>
             </div>
         );

@@ -3,11 +3,164 @@
     padding: 0;
 }
 
+.detail_down h3 {
+    font-size: 24px;
+}
+
+.detail_down h4 {
+    font-size: 16px;
+}
+
+.detail_down .title h4 {
+    font-size: 17px;
+    background: #86BC42;
+    padding: 7px 14px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.detail_course .detail_up h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+#onesession h3 {
+    font-size: 18px;
+}
+
+
+
+.detail_course .detail_up table td {
+    border: 1px solid;
+    padding: 4px 10px;
+}
+
+.detail_course .detail_up {
+    margin-bottom: 40px;
+}
+
+.detail_course {
+    padding: 50px 0;
+}
+
+#onesession {
+    border: 1px solid gray;
+    padding: 8px 16px;
+    margin-bottom: 20px;
+}
+
+.detail_up table {
+    width: 100%;
+}
+
+#setting {
+    margin-top: -46px;
+}
+
+.hourlyRate .tieude span:nth-child(2) {
+    position: absolute;
+    left: 19%;
+    top: 20px;
+}
+
+.hourlyRate .tieude span:nth-child(3) {
+    position: absolute;
+    top: 20px;
+    right: 19%;
+}
+
+.aboutme,.hourlyRate {
+    margin-bottom:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.aboutme h3 {
+    margin-top: 18px;
+}
+
+.hourlyRate h3 {
+    margin-top: 11px;
+}
+
+.aboutme .tieude h3,.hourlyRate .tieude h3 {
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.aboutme .tieude span:nth-child(2) {
+    position: absolute;
+    top: 26px;
+    left: 22%;
+}
+
+.aboutme .tieude span,.hourlyRate .tieude span {
+    width: 30px;
+    height: 2px;
+    background: #86BC42;
+}
+
+.aboutme .tieude span:nth-child(3) {
+    position: absolute;
+    top: 26px;
+    right: 22%;
+}
+
+.aboutme p {
+    margin: 0 39px;
+}
+
+
+
+.navbar .navbar-brand span {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 54px;
+    color: #86BC42;
+    text-transform: uppercase;
+}
+
 #introduce {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
+}
+
+button#introduction {
+    margin-top: 16px;
+}
+
+/* #introduce .hourlyRate h3 {
+    margin-top: 3px;
+} */
+
+form#freetime {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#freetime .form-group {
+    padding-left: 0;
+}
+
+#introduce .aboutme .tieude span:nth-child(2) {
+    left: 9%;
+}
+
+#introduce .aboutme .tieude span:nth-child(3) {
+    right: 9%;
+}
+
+#introduce .hourlyRate .tieude span:nth-child(2) {
+    left: 9%;
+}
+
+#introduce .hourlyRate .tieude span:nth-child(3) {
+    right: 9%;
 }
 
 #hourlyrate {
@@ -87,13 +240,13 @@ td.xanh {
     color: white;
     padding: 5px 15px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .data table tbody td {
     padding: 5px 15px;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .data table tbody tr:nth-child(even) {
@@ -141,7 +294,7 @@ td.xanh {
 }
 
 .bill .phai .duoi .trai {
-    margin-right: 40px;
+    margin-right: 14px;
 }
 
 .top .phai h3 {
@@ -161,7 +314,7 @@ td.xanh {
 }
 
 .logosmt h3 {
-    font-size: 12px;
+    font-size: 10px;
     text-transform: uppercase;
     color: #aaa5a5;
     margin: 5px 0 0 25px;
@@ -170,14 +323,14 @@ td.xanh {
 
 .logosmt h4 {
     margin: 0 0 0 25px;
-    font-size: 11px;
+    font-size: 10px;
     color: #aaa5a5;
 }
 
 a#checkinfotuition {
     position: absolute;
-    top: 42%;
-    right: 19%;
+    top: 31%;
+    right: 12%;
 }
 
 a#checkout_button {
@@ -552,7 +705,7 @@ h4 span {
     font-weight: 600;
 }
 
-.bglogin,.bglogin1 {
+.bglogin,.bglogin1,.bglogin2 {
     min-height: 100vh;
     background: linear-gradient(120deg, #C4E538, #009432, #C4E538);
 }
@@ -931,6 +1084,17 @@ input.checkout_button {
 form.login-form2 {
     height: 660px;
     width: 400px;
+    margin-top:45px;
+}
+
+.bglogin2 {
+    height: 700px;
+}
+
+.login-form2 i.fas.fa-chevron-left {
+    position: absolute;
+    top: 13%;
+    left: 14%;
 }
 
 form.login-form2 h1 {
@@ -1071,10 +1235,15 @@ li.nav-item.avatar.d-flex.align-items-center {
 }
 
 .giaoduc .univer h3, .noilam .univer h3 {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     color: #353C40;
     padding: 20px 50px 0 50px;
+}
+
+#major,#kinhnghiem {
+    padding-bottom:16px;
+    text-indent: 2em;
 }
 
 h3#year {
@@ -1082,13 +1251,17 @@ h3#year {
 }
 
 #bangcap h3, h3#major, h3#kinhnghiem, .monday h3 {
-    font-size: 15px;
+    font-size: 14px;
     color: #353C40;
-    margin: 10px 50px 25px 50px;
+    margin: 10px 50px 16px 50px;
+}
+
+#bangcap,.giaoduc,.noilam,.monday {
+    margin-top: -30px;
 }
 
 #certification i.far.fa-file-alt, #education i.fas.fa-graduation-cap, #experience i.fas.fa-briefcase, #subject i.fas.fa-book-open, .second i.fas.fa-lock, .second i.fas.fa-money-check-alt, .second i.fas.fa-mobile-alt, .first i.fas.fa-user-edit, .preference i.fas.fa-chalkboard-teacher, .addtuition i.fas.fa-solar-panel,i.fas.fa-info {
-    margin: 20px 0 40px 50px;
+    margin: 58px 0 40px 50px;
     background: #86BC42;
     color: white;
     border-radius: 99px;
@@ -1222,9 +1395,9 @@ ul.slide_menu.dropdown-menu.show {
     padding:0;
 }
 
-.tieude {
+/* .tieude {
     border-bottom: 1px solid #bcb8b866;
-}
+} */
 
 .edit-info form .form-group, .edit-info1 form .form-group {
     margin-top: 30px;
@@ -1399,21 +1572,31 @@ li.nav-item.form-search {
 .form-control {
     color: #CAC8C8;
     border-color: #bcb8b866;
-    height: 43px;
+    height: 39px;
     border-radius: 0;
 }
 
 .right .tieude .second {
     padding: 0;
     display: flex;
+    width: 100%;
+    margin-top:10px;
+}
+
+.right .fas.fa-lock,i.fas.fa-money-check-alt {
+    margin: 15px 0 0 50px !important;
+}
+
+i.fas.fa-chalkboard-teacher {
+    margin: 15px 0 0 0 !important;
 }
 
 form .rightt {
-    padding: 20px 50px;
+    padding: 9px 50px;
 }
 
 form label, .tren1 h3, .edit-info2 tr th, #condition h5, .form-check.check_out label, .credit_info1 h5 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 400;
     color: #353C40;
     text-transform: capitalize;
@@ -1456,17 +1639,24 @@ form label, .tren1 h3, .edit-info2 tr th, #condition h5, .form-check.check_out l
     font-weight: 800;
 }
 
-.edit-info1 .tieude h5 {
-    margin: 20px 0 40px 30px;
+.edit-info1 .tieude h5,.edit-info .tieude .second h5 {
+    padding: 0 0 10px 3px;
+    border-bottom: 1px solid gray;
+    margin-left: 14px;
 }
+
+.edit-info .rightt .tieude .second h5 {
+    border:none;
+}
+
 
 .ngoai .tieude h5 {
     padding: 20px 0;
 }
 
-.edit-info .right h5 {
+/* .edit-info .right h5 {
     padding-bottom: 20px;
-}
+} */
 
 .teaching_ex h5, .teaching_subject h5 {
     margin-top: 50px;
@@ -1480,6 +1670,7 @@ form label, .tren1 h3, .edit-info2 tr th, #condition h5, .form-check.check_out l
 
 .down {
     position: relative;
+    margin-top: 50px;
 }
 
 #delete_avatar {
@@ -1679,9 +1870,17 @@ button.close {
     right: 15px;
 }
 
-span {
+span,.left .up h4 {
     font-weight: 400;
     font-size: 14px;
+}
+
+.left .up h4 {
+    font-weight: 600;
+}
+
+.uploadava {
+    margin-bottom:10px;
 }
 
 i.fas.fa-map-marker-alt {
@@ -1712,7 +1911,7 @@ i.fas.fa-envelope {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     padding: 20px 0 0 0;
 }
@@ -1733,7 +1932,7 @@ i.fas.fa-check {
 
 .footer p {
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .footer h3 {
@@ -1891,12 +2090,11 @@ body, html {
 }
 
 .nav-link {
-    color: #242C42 !important;
-    margin-left: 40px;
     text-transform: uppercase;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    cursor: pointer;
+    color: #000 !important;
+    font-size: 14px;
+    line-height: 54px;
+    padding: 0 25px !important;
 }
 
 .navbar.navbar-expand-sm.navbar-light {
@@ -1916,7 +2114,7 @@ body, html {
 }
 
 .slogan h3 {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 35px;
     padding-top: 144px;
     font-weight: 300;
@@ -1958,7 +2156,7 @@ button.btn.btn-primary, button.btn.btn-warning {
     font-weight: 700;
     font-size: 14px;
     line-height: 26px;
-    padding: 8px 25px;
+    padding: 6px 25px;
     margin-top: 40px;
 }
 
@@ -1982,7 +2180,7 @@ button.btn.btn-warning {
     background: transparent;
     color: #86BC42;
     border: 3px solid #fff;
-    padding: 6px 29px;
+    padding: 4px 29px;
     margin-right: 14px;
 }
 
@@ -2049,7 +2247,7 @@ i.far.fa-money-bill-alt {
 }
 
 .top-courses {
-    padding: 80px 0 200px 0;
+    padding: 80px 0 150px 0;
 }
 
 .choose-courses {
@@ -2068,6 +2266,7 @@ i.far.fa-money-bill-alt {
 .your-courses1 {
     margin-top: 40px;
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
+    width:100%
 }
 
 .outside {
@@ -2079,7 +2278,7 @@ i.far.fa-money-bill-alt {
 }
 
 .outside h1 {
-    font-size: 20px;
+    font-size: 16px;
     color: #353C40;
     padding: 20px 0;
 }
@@ -2096,7 +2295,7 @@ i.fas.fa-star {
 
 
 .top-course .outside h2 {
-    padding-top: 20px;
+    padding-top:15px;
     font-size: 16px;
     color: black;
     overflow: hidden;
@@ -2118,8 +2317,11 @@ i.fas.fa-star {
 }
 
 .fact p {
-    font-size: 16px;
     margin: 15px 0 0 0;
+}
+
+p {
+    font-size:14px ;
 }
 
 .fact h1 {
@@ -2142,6 +2344,23 @@ button.navbar-toggler.d-lg-none {
 
 @media (max-width: 576px) {
     * {}
+
+    .structor h3 {
+        font-size: 13px;
+    }
+
+    .structor h2 {
+        font-size:22px;
+    }
+
+    .footer input[type="text"] {
+        width:85%;
+    }
+
+
+    .nav-link {
+        padding: 0 15px !important;
+    }
 
     #addcard {
         margin-left: 15px;
@@ -2333,8 +2552,14 @@ button.navbar-toggler.d-lg-none {
 @media (min-width:992px) and (max-width:1200px){
     *{}
 
+
+    .structor h2 {
+        font-size: 26px;
+    }
+
     .outside h2.title {
         font-size: 14px;
+        width:186px;
     }
 
     a.nav-link {
@@ -2362,7 +2587,63 @@ button.navbar-toggler.d-lg-none {
     }
 }
 
+/* @media  (min-width:577px) {
+    *{}
+
+    .top-courses {
+        padding: 80px 0 100px 0;
+    }
+
+    .right img {
+        width:0;
+    }
+
+    a.nav-link {
+        padding: 0 14px !important;
+    }
+
+} */
+
 @media (min-width:768px) and (max-width:992px){
     *{}
+
+    .top-courses {
+        padding: 80px 0 100px 0;
+    }
+
+    .footer input[type="text"] {
+        padding: 5px 0px 5px 2px;
+        font-size: 16px;
+        width:81%;
+    }
+
+    .footer .second img {
+        height: 60px;
+    }
+
+    .top-course .outside h2 {
+        width: 191px;
+    }
+
+    .slogan h3 {
+        font-size: 21px;
+    }
+
+    .slogan h1 {
+        font-size: 48px;
+    }
+
+    .slogan h4 {
+        font-size: 21px;
+    }
+
+    .choose-courses h2 {
+        font-size: 28px;
+    }
+
 }
+
+
+
+
 

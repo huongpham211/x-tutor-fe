@@ -72,7 +72,7 @@ class Bodyhome extends Component {
             </div>
             <div className="container">
               <div className="choose-course row">
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-microphone" />
@@ -80,7 +80,7 @@ class Bodyhome extends Component {
                   </div>
                   <h3>Language</h3>
                 </div>
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-compact-disc" />
@@ -88,7 +88,7 @@ class Bodyhome extends Component {
                   </div>
                   <h3>Software</h3>
                 </div>
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-desktop" />
@@ -96,7 +96,7 @@ class Bodyhome extends Component {
                   </div>
                   <h3>Web Develope</h3>
                 </div>
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-camera-retro" />
@@ -104,7 +104,7 @@ class Bodyhome extends Component {
                   </div>
                   <h3>Photography</h3>
                 </div>
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-money-bill-alt" />
@@ -112,7 +112,7 @@ class Bodyhome extends Component {
                   </div>
                   <h3>Business</h3>
                 </div>
-                <div className="col-md-4 col-xs-6 text-center">
+                <div className="col-md-4 col-sm-6 col-xs-6 text-center">
                   <div className="courses">
                     <div className="course text-center">
                       <i className="fas fa-comments" />
@@ -176,7 +176,7 @@ class Bodyhome extends Component {
         <div className="the-best text-center">
           <div className="title text-center">
             <h4>CHOOSE YOUR COURSE</h4>
-            <h2>THE TOP POPULAR COURSES FOR YOU</h2>
+            <h2>THE TOP POPULAR TUTOR FOR YOU</h2>
             <div className="icon">
               <i className="far fa-money-bill-alt" />
               <span />
@@ -185,7 +185,7 @@ class Bodyhome extends Component {
           </div>
           <div className="container">
             <div className="learn-best row">
-              <div className="col-md-3 col-xs-6">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="best">
                   <img src={require('../img/member6.jpg')} alt="" />
 
@@ -195,7 +195,7 @@ class Bodyhome extends Component {
                 </div>
               </div>
 
-              <div className="col-md-3 col-xs-6">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="best">
                   <img src={require('../img/member6.jpg')} alt="" />
 
@@ -205,7 +205,7 @@ class Bodyhome extends Component {
                 </div>
               </div>
 
-              <div className="col-md-3 col-xs-6">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="best">
                   <img src={require('../img/member6.jpg')} alt="" />
 
@@ -215,7 +215,7 @@ class Bodyhome extends Component {
                 </div>
               </div>
 
-              <div className="col-md-3 col-xs-6">
+              <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="best">
                   <img src={require('../img/member6.jpg')} alt="" />
 

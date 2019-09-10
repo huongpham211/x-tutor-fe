@@ -12,7 +12,8 @@ class Bodyaddtuition extends Component {
       hoursPerLession:'',
       hourStart:'',
       feePerHour:'',
-      feeTotal:''
+      feeTotal:'',
+      periodeEnd:''
     }
   }
 
@@ -40,6 +41,13 @@ class Bodyaddtuition extends Component {
   onStartDate(date) {
     this.setState({
       periodeStart:date
+    });
+  }
+  
+
+  onEndDate(date) {
+    this.setState({
+      periodeEnd:date
     });
   }
   
@@ -129,7 +137,7 @@ class Bodyaddtuition extends Component {
                       <label htmlFor="">Start date*</label>
                       {/* <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/> */}
                       <DatePicker
-                        // selected={this.state.startDate}
+                        selected={this.state.periodeStart}
                         onChange={(date) => this.onStartDate(date)}
                       />
                     </div>
@@ -145,9 +153,13 @@ class Bodyaddtuition extends Component {
                     </div>
                   </div>
                   <div className="col-md-6 phai">
-                    <div className="form-group">
-                      <label htmlFor="">No. of lesson per course</label>
-                      <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onLessionsPerCourse(e)}/>
+                  <div className="form-group change">
+                      <label htmlFor="">End date</label>
+                      {/* <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onStartDate(e)}/> */}
+                      <DatePicker
+                        selected={this.state.periodeEnd}
+                        onChange={(date) => this.onEndDate(date)}
+                      />
                     </div>
                     <div className="form-group">
                       <label htmlFor="">Hour start</label>
@@ -161,9 +173,9 @@ class Bodyaddtuition extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-                <Link to={{pathname:`/infotuition/${this.props.idtutor}`,courseName:{courseName:this.props.courseName},iduser:{iduser:this.props.iduser},idtuition:{idtuition:this.props.idtuition},feePerHour:{feePerHour:this.props.feePerHour},feeTotal:{feeTotal:this.props.feeTotal},lessionsPerCourse:{lessionsPerCourse:this.state.lessionsPerCourse},hoursPerLession:{hoursPerLession:this.state.hoursPerLession}}}  name="" type="submit" id="checkinfotuition" className="btn btn-primary " href="#" >Check info tuition</Link>
+                <Link to={{pathname:`/infotuition/${this.props.idtutor}`,courseName:{courseName:this.props.courseName},iduser:{iduser:this.props.iduser},idtuition:{idtuition:this.props.idtuition},feePerHour:{feePerHour:this.props.feePerHour},feeTotal:{feeTotal:this.props.feeTotal},lessionsPerCourse:{lessionsPerCourse:this.props.lessionsPerCourse},hoursPerLession:{hoursPerLession:this.state.hoursPerLession}}}  name="" type="submit" id="checkinfotuition" className="btn btn-primary " href="#" >Check info tuition</Link>
 
-                <a  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" onClick={(preferDay,periodeStart,academicLevel,lessionsPerCourse,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.lessionsPerCourse,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
+                <a  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" onClick={(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart) =>this.props.dataAddtuition(this.state.preferDay,this.state.periodeStart,this.state.academicLevel,this.state.periodeEnd,this.state.hoursPerLession,this.state.hourStart)}>Add Tuition Schedule</a>
               </div>
             </div>
           </div>
