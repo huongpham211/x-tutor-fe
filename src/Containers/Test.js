@@ -1,49 +1,31 @@
-// import React, { Component } from 'react';
-// import * as BigCalendar from 'react-big-calendar';
-// import { Calendar, Views } from 'react-big-calendar';
-// import 'react-big-calendar/lib/sass/styles.scss'
-// import ExampleControlSlot from './ExampleControlSlot'
-// import moment from 'moment';
-// import 'react-big-calendar/lib/css/react-big-calendar.css';
-// import axios from 'axios'
-// moment.locale('en-GB');
-// BigCalendar.momentLocalizer(moment);
-// class Test extends Component {
-//  constructor(props, context) {
-//    super(props, context);
-//    this.state = {
-//     cal_events: [],
-//   }
-//  }
- 
-//  componentDidMount() {
-//   var config = {
-//     headers:{"Authorization": "Bearer " + localStorage.getItem("signJwt")}
-//   }
-//   axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`,config)
-//   .then((res) =>{
-//     this.setState({cal_events:res.data.allSchedules});
-//   })
-//   .catch(err => console.log(err))
-// }
-// render() {
-//   const {cal_events} = this.state
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <h1 className="App-title">Test Calendar</h1>
-//         </header>
-//         <div style={{ height: 700 }}>
-//           <Calendar
-//             events={cal_events}
-//             step={30}
-//             defaultView='week'
-//             views={['month','week','day']}
-//             defaultDate={new Date()}
-//           />
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-// export default Test;
+import React, { Component } from 'react';
+import Popup from "reactjs-popup";
+
+class Test extends Component {
+    render() {
+        return (
+         
+                 <div className="App">
+      <h1>Create React Modal with 22 line of code </h1>
+      <Popup modal trigger={<button>Click Me</button>}>
+      { close =>(
+          <div className="khongcare">
+                <a className="close" onClick={close}>
+             &times;
+           </a>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at fermentum ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In justo erat, consequat sed facilisis luctus, rutrum euismod arcu. Donec interdum nunc elit, quis venenatis lectus lacinia id. Fusce blandit urna tempus nisi efficitur dapibus. Praesent imperdiet scelerisque tincidunt. Pellentesque dictum gravida ipsum id vestibulum. Ut eget arcu malesuada, consequat dolor vitae, commodo ante. Vivamus ligula orci, tincidunt ac accumsan id, egestas vitae elit. Quisque porta, magna sit amet efficitur maximus, sapien nunc imperdiet nunc, ut laoreet ante nunc sit amet ligula. Phasellus a massa finibus, imperdiet lacus nec, iaculis erat. Fusce nec nibh ut arcu semper lacinia. Mauris sollicitudin tincidunt facilisis. Quisque in eleifend mi, dapibus vulputate purus.
+
+</p>
+          </div>
+           
+           
+      )}
+   
+      </Popup>
+    </div>
+        
+        );
+    }
+}
+
+export default Test;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import Bodycard from './Bodycard';
 import axios from '../../axios';
 class Bodyinfocard extends React.Component {
@@ -90,10 +90,10 @@ class Bodyinfocard extends React.Component {
                             </div>
                         </div>
                         <div className="col-md-9 right">
-                            <div className="tieude">
+                            <div className="tieude khac">
                                 <div className="second ">
                                     <i className="fas fa-money-check-alt" />
-                                    <h5 className="col-md-9">Payment Card</h5>
+                                    <h5 className="col-md-10 col-xs-9">Payment Card</h5>
                                 </div>
                             </div>
                             <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>

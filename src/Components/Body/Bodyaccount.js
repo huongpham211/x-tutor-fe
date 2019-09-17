@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link  } from "react-router-dom";
+import { BrowserRouter as Route, Link  } from "react-router-dom";
 class Bodyaccount extends Component {
   constructor(props, context) {
     super(props, context);
@@ -229,6 +229,9 @@ class Bodyaccount extends Component {
                   </div>
                 </div>
               </form>
+              <div>
+                        <span className="text-danger" id="error-notice" >{this.props.accountSettingErr}</span>
+                    </div>
               <div className="save_info d-flex justify-content-center">
                 <button name="" id="update_avatar" className="btn btn-primary " type="submit"  onClick={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth,language) => this.props.getData(this.state.country,this.state.firstName,this.state.lastName,this.state.otherName,this.state.address,this.state.nationality,this.state.raceName,this.state.gender,this.state.religion,this.state.email,this.state.CurrentAcademicLevel,this.state.city,this.state.dateOfBirth)}>Save &amp; Update</button>
               </div>

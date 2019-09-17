@@ -111,7 +111,12 @@ class Account_settings extends Component {
         .then((response) =>{
             console.log(response.data);   
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err.response.data.message)
+            this.setState({
+                accountSettingErr:err.response.data.message
+            });
+        });
     }  
 
     render() {
@@ -126,7 +131,7 @@ class Account_settings extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodyaccount firstName={this.state.firstName} lastName={this.state.lastName} avatar={this.state.avatar} passAvatar={(e) => this.updateAvatar(e)} iduser={this.state.iduser} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
+                <Bodyaccount accountSettingErr={this.state.accountSettingErr} firstName={this.state.firstName} lastName={this.state.lastName} avatar={this.state.avatar} passAvatar={(e) => this.updateAvatar(e)} iduser={this.state.iduser} getData={(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth) => this.getData(country,firstName,lastName,otherName,address,nationality,raceName,gender,religion,email,CurrentAcademicLevel,city,dateOfBirth)}/>
                 <Footer/>
             </div>
            

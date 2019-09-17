@@ -33,7 +33,12 @@ class Change_password extends Component {
             .then((response) =>{
                 console.log(response.data);             
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err.response.data.message)     
+                this.setState({
+                    changePasswordErr:err.response.data.message
+                });
+            });
         }       
     }
 
@@ -75,7 +80,7 @@ class Change_password extends Component {
         return (
             <div>
                  {this.showheader()}
-               <Bodypassword  changePassword={(oldPassword,newPassword,confirmNewPassword) => this.changePassword(oldPassword,newPassword,confirmNewPassword)} iduser={this.state.iduser}/>
+               <Bodypassword changePasswordErr={this.state.changePasswordErr} changePassword={(oldPassword,newPassword,confirmNewPassword) => this.changePassword(oldPassword,newPassword,confirmNewPassword)} iduser={this.state.iduser}/>
                <Footer/>
             </div>
         );

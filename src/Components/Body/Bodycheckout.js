@@ -101,14 +101,14 @@ class Bodycheckout extends Component {
       .then((res) => {
         console.log(res.data);
         this.setState({
-          cardNumber: res.data[key].cardNumber,
-          nameOnCard: res.data[key].nameOnCard,
-          expiredDate: res.data[key].expiredDate,
-          remarks: res.data[key].remarks,
-          residentialAddress: res.data[key].residentialAddress,
-          city: res.data[key].city,
-          country: res.data[key].country,
-          postalCode: res.data[key].postalCode,
+          cardNumber: res.data[0].cardNumber,
+          nameOnCard: res.data[0].nameOnCard,
+          expiredDate: res.data[0].expiredDate,
+          remarks: res.data[0].remarks,
+          residentialAddress: res.data[0].residentialAddress,
+          city: res.data[0].city,
+          country: res.data[0].country,
+          postalCode: res.data[0].postalCode,
 
         })
       })

@@ -5,9 +5,9 @@ import ExampleControlSlot from './ExampleControlSlot'
 import moment from 'moment'
 import * as BigCalendar from 'react-big-calendar'
 import 'react-big-calendar/lib/sass/styles.scss'
-// import axios from '../axios';
+import axios from '../axios';
 
-let allViews = Object.keys(Views).map(k => Views[k]) 
+let allViews = Object.keys(Views).map(k => Views[k])
 
 const propTypes = {}
 
@@ -15,7 +15,7 @@ class Selectable extends React.Component {
   constructor(...args) {
     super(...args)
 
-    this.state = { test }
+    this.state = { events: [] }
   }
 
   // handleSelect = ({ start, end }) => {
@@ -34,46 +34,52 @@ class Selectable extends React.Component {
   // }
 
 
-  
-  // componentDidMount() {
-  //   var config = {
-  //     headers:{"Authorization": "Bearer " + localStorage.getItem("signJwt")}
-  //   }
-  //   axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`,config)
-  //   .then((res) =>{
-  //     console.log(res.data);
-      
-  //     const events = []
-  //     res.data.allSchedules.map((event) =>{
-  //       events.push({
-  //         start: moment(event.periodeStart).toDate(),
-  //         end: moment(event.periodeEnd).toDate(), 
-  //         title: event.courseCode,
-  //       })
-  //       console.log(events);
-        
-  //     })
-  //     this.setState({events:events});
-  //   })
-  //   .catch(err => console.log(err))
-  // }
-  
-  
-  
-  componentWillMount() {
-    this.setState({
-      events: this.state.test.map((item,index)=>({...item,index}))
-    });
+
+  componentDidMount() {
+    var config = {
+      headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
+    }
+    axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`, config)
+      .then((res) => {
+        console.log(res.data);
+
+        const events = []
+        res.data.allSchedules.map((event) => {
+          event.sessions.map((item) => {
+            var dt = moment(item).toDate();
+            dt.setHours( dt.getHours() + event.hourStart);
+            var dt1 = moment(item).toDate();
+            dt1.setHours( dt1.getHours() + event.hourEnd );
+            events.push({
+              start: dt ,
+              end: dt1 ,
+              title: event.courseCode,
+            })
+          })
+          console.log(events);
+
+        })
+        this.setState({ events: events });
+      })
+      .catch(err => console.log(err))
   }
-  
-  
- 
+
+
+
+  // componentWillMount() {
+  //   this.setState({
+  //     events: this.state.test.map((item,index)=>({...item,index}))
+  //   });
+  // }
+
+
+
 
   render() {
     // this.state.events =  this.state.test.map((item,index)=>({...item,index}))
 
-   
-    
+
+
     const localizer = BigCalendar.momentLocalizer(moment)
     return (
       <>
@@ -88,9 +94,11 @@ class Selectable extends React.Component {
           localizer={localizer}
           events={this.state.events}
           views={allViews}
+          step={60}
+          showMultiDayTimes
           defaultView={Views.WEEK}
-          scrollToTime={new Date(1970, 1, 1, 6)}
-          defaultDate={new Date(2015, 3, 12)}
+          // scrollToTime={new Date(1970, 1, 1, 6)}
+          defaultDate={new Date()}
           onSelectEvent={event => alert(event.title)}
           onSelectSlot={this.handleSelect}
         />

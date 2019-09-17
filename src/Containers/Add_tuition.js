@@ -22,6 +22,7 @@ class Add_tuition extends Component {
         }
     }
 
+
     componentDidMount(){
            axios
            .get(`api/v1/users/${this.state.iduser}`)

@@ -5,7 +5,7 @@ class Bodycreatecard extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      cardType: '',
+      cardType: 'Visa',
       nameOnCard: '',
       cardNumber: 0,
       expiredDate: '',
@@ -18,14 +18,14 @@ class Bodycreatecard extends Component {
     }
     this.changeNameOnCard = this.changeNameOnCard.bind(this);
     this.changeCardNumber = this.changeCardNumber.bind(this);
-    this.radioChange = this.radioChange.bind(this);
+    // this.radioChange = this.radioChange.bind(this);
   }
 
-  radioChange(e) {
-    this.setState({
-      cardType: e.target.value
-    });
-  }
+  // radioChange(e) {
+  //   this.setState({
+  //     cardType: e.target.value
+  //   });
+  // }
 
   
   changeNameOnCard(e){
@@ -97,8 +97,8 @@ class Bodycreatecard extends Component {
                 <img src={require('../img/member6.jpg')} alt="" />
                 <h5>Daniela Queen</h5>
                 <div className="setting_button">
-                  <a name="" id="update_avatar" className="btn btn-primary" href="#" role="button">Update Avatar</a>
-                  <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+                  <button name="" id="update_avatar" className="btn btn-primary">Update Avatar</button>
+                  <button name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</button>
                 </div>
               </div>
               <div className="down">
@@ -130,14 +130,14 @@ class Bodycreatecard extends Component {
               <form method="" id="change">
                 <div className="paymentCont text-center">
                   <div className="paymentWrap">
-                    <div className="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
+                    <div className="btn-group paymentBtnGroup btn-group-justified" >
                       <label className="btn paymentMethod active">
                         <div className="method visa" />
-                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'Visa'}    onChange={this.radioChange} />
+                        <input type="radio" name="options" value='Visa'  checked={this.state.cardType === 'Visa'}  onChange={(e) => this.setState({ cardType: e.target.value })} />
                       </label>
                       <label className="btn paymentMethod">
                         <div className="method master-card" />
-                        <input type="radio" name="options" value="Master Card" checked={this.state.cardType === "Master Card"}    onChange={this.radioChange}/>
+                        <input type="radio" name="options" value="Master Card"  checked={this.state.cardType === 'Master Card'}  onChange={(e) => this.setState({ cardType: e.target.value })}/>
                       </label>
                     </div>
                   </div>

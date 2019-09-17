@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Components/Header/Header';
+import Headertutor from '../Components/Header/Headertutor';
 import Bodypayment from '../Components/Body/Bodycreatecard';
 import Footer from '../Components/Footer';
 import axios from '../axios';
@@ -18,7 +19,7 @@ class UpdateCard extends Component {
             city:'',
             province:'',
             country:'',
-            postalCode:'',         
+            postalCode:'',
         }
         // this.checkConnect = this.checkConnect.bind(this);
     }
@@ -27,6 +28,36 @@ class UpdateCard extends Component {
         this.setState({
             cardId:this.props.match.params.id
         })          
+    }
+
+    componentDidMount(){
+   
+        axios
+        .get(`api/v1/users/${this.state.iduser}`)
+         .then((response) =>{
+             this.setState({
+                 rolesId:response.data.userFound.rolesId
+             })
+         })
+         .catch(err =>console.log(err));
+            
+     }
+    
+    showheader = () => {
+        if(this.state.rolesId === 'Tutor'){
+            return <Headertutor
+            iduser={this.state.iduser}
+            test={this.state.dataDb}
+            checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+          
+            />
+        }
+        else {
+            return <Header
+            iduser={this.state.iduser}
+             checkConnectProps={(dl) => this.props.checkConnectProps(dl)}
+            />
+        }
     }
 
     checkConnect = (cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) =>{
@@ -49,7 +80,7 @@ class UpdateCard extends Component {
         .then((response) =>{
             console.log(response.data);    
         })
-        .catch(err => console.log(err));   
+        .catch(err => console.log(err.response));   
     }
 
     render() {
@@ -64,7 +95,7 @@ class UpdateCard extends Component {
         
         return (
             <div>
-                <Header/>
+                {this.showheader()}
                 <Bodypayment  infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
                 <Footer/>
             </div>

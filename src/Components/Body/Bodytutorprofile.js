@@ -39,7 +39,7 @@ class Bodytuitorprofile extends Component {
         <Link to={{ pathname: `/add_tuition/${this.props.id}`, iduser: { iduser: this.props.iduser }, courseName: { courseName: this.props.courseName } }}>
           <button name="" id="update_avatar" className="btn btn-primary" >Add Tuition </button>
         </Link>
-        <a name="" id="delete_avatar" className="btn btn-primary" href="#" role="button">Delete</a>
+        <button name="" id="delete_avatar" className="btn btn-primary" >Delete</button>
       </div>)
     }
   }
@@ -108,9 +108,9 @@ class Bodytuitorprofile extends Component {
             {/* end left */}
             <div className="col-md-9 right">
               <div id="certification">
-                <div className="tieude">
+                <div className="tieude ">
                   <i className=" far fa-file-alt" />
-                  <h5 className="col-md-10">Certification</h5>
+                  <h5 className="col-md-10 col-xs-9">Certification</h5>
                 </div>
                 <div id="bangcap">
                   {this.getData()}
@@ -118,25 +118,25 @@ class Bodytuitorprofile extends Component {
               </div>
               {/* end ceetification */}
               <div id="education">
-                <div className="tieude">
+                <div className="tieude ">
                   <i className="fas fa-graduation-cap" />
-                  <h5 className="col-md-10">Education</h5>
+                  <h5 className="col-md-10 col-xs-9">Education</h5>
                 </div>
                 {this.education()}
               </div>
               {/* end education */}
               <div id="experience">
-                <div className="tieude">
+                <div className="tieude ">
                   <i className="fas fa-briefcase" />
-                  <h5 className="col-md-10">Working Experience</h5>
+                  <h5 className="col-md-10 col-xs-9">Working Experience</h5>
                 </div>
                 {this.workingExperience()}
               </div>
               {/* end experience */}
               <div id="subject">
-                <div className="tieude">
+                <div className="tieude ">
                   <i className="fas fa-book-open" />
-                  <h5 className="col-md-10">Teaching Subject</h5>
+                  <h5 className="col-md-10 col-xs-9">Teaching Subject</h5>
                 </div>
                 <div className="monday">
                   {this.dataTechingSubject()}

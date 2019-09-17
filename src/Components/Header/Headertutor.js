@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import axios from '../../axios';
 
 class Headertutor extends Component {

@@ -3,13 +3,59 @@
     padding: 0;
 }
 
+.detail_course table i {
+    padding-right: 8px;
+}
+
+.paragraph-inline {
+    float:left;
+    display: inline-block;
+    width: 350px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    /* height: 200px; */
+}
+
+.media {
+    margin-bottom: 20px;
+}
+
+.media-body h1 {
+    font-size: 23px;
+    margin-bottom: 0;
+}
+
+.media-left {
+    padding-right: 10px;
+}
+
+span.icon-block {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    background: #eb2f06;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+.group_button {
+    position: absolute;
+    top: 52%;
+    left: 37%;
+}
+
+
+.addtuition button#update_avatar {
+    margin-bottom: 30px;
+}
+
 .detail_down h3 {
     font-size: 24px;
 }
 
-.detail_down h4 {
-    font-size: 16px;
-}
+
 
 .detail_down .title h4 {
     font-size: 17px;
@@ -286,7 +332,7 @@ td.xanh {
 .bill .phai .duoi {
     display: flex;
     color: #aaa5a5;
-    margin-left: 25px;
+    margin-left: 12px;
 }
 
 .bill .phai .duoi h4 {
@@ -295,6 +341,10 @@ td.xanh {
 
 .bill .phai .duoi .trai {
     margin-right: 14px;
+}
+
+.bill .top .phai h3 {
+    font-size: 17px;
 }
 
 .top .phai h3 {
@@ -328,15 +378,8 @@ td.xanh {
 }
 
 a#checkinfotuition {
-    position: absolute;
-    top: 31%;
-    right: 12%;
-}
-
-a#checkout_button {
-    position: absolute;
-    top: -10%;
-    right: -34%;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .checkbox {
@@ -711,7 +754,7 @@ h4 span {
 }
 
 .bglogin1 {
-    height: 580px;
+    height: 750px;
 }
 
 .slide_menu a {
@@ -846,7 +889,6 @@ h4 span {
 
 #info_card {
     padding: 30px;
-    width: 400px;
     box-sizing: border-box;
 }
 
@@ -1085,6 +1127,7 @@ form.login-form2 {
     height: 660px;
     width: 400px;
     margin-top:45px;
+    padding:80px 20px;
 }
 
 .bglogin2 {
@@ -1094,7 +1137,7 @@ form.login-form2 {
 .login-form2 i.fas.fa-chevron-left {
     position: absolute;
     top: 13%;
-    left: 14%;
+    left: 10%;
 }
 
 form.login-form2 h1 {
@@ -1113,9 +1156,14 @@ form.login-form2 h1 {
     background: #f1f1f1;
 }
 
+.login-form1 {
+    transform: translate(-50%, -40%);
+    height: 690px;
+}
+
 
 form.login-form1 a {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -1196,7 +1244,7 @@ form.login-form1 a:hover {
 }
 
 .bottom-text {
-    margin-top: 60px;
+    margin-top: 40px;
     text-align: center;
     font-size: 13px;
 }
@@ -2344,6 +2392,54 @@ button.navbar-toggler.d-lg-none {
 
 @media (max-width: 576px) {
     * {}
+
+    #checkout_button {
+        top: -21%;
+        right: -21%;
+    }
+  
+
+    #tuition_schedule {
+        margin-top: 150px;
+    }
+
+    .group_button {
+        left: 33%;
+        top: 21%;
+    }
+
+    #checkinfotuition {
+        margin-left: -9px !important;
+        margin-top: -3px !important;
+    }
+
+    #certification h5, #education h5, #experience h5, #subject h5 {
+        margin-right: 50px;
+    }
+
+    .hourlyRate .tieude span:nth-child(2) {
+        left: 30%;
+    }
+
+    .hourlyRate .tieude span:nth-child(3) {
+        right: 30%;
+    }
+
+    .aboutme .tieude span:nth-child(2) {
+        left: 32%;
+    }
+
+    .aboutme .tieude span:nth-child(3) {
+        right: 32%;
+    }
+
+    .khac .second i.fas.fa-money-check-alt {
+        margin-left: 0 !important;
+    }
+
+    .khac .second i.fas.fa-lock {
+        margin-left: 0 !important;
+    }
 
     .structor h3 {
         font-size: 13px;

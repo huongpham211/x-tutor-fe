@@ -5,7 +5,7 @@ class Bodyupdatecard extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      cardType: 'Visa',
+      cardType: "Visa",
       nameOnCard: '',
       cardNumber: 0,
       expiredDate: '',
@@ -14,18 +14,19 @@ class Bodyupdatecard extends Component {
       city: '',
       province: '',
       country: '',
-      postalCode: ''
+      postalCode: '',
     }
     this.changeNameOnCard = this.changeNameOnCard.bind(this);
     this.changeCardNumber = this.changeCardNumber.bind(this);
 
   }
 
-  // onCardType(e){
-  //   this.setState({
-  //     cardType:e.target.value
-  //   })
-  // }
+  onCardType(e){
+    this.setState({
+      cardType:e.target.value
+    })
+  }
+
   changeNameOnCard(e){
     this.setState({
       nameOnCard:e.target.value
@@ -131,11 +132,11 @@ class Bodyupdatecard extends Component {
                     <div className="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons">
                       <label className="btn paymentMethod active">
                         <div className="method visa" />
-                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'visa-card'} onChange={(e) => this.setState({ cardType: e.target.value })}/>
+                        <input type="radio" name="options" value='Visa' checked={this.state.cardType === 'Visa'} onChange={(e) => this.setState({ cardType: e.target.value })}/>
                       </label>
                       <label className="btn paymentMethod">
                         <div className="method master-card" />
-                        <input type="radio" name="options" value="Master Card" checked={this.state.cardType === "master-card"} onChange={(e) => this.setState({cardType: e.target.value})}/>
+                        <input type="radio" name="options" value="Master Card" checked={this.state.cardType === "Master Card"} onChange={(e) => this.setState({cardType: e.target.value})}/>
                       </label>
                     </div>
                   </div>

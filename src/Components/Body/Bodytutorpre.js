@@ -306,7 +306,7 @@ class Bodytuitionpre extends Component {
                       <label htmlFor="">Hour end</label>
                       <input type="text" className="form-control" name="start_date" id="start_date" aria-describedby="helpId" placeholder="" onChange={(e) => this.onHourEnd(e)}/>
                     </div>
-                    <a  name="" type="submit" id="update_avatar" className="btn btn-primary " href="#" onClick={(periodeStart,periodeEnd,hourStart,hourEnd) =>this.props.freetime(this.state.periodeStart,this.state.periodeEnd,this.state.hourStart,this.state.hourEnd)}>Add Tuition Schedule</a>
+                    <button  name="" type="submit"  className="btn btn-primary " onClick={(periodeStart,periodeEnd,hourStart,hourEnd) =>this.props.freetime(this.state.periodeStart,this.state.periodeEnd,this.state.hourStart,this.state.hourEnd)}>Add Tuition Schedule</button>
 
                 </form>
                 {/* het tieude */}

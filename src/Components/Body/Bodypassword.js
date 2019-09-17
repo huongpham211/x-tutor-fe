@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import axios from '../../axios';
 class Bodypassword extends Component {
   constructor(props, context) {
@@ -84,7 +84,7 @@ class Bodypassword extends Component {
               <div className="tieude khac">
                 <div className="second ">
                   <i className="fas fa-lock"></i>
-                  <h5 id="change_password" className="col-md-9">Change Password</h5>
+                  <h5 id="change_password" className="col-md-10 col-xs-9">Change Password</h5>
                 </div>
               </div>
               <form action="" className="khac">
@@ -101,6 +101,9 @@ class Bodypassword extends Component {
                     <label htmlFor="">Re-type new password</label>
                     <input type="password" className="form-control" name="confirmNewPassword" id="" aria-describedby="helpId" placeholder="" onChange={(e) => this.onConfirmNewPassword(e)} />
                   </div>
+                  <div>
+                        <span className="text-danger" id="error-notice" >{this.props.changePasswordErr}</span>
+                    </div>
                   <button name="" type="submit" id="update_avatar" className="btn btn-primary" onClick={(oldPassword, newPassword, confirmNewPassword) => this.props.changePassword(this.state.oldPassword, this.state.newPassword, this.state.confirmNewPassword)}>Change password</button>
                 </div>
               </form>
