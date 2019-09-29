@@ -3,17 +3,247 @@
     padding: 0;
 }
 
+.giraffe {
+    background:url(./Components/img/giraffe.png);
+    position: relative;
+    width: 100%;
+    height: 705px;
+    background-position: top right;
+    background-repeat: no-repeat;
+    margin: -440px 0 0;
+}
+
+.eye {
+    background:url(./Components/img/eye.gif);
+    position: absolute;
+    top: 90px;
+    right: 267px;
+    background-size: 100%;
+    width: 65px;
+    height: 65px;
+    background-repeat: no-repeat;
+}
+
+.body {
+    /* height: 100%; */
+    /* position: relative; */
+    background: #84c551;
+}
+
+#wrapper {
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+#wrapper h1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-top: 160px;
+    font-weight: 700;
+    color: #5a8934;
+}
+
+#wrapper p {
+    font-size: 20px;
+    line-height: 30px;
+    color: #fff;
+    margin: 20px 0;
+}
+
+#wrapper .btn {
+    background: #3c7fd3;
+    font-size: 18px;
+    font-weight: 300;
+    border: 0px solid;
+    border-bottom: 2px solid;
+    border-color: #2467b7;
+    padding: 10px 41px;
+    margin: 10px 0;
+    color: #fff;
+    z-index: 9999;
+    position: relative;
+}
+
+button#checkout_button {
+    margin-top: 0;
+}
+
+.khongcare h5 {
+    font-size: 14px;
+}
+
+.khongcare {
+    padding: 10px 11px;
+}
+
+.btn.btn-primary.maudep,.otherbutton.maudep {
+    background: linear-gradient(to right, #86BC42 0%, #C4E538 51%, #FDFC47 100%);
+}
+
+.btn.btn-primary.maudep {
+    margin-top:0px
+}
+
+#report, #rate {
+    padding: 16px;
+}
+
+.margin {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.sessionstudent {
+    display: flex;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.sessionstudent .col-lg-6 {
+    padding: 0;
+}
+
+#report {
+    margin-right: 15px;
+}
+
+#rate {
+    margin-left:15px;
+}
+
+.document i {
+    margin-left: 6px;
+}
+
+.upload_file .document h5 {
+    font-size: 14px;
+}
+
+.upload_file .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+input#updocument {
+    margin-top: 14px;
+    padding: 3px;
+}
+
+.scheduletutor .title {
+    margin-bottom: 30px;
+}
+
+.scheduletutor .title h4 {
+    font-size: 18px;
+}
+
+#onesession h4 {
+    font-size: 14px;
+    color: black;
+}
+
+.scheduletutor {
+    margin: 40px 0 20px 0;
+}
+
+form#upload_file {
+    border: 1px solid gray;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.sessiontutor {
+    width: 100%;
+    display: flex;
+}
+
+#rate .dv-star-rating {
+    display: flex !important;
+}
+
+form.uploadfile {
+    padding: 5px 15px 10px 5px;
+    border:1px solid gray;
+}
+
+.uploadfile h4 {
+    border-bottom: 1px solid #d0c4c4;
+    padding-bottom: 10px;
+    margin-bottom: 35px;
+}
+
+.uploadfile .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.document i.fas.fa-trash {
+    background:  #eb2f06;
+    color: white;
+    padding: 4px;
+}
+
+.document i.far.fa-edit {
+    background: #575761;
+    color: white;
+    padding: 4px;
+}
+
+i.fas.fa-eye {
+    background:#FFBF46;
+    color: white;
+    padding: 4px;
+}
+
+.upload_file {
+    padding: 30px 0;
+}
+
+.assign,.document {
+    display: flex;
+    justify-content: space-between;
+}
+
+.document {
+    border-bottom: 1px solid #cecdcd;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+}
+
+h5#document_name {
+    width: 40%;
+}
+
+.assign {
+    background: #86BC42;
+    padding: 5px 20px;
+}
+
+.content-area {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+
 .detail_course table i {
     padding-right: 8px;
 }
 
 .paragraph-inline {
-    float:left;
     display: inline-block;
     width: 350px;
     margin-right: 16px;
     margin-bottom: 8px;
-    /* height: 200px; */
+    float:left;
 }
 
 .media {
@@ -42,14 +272,11 @@ span.icon-block {
 
 .group_button {
     position: absolute;
-    top: 52%;
-    left: 37%;
+    top: 25%;
+    left: 31%;
 }
 
 
-.addtuition button#update_avatar {
-    margin-bottom: 30px;
-}
 
 .detail_down h3 {
     font-size: 24px;
@@ -72,9 +299,16 @@ span.icon-block {
 
 #onesession h3 {
     font-size: 18px;
+    color:black;
 }
 
+.report, .rate {
+    border-bottom: none !important;
+}
 
+a:hover {
+    text-decoration: none !important;
+}
 
 .detail_course .detail_up table td {
     border: 1px solid;
@@ -1158,7 +1392,7 @@ form.login-form2 h1 {
 
 .login-form1 {
     transform: translate(-50%, -40%);
-    height: 690px;
+    height: 640px;
 }
 
 
@@ -1171,6 +1405,11 @@ form.login-form1 a {
 
 form.login-form1 a:hover {
     color: #fff;
+}
+
+
+.bglogin1 button.btn.btn-primary {
+    width: 100%;
 }
 
 .login-form h1, .login-form1 h1 {
@@ -1476,11 +1715,12 @@ input#exampleCheck1 {
 }
 
 .tren1 {
-    padding: 30px 65px;
+    padding: 80px 65px 30px 65px;
 }
 
 .ngoai {
     background: #fff;
+    padding-bottom: 30px;
 }
 
 #radio {
@@ -1542,7 +1782,7 @@ li.nav-item.form-search {
     z-index: 2;
     font-size: 34px;
     font-weight: 400;
-    left: 39%;
+    left: 34%;
     top: 56%;
 }
 
@@ -1587,6 +1827,7 @@ li.nav-item.form-search {
     display: flex;
     justify-content: space-between;
     padding: 22px 0;
+    flex-wrap:wrap;
 }
 
 .top-courses1 {
@@ -2193,11 +2434,11 @@ a.btn.btn-primary, a.btn.btn-warning,a.checkout_button {
     margin-top: 40px;
 }
 
-a.checkout_button{
+a.checkout_button,.otherbutton{
     color: #fff !important; 
 }
 
-button.btn.btn-primary, button.btn.btn-warning {
+button.btn.btn-primary, button.btn.btn-warning,.otherbutton {
     background: #86BC42;
     border-color: #86BC42;
     border-radius: 0;
@@ -2392,6 +2633,62 @@ button.navbar-toggler.d-lg-none {
 
 @media (max-width: 576px) {
     * {}
+
+#wrapper .info p {
+    font-size: 28px;
+}
+
+.giraffe {
+    width: 200px;
+    height: 300px;
+    margin: 20px auto 10px;
+    background-position: center;
+    background-size: 100%;
+}
+
+.eye {
+    width: 25px;
+    height: 25px;
+    right: 110px;
+    top: 49px;
+}
+
+#wrapper .info h1 {
+    font-size: 30px !important;
+    line-height:  40px !important;
+}
+
+.info {
+    text-align: center;
+}
+
+    #report {
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+
+    #rate {
+        margin-left: 0;
+    }
+
+    .sessionstudent {
+        flex-direction: column;
+    }
+
+    .document {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 13px;
+    }
+
+    .document #document_name {
+        width: 100%;
+    }
+
+    .detail_course .detail_up #table i {
+        display: flex;
+        justify-content: center;
+    }
 
     #checkout_button {
         top: -21%;

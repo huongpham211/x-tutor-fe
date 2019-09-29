@@ -1,6 +1,5 @@
 import React from 'react'
 import { Calendar, Views } from 'react-big-calendar'
-import test from './events'
 import ExampleControlSlot from './ExampleControlSlot'
 import moment from 'moment'
 import * as BigCalendar from 'react-big-calendar'
@@ -64,7 +63,9 @@ class Selectable extends React.Component {
       .catch(err => console.log(err))
   }
 
-
+    handleClick(){
+      alert('deo hieu')
+    }
 
   // componentWillMount() {
   //   this.setState({
@@ -99,7 +100,7 @@ class Selectable extends React.Component {
           defaultView={Views.WEEK}
           // scrollToTime={new Date(1970, 1, 1, 6)}
           defaultDate={new Date()}
-          onSelectEvent={event => alert(event.title)}
+          onSelectEvent={this.handleClick}
           onSelectSlot={this.handleSelect}
         />
       </>

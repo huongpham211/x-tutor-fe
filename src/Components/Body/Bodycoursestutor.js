@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Coursespage from './Coursespage';
+import Coursestutor from './Coursestutor';
 import axios from '../../axios';
 class Bodycoursestutor extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            datacourses:''
+            datacourses:'',
+            
         }
     }
 
@@ -23,9 +24,9 @@ class Bodycoursestutor extends Component {
     coursestutor(){
         if(this.state.datacourses.length > 0){
             return this.state.datacourses.map((value,key)=>(
-                <Coursespage
+                <Coursestutor
                 key={key}
-                iduser={this.state.iduser}
+                iduser={this.props.iduser}
                 courseName={value.course}
                 academicLevel={value.academicLevel}
                 idcourse={value._id}

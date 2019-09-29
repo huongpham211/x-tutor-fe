@@ -78,12 +78,12 @@ class Bodypage extends Component {
         <div className="coursess">
           <div className="container">
             <div className="subject">
-              <div>Language</div>
-              <div>Software</div>
-              <div>Web develope</div>
-              <div>Photography</div>
-              <div>Business</div>
-              <div>Social media</div>
+              <div className="col-lg-2 col-xs-6">Language</div>
+              <div className="col-lg-2 col-xs-6">Software</div>
+              <div className="col-lg-2 col-xs-6">Web develope</div>
+              <div className="col-lg-2 col-xs-6">Photography</div>
+              <div className="col-lg-2 col-xs-6">Business</div>
+              <div className="col-lg-2 col-xs-6">Social media</div>
             </div>
           </div>
         </div>
@@ -91,8 +91,9 @@ class Bodypage extends Component {
           <div className="anh1" />
           <div className="outside1" />
           <h4>Learn a new skill online on your time</h4>
-          <h5>57,000 Online Courses</h5>
+          <h5>Be educated, be a good achiever.</h5>
         </div>
+      
         <div className="top-courses1">
           <div className="container">
             <div className="title">

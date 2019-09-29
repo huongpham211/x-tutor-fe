@@ -45,7 +45,7 @@ class Filter extends Component {
                         <span data-placeholder="Tutor" />
                     </div>
                     <Link to={`/filter_course/${this.props.match.params.id}`}>
-                        <button onClick={(coursename, tutor) => this.props.filterFunction(this.state.coursename, this.state.tutor)}>Filter</button>
+                        <button  className="btn btn-primary" onClick={(coursename, tutor) => this.props.filterFunction(this.state.coursename, this.state.tutor)}>Filter</button>
                     </Link>
                 </form>
             </div>

@@ -86,7 +86,13 @@ class Add_tuition extends Component {
                 lessionsPerCourse:response.data.tuiSchedule.lessionsPerCourse,
               })
             })
-            .catch(err => console.log(err))  
+            .catch(err =>{
+                console.log(err.response);
+                
+                this.setState({
+                    error_addtuition:err.response.data.message
+                });
+            });
     }
 
     render() {
@@ -100,7 +106,7 @@ class Add_tuition extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodyaddtuition lessionsPerCourse={this.state.lessionsPerCourse} idtutor={this.state.id} courseName={this.state.courseName} iduser={this.state.iduser} idtuition={this.state.idtuition} feePerHour={this.state.feePerHour} feeTotal={this.state.feeTotal} dataAddtuition={(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart) => this.dataAddtuition(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart)}/>
+                <Bodyaddtuition error_addtuition={this.state.error_addtuition} lessionsPerCourse={this.state.lessionsPerCourse} idtutor={this.state.id} courseName={this.state.courseName} iduser={this.state.iduser} idtuition={this.state.idtuition} feePerHour={this.state.feePerHour} feeTotal={this.state.feeTotal} dataAddtuition={(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart) => this.dataAddtuition(preferDay,periodeStart,academicLevel,periodeEnd,hoursPerLession,hourStart)}/>
                 <Footer/>
             </div>
         );

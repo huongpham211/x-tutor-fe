@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import Bodysessiontutor from '../Components/Body/Bodysessiontutor';
 import Footer from '../Components/Footer';
-import axios from '../axios';
 import Header from '../Components/Header/Header';
 import Headertutor from '../Components/Header/Headertutor';
-import Bodydetailcourses from '../Components/Body/Bodydetailcourses'
+import axios from '../axios';
 
-class Detailcourses extends Component {
+class Sessiontutor extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -43,16 +43,16 @@ class Detailcourses extends Component {
             />
         }
     }
-    
+
     render() {
         return (
             <div>
                 {this.showheader()}
-                <Bodydetailcourses iduser={this.state.iduser} idcourses={this.state.idcourses}/>
-                <Footer/>
+                <Bodysessiontutor  iduser={this.state.iduser} idcourses={this.state.idcourses}/>
+                <Footer />
             </div>
         );
     }
 }
 
-export default Detailcourses;
+export default Sessiontutor;

@@ -51,7 +51,7 @@ class Infotuition extends Component {
               </div>
               {/* het modal body */}
               <div className="modal-footer d-flex justify-content-center ">
-                <Link to={{pathname:`/checkout/${this.state.idtuition}`,courseName:{courseName:this.state.courseName},iduser:{iduser:this.state.iduser},feeTotal:{feeTotal:this.state.feeTotal},idtutor:{idtutor:this.state.idtutor}}}  name="" id="add2" className="btn btn-primary" role="button">Book Tuition</Link>
+                <Link to={{pathname:`/checkout/${this.state.idtuition}`,courseName:{courseName:this.state.courseName},iduser:{iduser:this.state.iduser},feeTotal:{feeTotal:this.state.feeTotal},idtutor:{idtutor:this.state.idtutor}}}  name="" id="add2" className="otherbutton" role="button">Book Tuition</Link>
               </div>
             </form>
         </div>

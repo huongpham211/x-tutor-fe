@@ -18,7 +18,6 @@ class Header extends Component {
     axios
       .get(`api/v1/users/${this.props.iduser}`)
       .then((response) => {
-        console.log(response.data);
         this.setState({
           firstName: response.data.userFound.firstName,
           lastName: response.data.userFound.lastName,

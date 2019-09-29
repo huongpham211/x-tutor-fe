@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
+import Bodyschedututor from '../Components/Body/Bodyschedututor';
 import Footer from '../Components/Footer';
-import axios from '../axios';
 import Header from '../Components/Header/Header';
 import Headertutor from '../Components/Header/Headertutor';
-import Bodydetailcourses from '../Components/Body/Bodydetailcourses'
+import axios from '../axios';
 
-class Detailcourses extends Component {
+class Schedulletutor extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             iduser:props.location.iduser.iduser,
-            idcourses:this.props.match.params.id
+            idcourses:this.props.match.params.id,
+            courseName:props.location.courseName.courseName
         }
     }
 
+
+
     componentDidMount(){
-   
         axios
         .get(`api/v1/users/${this.state.iduser}`)
          .then((response) =>{
@@ -43,16 +45,16 @@ class Detailcourses extends Component {
             />
         }
     }
-    
+ 
     render() {
         return (
             <div>
                 {this.showheader()}
-                <Bodydetailcourses iduser={this.state.iduser} idcourses={this.state.idcourses}/>
+                <Bodyschedututor courseName={this.state.courseName} iduser={this.state.iduser} idcourses={this.state.idcourses}/>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Detailcourses;
+export default Schedulletutor;

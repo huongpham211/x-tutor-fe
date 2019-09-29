@@ -11,13 +11,14 @@ class Bodyhome extends Component {
   }
 
 
+
   componentWillMount() {
 
     axios
       .get(`api/v1/users/all-tutors`)
       .then((response) => {
         this.setState({
-          dataDb: response.data.allTutor
+          dataDb: response.data.allTutor,
         })
       })
       .catch(err => console.log(err));
@@ -39,6 +40,22 @@ class Bodyhome extends Component {
           />
         ))}
         </>
+      )      
+      )
+    }
+  }
+
+  tutor() {
+    if (this.state.dataDb.length > 0) {
+      return this.state.dataDb.slice(0, 4).map((info,key) =>(
+        <div className="col-lg-3 col-md-6 col-sm-6" key={key}>
+        <div className="best">
+          <img src={`http://localhost:3001${info.avatar}`} alt="" />
+          <h3>{info.lastName} {info.firstName}</h3>
+          <h4>Vice Head Teacher</h4>
+          <p>Nam libelo tempore, cum soluta nobis est eligendi optio cumque nilhi impedil quo minus end maximie fade posimus the end.</p>
+        </div>
+      </div>
       )      
       )
     }
@@ -124,7 +141,7 @@ class Bodyhome extends Component {
             </div>
           </div>
         </div>
-        <button id="button"><i className="fas fa-sort-up" /></button>
+        <button id="button" ><i className="fas fa-sort-up" /></button>
         {/* end choose courses */}
         <div className="fact text-center">
           <div className="container">
@@ -141,7 +158,7 @@ class Bodyhome extends Component {
         {/* end fact */}
         <div className="top-courses">
           <div className="title text-center">
-            <h4>CHOOSE YOUR COURSE</h4>
+            <h4 >CHOOSE YOUR COURSE</h4>
             <h2>THE TOP POPULAR COURSES FOR YOU</h2>
             <div className="icon">
               <i className="far fa-money-bill-alt" />
@@ -175,7 +192,7 @@ class Bodyhome extends Component {
         </div>
         <div className="the-best text-center">
           <div className="title text-center">
-            <h4>CHOOSE YOUR COURSE</h4>
+            <h4>CHOOSE YOUR TUTOR</h4>
             <h2>THE TOP POPULAR TUTOR FOR YOU</h2>
             <div className="icon">
               <i className="far fa-money-bill-alt" />
@@ -185,7 +202,8 @@ class Bodyhome extends Component {
           </div>
           <div className="container">
             <div className="learn-best row">
-              <div className="col-lg-3 col-md-6 col-sm-6">
+            {this.tutor()}
+              {/* <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="best">
                   <img src={require('../img/member6.jpg')} alt="" />
 
@@ -223,7 +241,7 @@ class Bodyhome extends Component {
                   <h4>Vice Head Teacher</h4>
                   <p>Nam libelo tempore, cum soluta nobis est eligendi optio cumque nilhi impedil quo minus end maximie fade posimus the end.</p>
                 </div>
-              </div>
+              </div> */}
 
 
 

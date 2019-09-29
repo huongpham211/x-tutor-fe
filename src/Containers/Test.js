@@ -1,31 +1,69 @@
 import React, { Component } from 'react';
-import Popup from "reactjs-popup";
 
 class Test extends Component {
-    render() {
-        return (
-         
-                 <div className="App">
-      <h1>Create React Modal with 22 line of code </h1>
-      <Popup modal trigger={<button>Click Me</button>}>
-      { close =>(
-          <div className="khongcare">
-                <a className="close" onClick={close}>
-             &times;
-           </a>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at fermentum ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In justo erat, consequat sed facilisis luctus, rutrum euismod arcu. Donec interdum nunc elit, quis venenatis lectus lacinia id. Fusce blandit urna tempus nisi efficitur dapibus. Praesent imperdiet scelerisque tincidunt. Pellentesque dictum gravida ipsum id vestibulum. Ut eget arcu malesuada, consequat dolor vitae, commodo ante. Vivamus ligula orci, tincidunt ac accumsan id, egestas vitae elit. Quisque porta, magna sit amet efficitur maximus, sapien nunc imperdiet nunc, ut laoreet ante nunc sit amet ligula. Phasellus a massa finibus, imperdiet lacus nec, iaculis erat. Fusce nec nibh ut arcu semper lacinia. Mauris sollicitudin tincidunt facilisis. Quisque in eleifend mi, dapibus vulputate purus.
-
-</p>
-          </div>
-           
-           
-      )}
-   
-      </Popup>
-    </div>
-        
-        );
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      selectedFile: null
     }
+  }
+  
+ 
+  onChangeHandler = (event) => {
+    this.setState({
+      selectedFile:event.target.files[0],
+      loaded: 0,
+    });  
+  }
+ 
+  render() {
+    
+    return (                
+      <div className="upload_file">
+      <div className="container">
+        <form id="upload_file">
+          <h5>Uplload file</h5>
+          <input type="file" name="file" onChange={this.onChangeHandler} className="form-control" />
+          <div className="form-group">
+            <label>Assignment name:</label>
+            <input type="text" />
+          </div>
+          <div className="form-group">
+            <label>Remarks:</label>
+            <input type="text" />
+          </div>
+          <button>Add document</button>
+        </form>
+        <div className="assign">
+          <h5>Assignment</h5>
+        </div>
+        <div className="document">
+          <h5>12312das53634.doc</h5>
+          <h5>Test</h5>
+          <h5>Test</h5>
+          <h5>02/01/1996</h5>
+          <div className="group_change">
+            <i className="fas fa-download" />
+            <i className="far fa-edit" />
+            <i className="fas fa-trash" />
+          </div>
+        </div>    
+        <div className="document">
+          <h5>12312das53634.doc</h5>
+          <h5>Test</h5>
+          <h5>Test</h5>
+          <h5>02/01/1996</h5>
+          <div className="group_change">
+            <i className="fas fa-download" />
+            <i className="far fa-edit" />
+            <i className="fas fa-trash" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    );
+  }
 }
 
 export default Test;

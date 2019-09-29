@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm navbar-light ">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -40,160 +39,77 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavId">
                 <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item form-search">
-                        <input type="text" name="search" placeholder="Do you want to learn today ?">
-                        <i class="fas fa-search"></i>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
 
-                    <li class="nav-item avatar d-flex align-items-center">
-                        <img src="./img/member6.jpg" alt="">
-                        <h4>Daniel Queen</h4>
-                        <i class="fas fa-chevron-down"></i>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Courses</a>
+                    </li>
+
+                    <li class="nav-item" data-toggle="modal" data-target="#modalLoginForm">
+                        <a class="nav-link" href="#">Log in</a>
+                    </li>
+
+                    <li class="nav-item" data-toggle="modal" data-target="#modalSignupForm">
+                        <a class="nav-link" href="#">Signup</a>
                     </li>
 
             </div>
         </div>
 
     </nav>
-    <div class="detail_course">
+    <!-- end nav -->
+    <div class="upload_file">
         <div class="container">
-            <div class="detail_up">
-                <div class="media">
-                    <div class="media-left">
-                        <span class="icon-block">
-                            <i class="fab fa-css3-alt"></i>
-                        </span>
-                    </div>
-                    <div class="media-body">
-                        <h1>MathP1-21012312312-12312312</h1>
-                        <p>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </p>
-                    </div>
-                </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td style="width: 30%"><i class="fas fa-graduation-cap"></i>Subject</td>
-                            <td style="width: 70%">Learn React by Building Real Projects</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td style="width: 30%"><i class="fas fa-book"></i>No.of lessions</td>
-                            <td style="width: 5%">8</td>
-                            <td style="width: 15%"><i class="fas fa-calendar-week"></i>Date</td>
-                            <td style="width: 10%">2019-09-09</td>
-                            <td style="width: 15%"><i class="fas fa-clock"></i>Time</td>
-                            <td style="width: 10%">8:00 - 10:00</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="detail_down">
-                <h3>Course details</h3>
-                <div class="page-section">
-                    <div class="paragraph-inline">
-                        <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/knW7-x7Y7RE" ></iframe>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta
-                        iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut!
-                        Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem dolores enim
-                        eos hic illo inventore iure libero magnam minima minus obcaecati optio pariatur porro quibusdam
-                        quos reiciendis, sapiente sint veritatis. Eveniet in magni sunt?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta
-                        iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut!
-                        Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem dolores enim
-                        eos hic illo inventore iure libero.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam autem cumque deleniti dicta
-                        iusto laboriosam laudantium omnis, possimus praesentium provident quam quas, sapiente sint, ut!
-                        Adipisci aliquid assumenda consequuntur cupiditate deleniti dicta dolore dolorem dolores enim
-                        eos hic illo inventore iure libero magnam minima minus obcaecati optio pariatur porro quibusdam
-                        quos reiciendis, sapiente sint veritatis. Eveniet in magni sunt?
-                    </p>
-                </div>
+            <form id="upload_file">
                
-                <div class="session">
-                    <div class="title">
-                        <h4>Learn React by Building Real Projects</h4>
+                    <h5>Uplload file</h5>
+                    <input type="file" class="form-control">
+                    <div class="form-group">
+                        <label>Assignment name:</label>
+                        <input type="text">
                     </div>
-                    <div class="sessions row">
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3">
-                            <div id="onesession">
-                                <h3>Session 1</h3>
-                                <h3>8:00 - 10:00</h3>
-                                <h3>2019-09-11</h3>
-                            </div>
-                        </div>
-
+                    <div class="form-group">
+                        <label>Remarks:</label>
+                        <input type="text">
                     </div>
+                
+                <button>Add document</button>
+            </form>
+            <div class="assign">
+                <h5>Assignment</h5>
+               
+            </div>
+            <div class="document">
+                <h5>12312das53634.doc</h5>
+                <h5>Test</h5>
+                <h5>Test</h5>
+                <h5>02/01/1996</h5>
+                <div class="group_change">
+                    <i class="fas fa-download"></i>
+                    <i class="far fa-edit"></i>
+                    <i class="fas fa-trash"></i>
+                </div>
+            </div>    
+            <div class="document">
+                <h5>12312das53634.doc</h5>
+                <h5>Test</h5>
+                <h5>Test</h5>
+                <h5>02/01/1996</h5>
+                <div class="group_change">
+                    <i class="fas fa-download"></i>
+                    <i class="far fa-edit"></i>
+                    <i class="fas fa-trash"></i>
                 </div>
             </div>
-            <!-- end detail_down -->
+
         </div>
     </div>
     <div class="footer">
@@ -234,23 +150,17 @@
     </div>
     <footer>
         <div class="container text-center">
-            <p>�Copyright 2019 | X-Tutor Theme by X-Tutor Team | All Rights Reserved | Powered by WordPress</p>
+            <p>Ã‚Â©Copyright 2019 | X-Tutor Theme by X-Tutor Team | All Rights Reserved | Powered by WordPress</p>
 
         </div>
     </footer>
-    <script>
-        var loadFile = function (event) {
-            var reader = new FileReader();
-            reader.onload = function () {
-                var output = document.getElementById('output');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        };
-    </script>
+
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../scramble.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"

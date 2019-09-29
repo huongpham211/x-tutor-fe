@@ -1,57 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-// const Account_settings = React.lazy(() => import('./Containers/Account_settings'));
-// const Home = React.lazy(() => import('./Containers/Home'));
-// const Page = React.lazy(() => import('./Containers/Page'));
-// const Change_password = React.lazy(() => import('./Containers/Change_password'));
-// const Payment_method = React.lazy(() => import('./Containers/Payment_method'));
-// const Add_Tuition = React.lazy(() => import('./Containers/Add_tuition'));
-// const Tuitor_profile = React.lazy(() => import('./Containers/Tutor_profile'));
-// const Selectable = React.lazy(() => import('./Containers/Selectable'));
-// const Checkout = React.lazy(() => import('./Containers/Checkout'));
-// const Courses = React.lazy(() => import('./Containers/Courses'));
-// const Infocard = React.lazy(() => import('./Containers/Infocard'));
-// const Tutor_preference = React.lazy(() => import('./Containers/Tutor_preference'));
-// const history = React.lazy(() => import('./history'));
-// const UpdateCard = React.lazy(() => import('./Containers/UpdateCard'));
-// const FilterCourses = React.lazy(() => import('./Containers/FilterCourses'));
-// const Login = React.lazy(() => import('./Containers/Signin'));
-// const Signup = React.lazy(() => import('./Containers/Signup'));
-// const Filter = React.lazy(() => import('./Containers/Filter'));
-// const Bill = React.lazy(() => import('./Containers/Bill'));
-// const Infotuition = React.lazy(() => import('./Containers/Infotuition'));
-// const About = React.lazy(() => import('./Containers/About'));
-// const Yourcouses = React.lazy(() => import('./Containers/Yourcourses'));
-// const Detailcourses = React.lazy(() => import('./Containers/Detailcourses'));
-// const Coursestutor = React.lazy(() => import('./Containers/Coursestutor'));
-import Account_settings from './Containers/Account_settings';
-import Home from './Containers/Home';
-import Page from './Containers/Page';
-import Change_password from './Containers/Change_password';
-import Payment_method from './Containers/Payment_method';
-import Add_Tuition from './Containers/Add_tuition';
-import Tutor_preference from './Containers/Tutor_preference';
-import Tuitor_profile from './Containers/Tutor_profile';
-import Selectable from './Containers/Selectable';
-import Checkout from './Containers/Checkout';
-import Data from './Containers/Data.json';
-import Courses from './Containers/Courses';
-import history from './history';
-import Infocard from './Containers/Infocard';
-import UpdateCard from './Containers/UpdateCard';
-import FilterCourses from './Containers/FilterCourses';
-import Login from './Containers/Signin';
-import Signup from './Containers/Signup';
-import Filter from './Containers/Filter';
-import Bill from './Containers/Bill';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from './axios';
-import Infotuition from './Containers/Infotuition';
-import Test from './Containers/Test';
-import About from './Containers/About';
-import Yourcouses from './Containers/Yourcourses';
-import Detailcourses from './Containers/Detailcourses';
-import Coursestutor from './Containers/Coursestutor';
+const Account_settings = React.lazy(() => import('./Containers/Account_settings'));
+const Home = React.lazy(() => import('./Containers/Home'));
+const Page = React.lazy(() => import('./Containers/Page'));
+const Change_password = React.lazy(() => import('./Containers/Change_password'));
+const Payment_method = React.lazy(() => import('./Containers/Payment_method'));
+const Add_Tuition = React.lazy(() => import('./Containers/Add_tuition'));
+const Tuitor_profile = React.lazy(() => import('./Containers/Tutor_profile'));
+const Selectable = React.lazy(() => import('./Containers/Selectable'));
+const Checkout = React.lazy(() => import('./Containers/Checkout'));
+const Courses = React.lazy(() => import('./Containers/Courses'));
+const Infocard = React.lazy(() => import('./Containers/Infocard'));
+const Tutor_preference = React.lazy(() => import('./Containers/Tutor_preference'));
+const history = React.lazy(() => import('./history'));
+const UpdateCard = React.lazy(() => import('./Containers/UpdateCard'));
+const FilterCourses = React.lazy(() => import('./Containers/FilterCourses'));
+const Login = React.lazy(() => import('./Containers/Signin'));
+const Signup = React.lazy(() => import('./Containers/Signup'));
+const Filter = React.lazy(() => import('./Containers/Filter'));
+const Bill = React.lazy(() => import('./Containers/Bill'));
+const Infotuition = React.lazy(() => import('./Containers/Infotuition'));
+const About = React.lazy(() => import('./Containers/About'));
+const Yourcouses = React.lazy(() => import('./Containers/Yourcourses'));
+const Detailcourses = React.lazy(() => import('./Containers/Detailcourses'));
+const Coursestutor = React.lazy(() => import('./Containers/Coursestutor'));
+const Session = React.lazy(() => import('./Containers/Session'));
+const Detailcoursetutor = React.lazy(() => import('./Containers/Detailcoursetutor'));
+const Sessiontutor = React.lazy(() => import('./Containers/Sessiontutor'));
+const Schedulletutor = React.lazy(() => import('./Containers/Schedulletutor'));
+const Page404 = React.lazy(() => import('./Containers/Page404'));
+// import Account_settings from './Containers/Account_settings';
+// import Home from './Containers/Home';
+// import Page from './Containers/Page';
+// import Change_password from './Containers/Change_password';
+// import Payment_method from './Containers/Payment_method';
+// import Add_Tuition from './Containers/Add_tuition';
+// import Tutor_preference from './Containers/Tutor_preference';
+// import Tuitor_profile from './Containers/Tutor_profile';
+// import Selectable from './Containers/Selectable';
+// import Checkout from './Containers/Checkout';
+// import Courses from './Containers/Courses';
+// import history from './history';
+// import Infocard from './Containers/Infocard';
+// import UpdateCard from './Containers/UpdateCard';
+// import FilterCourses from './Containers/FilterCourses';
+// import Login from './Containers/Signin';
+// import Signup from './Containers/Signup';
+// import Filter from './Containers/Filter';
+// import Bill from './Containers/Bill';
+// import axios from './axios';
+// import Infotuition from './Containers/Infotuition';
+// import Test from './Containers/Test';
+// import About from './Containers/About';
+// import Yourcouses from './Containers/Yourcourses';
+// import Detailcourses from './Containers/Detailcourses';
+// import Coursestutor from './Containers/Coursestutor';
+// import Session from './Containers/Session';
+// import Detailcoursetutor from './Containers/Detailcoursetutor';
+// import Sessiontutor from './Containers/Sessiontutor';
+// import Schedulletutor from './Containers/Schedulletutor';
+// import Page404 from './Containers/Page404';
 
 class App extends Component {
   constructor(props, context) {
@@ -153,10 +163,11 @@ iduser(iduser){
     }
 
     return (
+      <Suspense fallback={<div>Loading ...</div>} >
       <Router history={history}>
         <div>
-
-          <Route exact path="/" render={(props) =>
+        <Switch>
+        <Route exact path="/" render={(props) =>
             <Home
               {...props}
               // onLogin={(signInPassword, signInUsername) => this.onLogin(signInPassword, signInUsername)}
@@ -222,8 +233,15 @@ iduser(iduser){
           <Route path={"/detailcourses/:id"} component={Detailcourses} />
           <Route path={"/coursestutor/:id"} component={Coursestutor} />
           {/* <Route path={"/test/:id"} component={Test} /> */}
+          <Route path={"/sessions/:id"} component={Session} />
+          <Route path={"/detailcoursetutor/:id"} component={Detailcoursetutor} />
+          <Route path={"/sessiontutor/:id"} component={Sessiontutor} />
+          <Route path={"/shceduletutor/:id"} component={Schedulletutor} />
+          <Route component={Page404} />
+        </Switch>
         </div>
       </Router >
+      </Suspense>
     );
   }
 }

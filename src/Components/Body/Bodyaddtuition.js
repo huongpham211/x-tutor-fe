@@ -19,17 +19,44 @@ class Bodyaddtuition extends Component {
     }
   }
 
+  componentWillMount() {
+    var config = {
+      headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
+    }
+    axios
+      .get(`api/v1/users/${this.props.iduser}/tuition-schedules`, config)
+      .then((res) => {
+        this.setState({data:res.data.allSchedules}); 
+      })
+      .catch(err => console.log(err))
+  }
+
+  mapsession() {
+    if (this.state.data.length > 0) {
+      return this.state.data.map((value, key) => (
+        <div className="col-lg-6" key={key}>
+          <div id="onesession">
+            <h3>{value.courseCode}</h3>
+            <h4>{value.hourStart}:00 - {value.hourEnd}:00</h4>
+            <h4>{(new Date(value.periodeStart).toLocaleDateString())} - {(new Date(value.periodeEnd).toLocaleDateString())}</h4>
+          </div>
+        </div>
+      ))
+    }
+  }
+
+
   componentDidMount() {
     axios
       .get(`api/v1/users/${this.props.idtutor}`)
       .then((response) => {
         console.log(response.data.userFound);
-         this.setState({
-          startDayTutor:response.data.userFound.tutorData.periodeStart,
-             endDayTutor:response.data.userFound.tutorData.periodeEnd,
-             hourStartTutor:response.data.userFound.tutorData.hourStart,
-             hourEndTutor:response.data.userFound.tutorData.hourEnd
-         })
+        this.setState({
+          startDayTutor: response.data.userFound.tutorData.periodeStart,
+          endDayTutor: response.data.userFound.tutorData.periodeEnd,
+          hourStartTutor: response.data.userFound.tutorData.hourStart,
+          hourEndTutor: response.data.userFound.tutorData.hourEnd
+        })
       })
       .catch(err => console.log(err));
   }
@@ -158,6 +185,7 @@ class Bodyaddtuition extends Component {
                       <DatePicker
                         selected={this.state.periodeStart}
                         onChange={(date) => this.onStartDate(date)}
+                        minDate={new Date()}
                       />
                     </div>
 
@@ -192,31 +220,43 @@ class Bodyaddtuition extends Component {
                 </div>
               </form>
               <div className="save_info d-flex justify-content-center">
-             
                 <button name="" type="submit" id="update_avatar" className="btn btn-primary " onClick={(preferDay, periodeStart, academicLevel, periodeEnd, hoursPerLession, hourStart) => this.props.dataAddtuition(this.state.preferDay, this.state.periodeStart, this.state.academicLevel, this.state.periodeEnd, this.state.hoursPerLession, this.state.hourStart)}>Add Tuition Schedule</button>
-              
-            
-
               </div>
+              <div>
+                        <span className="text-danger" id="error-notice-addtuition" >{this.props.error_addtuition}</span>
+                    </div>
               <div className="group_button">
-              <Popup modal trigger={<button name="" id="update_avatar" type="submit" className="btn btn-primary "  >Tutor free time</button>}>
+                <Popup modal trigger={<button className="btn btn-primary maudep" >Free schedules</button>}>
                   {close => (
                     <div className="khongcare">
                       <a className="close" onClick={close}>
                         &times;
            </a>
-                     <h4>Tutor free time</h4>
-                     <h5>Start Date<span>{this.state.startDayTutor}</span></h5>
-                     <h5>End Date<span>{this.state.endDayTutor}</span></h5>
-                     <h5>Start hour<span>{this.state.hourStartTutor}</span></h5>
-                     <h5>End hour<span>{this.state.hourEndTutor}</span></h5>
-                 
+                      <div className="free_schedule row">
+                        {this.mapsession()}
+                      </div>
                     </div>
                   )}
                 </Popup>
-                <Link to={{ pathname: `/infotuition/${this.props.idtutor}`, courseName: { courseName: this.props.courseName }, iduser: { iduser: this.props.iduser }, idtuition: { idtuition: this.props.idtuition }, feePerHour: { feePerHour: this.props.feePerHour }, feeTotal: { feeTotal: this.props.feeTotal }, lessionsPerCourse: { lessionsPerCourse: this.props.lessionsPerCourse }, hoursPerLession: { hoursPerLession: this.state.hoursPerLession } }} name="" type="submit" id="checkinfotuition" className="btn btn-primary " href="#" >Check info tuition</Link>
 
-</div>
+                <Popup modal trigger={<button name="" id="update_avatar" type="submit" className="btn btn-primary maudep"  >Tutor free time</button>}>
+                  {close => (
+                    <div className="khongcare">
+                      <a className="close" onClick={close}>
+                        &times;
+           </a>
+                      <h4>Tutor free time</h4>
+                      <h5>Start Date<span>{this.state.startDayTutor}</span></h5>
+                      <h5>End Date<span>{this.state.endDayTutor}</span></h5>
+                      <h5>Start hour<span>{this.state.hourStartTutor}</span></h5>
+                      <h5>End hour<span>{this.state.hourEndTutor}</span></h5>
+
+                    </div>
+                  )}
+                </Popup>
+                <Link to={{ pathname: `/infotuition/${this.props.idtutor}`, courseName: { courseName: this.props.courseName }, iduser: { iduser: this.props.iduser }, idtuition: { idtuition: this.props.idtuition }, feePerHour: { feePerHour: this.props.feePerHour }, feeTotal: { feeTotal: this.props.feeTotal }, lessionsPerCourse: { lessionsPerCourse: this.props.lessionsPerCourse }, hoursPerLession: { hoursPerLession: this.state.hoursPerLession } }}><button name="" type="submit" id="checkinfotuition" className="otherbutton maudep">Check info tuition</button></Link>
+
+              </div>
             </div>
           </div>
         </div>

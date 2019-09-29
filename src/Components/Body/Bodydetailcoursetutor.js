@@ -1,79 +1,69 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from '../../axios';
-class Bodydetailcourses extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      courseCode: [],
-      periodeStart: [],
-      periodeEnd: [],
-      datacourses: []
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-    }
-  }
+class Bodydetailcoursetutor extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+          courseCode: [],
+          periodeStart: [],
+          periodeEnd: [],
+          datacourses: []
+        }
+      }
 
+      componentWillMount() {
+        var config = {
+          headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
+        }
+        axios
+          .get(`api/v1/schedules/${this.props.idcourses}/sessions`, config)
+          .then((res) => {
+            this.setState({ datacourses: res.data.sessions });
+          })
+      }
+    
+      componentDidMount() {
+        var config = {
+          headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
+        }
+        axios
+          .get(`api/v1/schedules/${this.props.idcourses}`, config)
+          .then((res) => {
+            
+            this.setState({
+              courseCode: res.data.tuiSchedule.courseCode,
+              lessionsPerCourse: res.data.tuiSchedule.lessionsPerCourse,
+              hourStart: res.data.tuiSchedule.hourStart,
+              hourEnd: res.data.tuiSchedule.hourEnd,
+              periodeStart: ((new Date(res.data.tuiSchedule.periodeStart).toLocaleDateString())),
+              periodeEnd: ((new Date(res.data.tuiSchedule.periodeEnd).toLocaleDateString()))
+            });
+          })
+      }
 
-  componentWillMount() {
-    var config = {
-      headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
-    }
-    axios
-      .get(`api/v1/schedules/${this.props.idcourses}/sessions`, config)
-      .then((res) => {
-        this.setState({ datacourses: res.data.sessions });
-      })
-  }
+      mapsession() {
+        if (this.state.datacourses.length > 0) {
+          return this.state.datacourses.map((value, key) => (
+            <Link to={{pathname:`/sessiontutor/${value._id}`,iduser:{iduser:this.props.iduser}}} className="col-lg-3" key={key}>
+              <div id="onesession">
+                <h3>{value.nameOfSession}</h3>
+                <h4>{value.scheduleId.hourStart}:00 - {value.scheduleId.hourEnd}:00</h4>
+                <h4>{(new Date(value.date).toLocaleDateString())}</h4>
+              </div>
+            </Link>
+          ))
+        }
+      }
 
-  componentDidMount() {
-    var config = {
-      headers: { "Authorization": "Bearer " + localStorage.getItem("signJwt") }
-    }
-    axios
-      .get(`api/v1/schedules/${this.props.idcourses}`, config)
-      .then((res) => {
-        console.log(res.data);
+    render() {
         
-        this.setState({
-          courseCode: res.data.tuiSchedule.courseCode,
-          lessionsPerCourse: res.data.tuiSchedule.lessionsPerCourse,
-          hourStart: res.data.tuiSchedule.hourStart,
-          hourEnd: res.data.tuiSchedule.hourEnd,
-          periodeStart: ((new Date(res.data.tuiSchedule.periodeStart).toLocaleDateString())),
-          periodeEnd: ((new Date(res.data.tuiSchedule.periodeEnd).toLocaleDateString()))
-        });
-      })
-  }
-
-  // test(){
-  //   if(this.state.periodeStart.getTime() < new Date().toLocaleDateString().getItem()){
-  //     return <h3>chưa bắt đầu</h3>
-  //   }  else if(   this.state.periodeStart.getTime() > new Date().toLocaleDateString().getItem()) {
-  //       return <h3>kết thúc</h3>
-  //   } else {
-  //     return <h3>đang học</h3>
-  //   }
-  // }
-
-  mapsession() {
-    if (this.state.datacourses.length > 0) {
-      return this.state.datacourses.map((value, key) => (
-        <Link to={{pathname:`/sessions/${value._id}`,iduser:{iduser:this.props.iduser}}} className="col-lg-3" key={key}>
-          <div id="onesession">
-            <h3>{value.nameOfSession}</h3>
-            <h4>{value.scheduleId.hourStart}:00 - {value.scheduleId.hourEnd}:00</h4>
-            <h4>{(new Date(value.date).toLocaleDateString())}</h4>
-          </div>
-        </Link>
-      ))
-    }
-  }
-
-
-
-  render() {
-    return (
-      <div className="detail_course">
+        
+       
+        return (
+            <div className="detail_course">
         <div className="container">
           <div className="detail_up">
             <div className="media">
@@ -108,7 +98,7 @@ class Bodydetailcourses extends Component {
                   <td style={{ width: '15%' }}><i className="fas fa-calendar-week" />Date</td>
                   <td style={{ width: '30%' }}>{this.state.periodeStart} - {this.state.periodeEnd}</td>
                   <td style={{ width: '15%' }}><i className="fas fa-clock" />Time</td>
-                  <td style={{ width: '10%' }}>{this.state.hourStart}:00 - {this.state.hourEnd}:00</td>
+                  <td style={{ width: '10%' }}>{Math.max(this.state.hourEnd)}:00 - {this.state.hourEnd}:00</td>
                 </tr>
               </tbody>
             </table>
@@ -151,8 +141,8 @@ class Bodydetailcourses extends Component {
           {/* end detail_down */}
         </div>
       </div>
-    );
-  }
+        );
+    }
 }
 
-export default Bodydetailcourses;
+export default Bodydetailcoursetutor;
