@@ -235,7 +235,7 @@ class Bodycheckout extends Component {
                       <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                       <h5>Remember this card</h5>
                     </div>
-                    <Link type="submit" to={{ pathname: `/bill/${this.props.idcourse}`, courseName: { courseName: this.props.courseName } }}><button id="checkout_button" className="otherbutton"> Complete payment</button></Link>
+                    <Link type="submit" to={{ pathname: `/bill/${this.props.idcourse}`, courseName: { courseName: this.props.courseName },iduser: { iduser: this.props.iduser } }}><button id="checkout_button" className="otherbutton"> Complete payment</button></Link>
                     <a type="submit" name="" id="update_avatar" className="otherbutton" href="#" onClick={(cardType,nameOnCard, cardNumber, expiredDate, remarks, residentialAddress, city, country) => this.props.infoPayment(this.state.cardType,this.state.nameOnCard, this.state.cardNumber, this.state.expiredDate, this.state.remarks, this.state.residentialAddress, this.state.city, this.state.country)}>Save payment info</a>
                   </div>
                 </form>

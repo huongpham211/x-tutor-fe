@@ -24,7 +24,7 @@ class Bodyyourcourses extends Component {
 
     yourcourses() {
         if (this.state.datacourses.length > 0) {
-            return this.state.datacourses.map((value, key) => (
+            return this.state.datacourses.map((value, key) => (       
                 <Coursesstudent
                     key={key}
                     iduser={this.props.iduser}
@@ -35,6 +35,7 @@ class Bodyyourcourses extends Component {
                     periodeStart={(new Date(value.periodeStart).toLocaleDateString())}
                     periodeEnd={(new Date(value.periodeEnd).toLocaleDateString())}
                 />
+                
             ))
         }
     }

@@ -102,7 +102,7 @@ class Checkout extends Component {
                 {this.showheader()}
                 <Bodycheckout
                 infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,country,postalCode)}
-                feeTotal={this.state.feeTotal} courseName={this.state.courseName} name={this.state.name} idcourse={this.state.idcourse}/>
+                feeTotal={this.state.feeTotal} iduser={this.state.iduser} courseName={this.state.courseName} name={this.state.name} idcourse={this.state.idcourse}/>
                 <Footer/>
             </div>
         );

@@ -8,7 +8,8 @@ class Bill extends Component {
         super(props, context);
         this.state = {
             idcourse: this.props.match.params.id,
-            courseName: props.location.courseName.courseName
+            courseName: props.location.courseName.courseName,
+            iduser: props.location.iduser.iduser
         }
     }
 
@@ -54,9 +55,10 @@ class Bill extends Component {
         return (
             <div>
                 <Pdf targetRef={ref} filename="code-example.pdf">
-                    {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
+                    {({ toPdf }) => <button className="generate" onClick={toPdf}>Generate Pdf</button>}
                 </Pdf>
                 <div className="bill" ref="{ref}">
+                <button className="otherbutton"><a href={`/page/${this.state.iduser}`}>Back to homepage</a></button>
                     <div className="top">
                         <div className="col-md-5 logosmt">
                             <svg width="{190}" height="{39}" viewBox="0 0 190 39" fill="none" xmlns="http://www.w3.org/2000/svg">

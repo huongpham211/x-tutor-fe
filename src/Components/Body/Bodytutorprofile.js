@@ -37,7 +37,7 @@ class Bodytuitorprofile extends Component {
     if (this.props.rolesId === 'Student') {
       return (<div id="setting" className="setting_button">
         <Link to={{ pathname: `/add_tuition/${this.props.id}`, iduser: { iduser: this.props.iduser }, courseName: { courseName: this.props.courseName } }}>
-          <button name="" id="update_avatar" className="otherbutton" >Add Tuition </button>
+          <button name="" className="otherbutton" >Add Tuition </button>
         </Link>
         <button name="" id="delete_avatar" className="btn btn-primary" >Delete</button>
       </div>)

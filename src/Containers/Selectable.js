@@ -40,25 +40,23 @@ class Selectable extends React.Component {
     }
     axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`, config)
       .then((res) => {
-        console.log(res.data);
-
-        const events = []
-        res.data.allSchedules.map((event) => {
-          event.sessions.map((item) => {
-            var dt = moment(item).toDate();
-            dt.setHours( dt.getHours() + event.hourStart);
-            var dt1 = moment(item).toDate();
-            dt1.setHours( dt1.getHours() + event.hourEnd );
-            events.push({
-              start: dt ,
-              end: dt1 ,
-              title: event.courseCode,
-            })
+        const log = []
+         res.data.allSchedules.map(schedule => {   
+      
+           axios.get(`api/v1/schedules/${schedule._id}/sessions`, config)
+            .then(res => {
+              const events =res.data.sessions.map(item => ({
+                start: new Date(item.startDate),
+                end: new Date(item.endDate),
+                title: item.scheduleId.courseCode
+              }));
+              events.map(item =>{    
+                log.push(item)        
+              })
           })
-          console.log(events);
-
-        })
-        this.setState({ events: events });
+        }) 
+        this.setState({ events: log });
+        console.log(this.state.events);        
       })
       .catch(err => console.log(err))
   }

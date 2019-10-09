@@ -10,7 +10,7 @@ let allViews = Object.keys(Views).map(k => Views[k])
 
 const propTypes = {}
 
-class Selectable extends React.Component {
+class CalendarTutor extends React.Component {
   constructor(...args) {
     super(...args)
 
@@ -40,61 +40,25 @@ class Selectable extends React.Component {
     }
     axios.get(`api/v1/users/${this.props.match.params.id}/tuition-schedules`, config)
       .then((res) => {
-        // console.log(res.data);
-        const promises = res.data.allSchedules.map(schedule => {
-          // console.log(schedule._id);
-          
-          return axios.get(`api/v1/schedules/${schedule._id}/sessions`, config)
-            .then(res => {
-              // console.log(res.data);
-              
-              const events = []
-              res.data.sessions.map((item) => {
-                // console.log(new Date(item.startDate));
-                // console.log(new Date(item.endDate));
-                
-                // console.log(event.scheduleId.hourStart);    
-                // var dt = moment(item.startDate).toDate();
-                // dt.setHours( dt.getHours() + item.scheduleId.hourStart);
-                // // console.log(dt);
-                
-                
-                // var dt1 = moment(item.startDate);
-                // // dt1.setHours( dt1.getHours() + item.scheduleId.hourEnd );
-                // console.log(dt1);
-                
-                events.push({
-                  start: new Date(item.startDate) ,
-                  end: new Date(item.endDate) ,
-                  title: item.scheduleId.courseCode,
-                })
+        console.log(res.data);
 
-              })
-              this.setState({ events: events });
-              console.log(this.state.events);
-              
+        const events = []
+        res.data.allSchedules.map((event) => {
+          event.sessions.map((item) => {
+            var dt = moment(item).toDate();
+            dt.setHours( dt.getHours() + event.hourStart);            
+            var dt1 = moment(item).toDate();
+            dt1.setHours( dt1.getHours() + event.hourEnd );
+            events.push({
+              start: dt ,
+              end: dt1 ,
+              title: event.courseCode,
+            })
           })
-        })
-        Promise.all(promises).then(data => {
-          console.log(data)
-          // this.setState({ promises: data })
-        })
-        // res.data.allSchedules.map((event) => {
-        //   event.sessions.map((item) => {
-        //     var dt = moment(item).toDate();
-        //     dt.setHours( dt.getHours() + event.hourStart);
-        //     var dt1 = moment(item).toDate();
-        //     dt1.setHours( dt1.getHours() + event.hourEnd );
-        //     events.push({
-        //       start: dt ,
-        //       end: dt1 ,
-        //       title: event.courseCode,
-        //     })
-        //   })
-        //   console.log(events);
+          console.log(events);
 
-        // })
-        // this.setState({ events: events });
+        })
+        this.setState({ events: events });
       })
       .catch(err => console.log(err))
   }
@@ -144,6 +108,6 @@ class Selectable extends React.Component {
   }
 }
 
-Selectable.propTypes = propTypes
+CalendarTutor.propTypes = propTypes
 
-export default Selectable
+export default CalendarTutor

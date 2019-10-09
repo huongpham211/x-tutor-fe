@@ -73,7 +73,8 @@ class Add_tuition extends Component {
             hourStart:hourStart,
             academicLevel:academicLevel
         },config)
-        .then((response) =>{    
+        .then((response) =>{
+            console.log(response.data)  
             return axios
             .get(`api/v1/schedules/${response.data.scheduleCreated._id}`,config)
         })

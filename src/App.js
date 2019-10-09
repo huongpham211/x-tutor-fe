@@ -30,7 +30,9 @@ const Session = React.lazy(() => import('./Containers/Session'));
 const Detailcoursetutor = React.lazy(() => import('./Containers/Detailcoursetutor'));
 const Sessiontutor = React.lazy(() => import('./Containers/Sessiontutor'));
 const Schedulletutor = React.lazy(() => import('./Containers/Schedulletutor'));
+const CalendarTutor = React.lazy(() => import('./Containers/CalendarTutor'));
 const Page404 = React.lazy(() => import('./Containers/Page404'));
+const Test = React.lazy(() => import('./Containers/Test'));
 // import Account_settings from './Containers/Account_settings';
 // import Home from './Containers/Home';
 // import Page from './Containers/Page';
@@ -232,11 +234,12 @@ iduser(iduser){
           <Route path={"/yourcourses/:id"} component={Yourcouses} />
           <Route path={"/detailcourses/:id"} component={Detailcourses} />
           <Route path={"/coursestutor/:id"} component={Coursestutor} />
-          {/* <Route path={"/test/:id"} component={Test} /> */}
+          <Route path={"/test/:id"} component={Test} />
           <Route path={"/sessions/:id"} component={Session} />
           <Route path={"/detailcoursetutor/:id"} component={Detailcoursetutor} />
           <Route path={"/sessiontutor/:id"} component={Sessiontutor} />
           <Route path={"/shceduletutor/:id"} component={Schedulletutor} />
+          <Route path={"/calendartutor/:id"} component={CalendarTutor} />
           <Route component={Page404} />
         </Switch>
         </div>

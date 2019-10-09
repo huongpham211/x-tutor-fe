@@ -89,6 +89,9 @@ class Headertutor extends Component {
                     <Link to={`/coursestutor/${this.props.iduser}`} className="">
                       Your Courses
                       </Link>
+                      <a href={`/calendartutor/${this.props.iduser}`} className="">
+                      My Calendar
+                      </a>
                     <a href={`/tutor_preference/${this.props.iduser}`} className="">
                       Tutor preference
                       </a>

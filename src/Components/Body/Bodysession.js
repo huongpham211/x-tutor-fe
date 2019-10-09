@@ -21,7 +21,8 @@ class Bodysession extends Component {
         axios
             .get(`api/v1/sessions/${this.props.idcourses}`, config)
             .then((response) => {
-                console.log(response.data.session);
+                console.log((new Date(response.data.session.date).toString()));
+               
 
                 this.setState({
                     document: response.data.session.documents

@@ -66,6 +66,7 @@ class Bodyhome extends Component {
 
   render() {
 
+
     return (
       <div>
         <div className="slogan text-center">

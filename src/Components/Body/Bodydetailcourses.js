@@ -32,7 +32,6 @@ class Bodydetailcourses extends Component {
     axios
       .get(`api/v1/schedules/${this.props.idcourses}`, config)
       .then((res) => {
-        console.log(res.data);
         
         this.setState({
           courseCode: res.data.tuiSchedule.courseCode,
