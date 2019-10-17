@@ -58,33 +58,51 @@
   <script type="text/javascript">
     jQuery(document).ready(function () {
     
+      
 
-      $(".txtb input").on("focus", function () {
-        $(this).addClass("focus");
-      });
-
-      $(".txtb input").focus(function () {
-        $(this).addClass("focus");
-      });
+      $(document).on('focus', '.txtb input', function(event){ 
+        $(this).addClass("focus")});
 
 
-      $(".txtb input").on("blur", function () {
-        if ($(this).val() == "")
-          $(this).removeClass("focus");
-      })
-
-      $(".logbtn").click(function (event) {
-        event.preventDefault()
-      });
+      // $(".txtb input").on("focus", function () {
+      //   $(this).addClass("focus");
+      // });
 
       
-      $(".btn.btn-primary").click(function (event) {
-        event.preventDefault()
-      });
+      $(document).on('blur', '.txtb input', function(event){ 
+        if ($(this).val() == "")
+          $(this).removeClass("focus");});
 
-      $("#update_avatar").click(function (event) {
-        event.preventDefault()
-      });
+    
+
+
+      // $(".txtb input").on("blur", function () {
+      //   if ($(this).val() == "")
+      //     $(this).removeClass("focus");
+      // })
+
+      // $(".logbtn").click(function (event) {
+      //   event.preventDefault()
+      // });
+
+      $(document).on('click', '.logbtn', function(event){ 
+        event.preventDefault()});
+
+      $(document).on('click', '.btn.btn-primary', function(event){ 
+        event.preventDefault()});
+
+      
+        $(document).on('click', '#update_avatar', function(event){ 
+        event.preventDefault()});
+
+      
+      // $(".btn.btn-primary").click(function (event) {
+      //   event.preventDefault()
+      // });
+
+      // $("#update_avatar").click(function (event) {
+      //   event.preventDefault()
+      // });
 
 
 
