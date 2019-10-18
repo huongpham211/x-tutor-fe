@@ -64,7 +64,7 @@ class FilterCourses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={removeDuplicates(this.props.courseFilter)}/>
+                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={this.props.courseFilter}/>
                 <Footer/>
             </div>
         );
