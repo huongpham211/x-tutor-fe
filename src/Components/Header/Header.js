@@ -78,7 +78,7 @@ class Header extends Component {
                 <li className="nav-item" data-toggle="modal" data-target="#formFilter">
                   <a href={`/filter/${this.props.iduser}`} className="nav-link" >Filter</a>                </li>
                 <li className="nav-item avatar d-flex align-items-center">
-                  <img src={`http://localhost:3001${this.state.avatar}`} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+                  <img src={`https://x-tutor-be.herokuapp.com${this.state.avatar}`} alt="" className="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
                   <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
                   <ul className="slide_menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                     <a href={`/account_setting/${this.props.iduser}`} className="">
