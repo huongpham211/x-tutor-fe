@@ -14,22 +14,13 @@ class Bodycourses extends Component {
 
 
       printData = () =>    this.props.dataCourseProps.map((info,index) =>(
-        <>   
-          {info.tutorData.teachingSubject.map((value, key) => {
-              if(value.course.toLowerCase().indexOf(this.props.checkConnectProps.toLowerCase()) !== -1  ){
-               return (<Coursespage
-                key={key}
-                iduser={this.state.iduser}
-                courseName={value.course}
-                academicLevel={value.academicLevel}
-                idcourse={value._id}
-                index={info._id}
-                name={info.firstName + info.lastName}
+        (<Coursespage
+            key={index}
+            courseName={info.course}
+            academicLevel={info.academicLevel}
+            price={info.price}
+            name={info.firstName}
           />)
-              }
-          
-            })}
-        </>
       )      
       )
 

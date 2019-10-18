@@ -8,7 +8,9 @@ class Filter extends Component {
         this.state = {
             tempValue: '',
             coursename: '',
-            tutor: ''
+            tutor: '',
+            basedIn:'',
+            academicLevel:''
         }
     }
 
@@ -18,9 +20,15 @@ class Filter extends Component {
         });
     }
 
-    onTutor(e) {
+    onBasedIn(e) {
         this.setState({
-            tutor: e.target.value
+            basedin: e.target.value
+        });
+    }
+
+    onAcademicLevel (e) {
+        this.setState({
+            academicLevel: e.target.value
         });
     }
 
@@ -33,7 +41,7 @@ class Filter extends Component {
                         <span aria-hidden="true">x</span>
                     </button>
                     <div className="txtb">
-                        <input id="" type="text" />
+                        <input id="" type="text"  onChange={(e) => this.onAcademicLevel(e)} />
                         <span data-placeholder="Your academic level" />
                     </div>
                     <div className="txtb">
@@ -41,11 +49,11 @@ class Filter extends Component {
                         <span data-placeholder="All courses here" />
                     </div>
                     <div className="txtb">
-                        <input id="" type="text" onChange={(e) => this.onTutor(e)} />
-                        <span data-placeholder="Tutor" />
+                        <input id="" type="text" onChange={(e) => this.onBasedIn(e)} />
+                        <span data-placeholder="BasedIn" />
                     </div>
                     <Link to={`/filter_course/${this.props.match.params.id}`}>
-                        <button  className="btn btn-primary" onClick={(coursename, tutor) => this.props.filterFunction(this.state.coursename, this.state.tutor)}>Filter</button>
+                        <button  className="otherbutton" onClick={(academicLevel,coursename, basedin) => this.props.filterFunction(this.state.academicLevel,this.state.coursename, this.state.basedin)}>Filter</button>
                     </Link>
                 </form>
             </div>

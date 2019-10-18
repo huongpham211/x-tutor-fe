@@ -75,7 +75,7 @@ class Courses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodycourses iduser={this.state.iduser} checkConnectProps={this.props.checkConnectProps} dataCourseProps={removeDuplicates(this.props.dataCourseProps)} />
+                <Bodycourses iduser={this.state.iduser} checkConnectProps={this.props.checkConnectProps} dataCourseProps={this.props.dataCourseProps} />
                 <Footer/>
             </div>
         );

@@ -77,7 +77,9 @@ class App extends Component {
       id: '',
       dataDb:null,
       coursename:'',
-      tutor:''
+      tutor:'',
+      basedIn:'',
+      academicLevel:''
     }
 
   };
@@ -97,14 +99,12 @@ iduser(iduser){
   console.log("iduser la :" + iduser)
 }
 
-  filterFunction(coursename,tutor) {
+  filterFunction(academicLevel,coursename,basedin) {
     this.setState({
       coursename:coursename,
-      tutor:tutor
+      basedIn:basedin,
+      academicLevel:academicLevel
     })
-  
-    console.log("du lieu nhan duoc la " + coursename)
-    console.log("du lieu nhan duoc la " + tutor)
   }
 
 
@@ -122,48 +122,32 @@ iduser(iduser){
 
     var ketqua = [];
     if(this.state.dataDb !==  null){
-      this.state.dataDb.map((item) => {
-        var name = item.firstName + item.lastName   
-        if(name.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || item.tutorData.teachingSubject.forEach((value) =>{
-          if(value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
-            ketqua.push(item);
-          }
-        }))
-        // console.log(item);  
-        item.tutorData.teachingSubject.forEach((value) =>{
-         
-        })
+        this.state.dataDb.map(item => {
+        item.tutorData.teachingSubject.map(subject =>{
+            subject.basedIn = item.tutorData.basedIn
+            console.log(subject);    
+            if (subject.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || subject.basedIn.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
+              ketqua.push(subject)   
+            }          
+        })    
       })
-    }
-
-    // this.state.data.forEach((item) => {
-    //   console.log();
       
-    //   // item.forEach((value) =>{
-    //   //   if (value.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1) {
-    //   //     ketqua.push(item);
-    //   //   }
-    //   // })
-    // })
-
-
-   
+    }
 
     var filter = [];
     if(this.state.dataDb !==  null){
-      this.state.dataDb.map((item) => {
-        if((item.firstName + item.lastName).toLowerCase().indexOf(this.state.tutor.toLowerCase()) !== -1 && item.tutorData.teachingSubject.forEach((value) =>{
-          if(value.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1){
-            filter.push(item);
-          }
-        }))
-        // console.log(item);  
-        item.tutorData.teachingSubject.forEach((value) =>{
-         
-        })
+        this.state.dataDb.map(item => {
+        item.tutorData.teachingSubject.map(subject =>{
+            subject.basedIn = item.tutorData.basedIn
+            console.log(subject);    
+            if (subject.academicLevel.toLowerCase().indexOf(this.state.academicLevel.toLowerCase()) !== -1 && subject.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1 && subject.basedIn.toLowerCase().indexOf(this.state.basedIn.toLowerCase()) !== -1){
+              filter.push(subject)   
+            }          
+        })    
       })
+      
     }
-
+ 
     return (
       <Suspense fallback={<div>Loading ...</div>} >
       <Router history={history}>
@@ -188,7 +172,7 @@ iduser(iduser){
           <Route path={`/filter/:id`} render={(props) =>
             <Filter
               {...props}
-              filterFunction={(coursename,tutor) => this.filterFunction(coursename,tutor)}
+              filterFunction={(academicLevel,coursename,basedin) => this.filterFunction(academicLevel,coursename,basedin)}
             />
           } />
 

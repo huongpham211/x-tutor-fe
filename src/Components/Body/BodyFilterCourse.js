@@ -5,21 +5,17 @@ import Coursespage from './Coursespage';
 
 class Bodycourses extends Component {
     filterCourse = () =>  this.props.courseFilter.map((value,key)=>(
-        <>
-        {value.tutorData.teachingSubject.map((info,index) =>{
-        
-                return  (<Coursespage
+                     (<Coursespage
                     key={key}
-                    courseName={info.course}
-                    academicLevel={info.academicLevel}
+                    courseName={value.course}
+                    academicLevel={value.academicLevel}
                     price={value.price}
-                    name={value.firstName + value.lastName}
+                    name={value.firstName}
                   />)
-            }
-        )}
-            </>
+        )
+        
     )  
-)
+
 
 
     render() {
