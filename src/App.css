@@ -3,6 +3,36 @@
     padding: 0;
 }
 
+.teaching_subject input[type="button"], .teaching_ex input[type="button"], .preference input[type="button"] {
+    margin-top: 12px;
+    padding: 5px;
+    background: red;
+    color: white;
+}
+
+.bill tr td {
+    height: 45px;
+}
+
+button.generate {
+    position: absolute;
+    top: 8%;
+    left: 58.2%;
+    color: white;
+    background: #00A6ED;
+    padding: 6px 25px;
+}
+
+.bill a {
+    color: white;
+}
+
+.bill button {
+    position: absolute;
+    top: -5%;
+    left: -61%;
+}
+
 .giraffe {
     background:url(./Components/img/giraffe.png);
     position: relative;
