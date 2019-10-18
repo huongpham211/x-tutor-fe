@@ -7,6 +7,7 @@ class Bodycourses extends Component {
     filterCourse = () =>  this.props.courseFilter.map((value,key)=>(
                      (<Coursespage
                     key={key}
+                    iduser={value.id}
                     courseName={value.course}
                     academicLevel={value.academicLevel}
                     price={value.price}

@@ -125,6 +125,7 @@ iduser(iduser){
         this.state.dataDb.map(item => {
         item.tutorData.teachingSubject.map(subject =>{
             subject.basedIn = item.tutorData.basedIn
+            subject.id = item.id
             console.log(subject);    
             if (subject.course.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1 || subject.basedIn.toLowerCase().indexOf(this.state.searchText.toLowerCase()) !== -1){
               ketqua.push(subject)   
@@ -139,6 +140,7 @@ iduser(iduser){
         this.state.dataDb.map(item => {
         item.tutorData.teachingSubject.map(subject =>{
             subject.basedIn = item.tutorData.basedIn
+            subject.id = item._id
             console.log(subject);    
             if (subject.academicLevel.toLowerCase().indexOf(this.state.academicLevel.toLowerCase()) !== -1 && subject.course.toLowerCase().indexOf(this.state.coursename.toLowerCase()) !== -1 && subject.basedIn.toLowerCase().indexOf(this.state.basedIn.toLowerCase()) !== -1){
               filter.push(subject)   
