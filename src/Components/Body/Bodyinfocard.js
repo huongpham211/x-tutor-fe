@@ -95,7 +95,7 @@ class Bodyinfocard extends React.Component {
                                     <h5 className="col-md-10 col-xs-9">Payment Card</h5>
                                 </div>
                             </div>
-                            <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="btn btn-primary" href="#" role="button">Add new card</Link>
+                            <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="otherbutton" href="#" role="button">Add new card</Link>
                             <div className="payment_card">
                                 {this.getData()}
                             </div>

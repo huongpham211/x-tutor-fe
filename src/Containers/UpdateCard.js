@@ -20,7 +20,6 @@ class UpdateCard extends Component {
             province:'',
             country:'',
             postalCode:'',
-            id:this.props.match.params.id
         }
         // this.checkConnect = this.checkConnect.bind(this);
     }
@@ -97,7 +96,7 @@ class UpdateCard extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodypayment iduser={this.state.iduser}  infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
+                <Bodypayment  infoPayment={(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode) => this.checkConnect(cardType,nameOnCard,cardNumber,expiredDate,remarks,residentialAddress,city,province,country,postalCode)}/>
                 <Footer/>
             </div>
         );
