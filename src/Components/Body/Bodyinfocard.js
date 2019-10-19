@@ -63,7 +63,7 @@ class Bodyinfocard extends React.Component {
                         <div className="col-md-3 left">
                             <form className="up" method="" encType="multipart/form-data">
                                 <div className="uploadava">
-                                    <img alt="" className="image" id="output" src={`http://localhost:3001${this.state.avatar}`} />
+                                    <img alt="" className="image" id="output" src={`https://x-tutor-be.herokuapp.com${this.state.avatar}`} />
                                 </div>
 
                                 <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
