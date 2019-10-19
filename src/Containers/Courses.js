@@ -5,6 +5,8 @@ import Footer from '../Components/Footer';
 import Headertutor from '../Components/Header/Headertutor';
 import axios from '../axios';
 import { Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+
 
 class Courses extends Component {
     constructor(props, context) {
@@ -53,6 +55,8 @@ class Courses extends Component {
             
 
     render() {
+        console.log(this.props);
+        
         function removeDuplicates(array, key) {
             let lookup = {};
             let result = [];
@@ -82,4 +86,4 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+export default withRouter(Courses);

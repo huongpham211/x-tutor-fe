@@ -16,7 +16,8 @@ class Bodycourses extends Component {
       printData = () =>    this.props.dataCourseProps.map((info,index) =>(
         (<Coursespage
             key={index}
-            iduser={info.id}
+            iduser={this.props.iduser}
+            idtutor={info.id}
             courseName={info.course}
             academicLevel={info.academicLevel}
             price={info.price}

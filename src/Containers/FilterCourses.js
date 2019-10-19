@@ -5,6 +5,8 @@ import Footer from '../Components/Footer';
 import BodyFilterCourse from '../Components/Body/BodyFilterCourse';
 import axios from '../axios';
 import { Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+
 
 class FilterCourses extends Component {
     constructor(props, context) {
@@ -64,11 +66,11 @@ class FilterCourses extends Component {
         return (
             <div>
                 {this.showheader()}
-                <BodyFilterCourse tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={this.props.courseFilter}/>
+                <BodyFilterCourse iduser={this.state.iduser} tutor={this.props.tutor} coursename={this.state.coursename} courseFilter={this.props.courseFilter}/>
                 <Footer/>
             </div>
         );
     }
 }
 
-export default FilterCourses;
+export default withRouter(FilterCourses);

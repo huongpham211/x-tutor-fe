@@ -10,7 +10,7 @@ class coursespage extends Component {
   
   render() {
     return (
-      <Link to={{pathname:`/tutor_profile/${this.props.iduser}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}  className="col-lg-3 col-md-4 col-sm-6">
+      <Link to={{pathname:`/tutor_profile/${this.props.idtutor}`,iduser:{iduser:this.props.iduser},courseName:{courseName:this.props.courseName}}}  className="col-lg-3 col-md-4 col-sm-6">
         <div className="your-courses1">
           <img src={require('../img/625204_436a_2.jpg')} alt="" />
           <div className="outside">

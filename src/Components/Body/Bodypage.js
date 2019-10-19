@@ -37,6 +37,7 @@ class Bodypage extends Component {
           {info.tutorData.teachingSubject.map((value, key) => (
           <Coursespage
             key={key}
+            idtutor={info._id}
             iduser={this.state.iduser}
             courseName={value.course}
             academicLevel={value.academicLevel}
