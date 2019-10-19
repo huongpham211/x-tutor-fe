@@ -92,7 +92,7 @@ class Payment_method extends Component {
         return (
             <div>
                 {this.showheader()}
-                <Bodypayment passdata={this.state.id} infoPayment={(cardType, nameOnCard, cardNumber, expiredDate, remarks, residentialAddress, city, province, country, postalCode) => this.checkConnect(cardType, nameOnCard, cardNumber, expiredDate, remarks, residentialAddress, city, province, country, postalCode)} />
+                <Bodypayment iduser={this.state.iduser} passdata={this.state.id} infoPayment={(cardType, nameOnCard, cardNumber, expiredDate, remarks, residentialAddress, city, province, country, postalCode) => this.checkConnect(cardType, nameOnCard, cardNumber, expiredDate, remarks, residentialAddress, city, province, country, postalCode)} />
                 <Footer />
             </div>
         );
