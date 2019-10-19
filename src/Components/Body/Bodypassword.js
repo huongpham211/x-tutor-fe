@@ -51,7 +51,7 @@ class Bodypassword extends Component {
             <div className="col-md-3 left">
               <form className="up" method="" encType="multipart/form-data">
                 <div className="uploadava">
-                  <img alt="" className="image" id="output" src={`http://localhost:3001${this.state.avatar}`} />
+                  <img alt="" className="image" id="output" src={`https://x-tutor-be.herokuapp.com${this.state.avatar}`} />
                   <input className="upload" type="file" name="avatar" id="fileInput" onChange={(e) => this.onAvatar(e)} required />
                 </div>
 
