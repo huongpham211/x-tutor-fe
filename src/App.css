@@ -1032,30 +1032,41 @@ h4 span {
     background:#86BC42;
 }
 
-.onecard .overlay {
+
+
+
+.onecard #edit_card {
+    z-index: 999;
+    padding: 20px;
+    box-sizing: border-box;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: #2E2D4D;
-    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    top: 84%;
+    left: 61%;
+}
+
+#edit_card .fas.fa-edit {
+    color: #fff;
+    font-size: 21px;
+    width: 40px;
+    height: 40px;
     border-radius: 50px;
-    cursor: pointer;
-    transition: .4s;
+    background: #86BC42;
+    padding: 9px;
 }
 
-.onecard .overlay:hover {
-    bottom:0;
-    right: 0;
-    width:100%;
-    height: 100%;
-    box-shadow: none;
-    /* opacity: 0.9; */
-    border-radius: 0;
+#edit_card i.fas.fa-trash-alt {
+    color:#fff;
+    font-size: 21px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: #e84393;
+    padding: 9px;
+    margin-left: 6px;
 }
 
-.onecard .overlay:before {
+
+/* .onecard .overlay:before {
     content: 'Read';
     position: absolute;
     top: 0;
@@ -1071,7 +1082,7 @@ h4 span {
     justify-content: center;
     align-items: center;
     transition-delay: .5s;
-}
+} */
 
 .right img {
     width: 100%;
@@ -1105,37 +1116,7 @@ h4 span {
     color: #353C40;
 }
 
-.onecard #edit_card {
-    z-index: 1;
-    pointer-events: none;
-    padding: 20px;
-    box-sizing: border-box;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0s;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% ,-50%);
-}
 
-.onecard .overlay:hover ~ #edit_card {
-    opacity: 1;
-    visibility: visible;
-    transition:0.2s;
-    transition-delay: .5s;
-}
-.onecard #edit_card:hover #edit_card {
-    opacity: 1;
-    visibility: visible;
-    transition:0.2s;
-    transition-delay: .4s;
-}
-/* 
-.onecard:hover #edit_card {
-    opacity: 1;
-    visibility: visible;
-} */
 
 .sliderText h3{
     color:#fff;
@@ -1171,27 +1152,11 @@ h4 span {
 }
 #addcard {
     margin-left: 50px;
+    padding:9px
 }
 
-#edit_card .fas.fa-edit {
-    color: #fff;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background: #86BC42;
-    padding: 10px;
-}
-#edit_card i.fas.fa-trash-alt {
-    color:#fff;
-    font-size: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background: #e84393;
-    padding: 10px;
-    margin-left: 20px;
-}
+
+
 
 .payment_card {
     margin: 0 15px;
@@ -2466,6 +2431,10 @@ a.btn.btn-primary, a.btn.btn-warning,a.checkout_button {
 
 a.checkout_button,.otherbutton{
     color: #fff !important; 
+}
+
+.tieude.khac.infocard {
+    margin-bottom: 21px;
 }
 
 i.fas.fa-info {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from '../../axios';
+
 
 class Bodyupdatecard extends Component {
   constructor(props, context) {
@@ -111,7 +113,7 @@ class Bodyupdatecard extends Component {
             <div className="col-md-3 left">
               <div className="up text-center">
                 <div className="uploadava">
-                  <img alt="" className="image" id="output" src={`https://x-tutor-be.herokuapp.com${this.state.avatar}`} />
+                  <img alt="" className="image" id="output" src={`http://localhost:3001${this.state.avatar}`} />
                 </div>
 
                 <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>

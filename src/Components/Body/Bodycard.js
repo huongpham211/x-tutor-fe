@@ -50,11 +50,13 @@ class Bodycard extends Component {
                     </div>
                     <div className="overlay"></div>
                     <div id="edit_card">
-                        <Link to={{pathname:`/edit_card/${this.props.id}`, iduser: { iduser: this.props.iduser }}} className="fas fa-edit" ></Link>
+                        <Link to={{pathname:`/edit_card/${this.props.id}`, iduser: { iduser: this.props.iduser }}} role="button" className="fas fa-edit" ></Link>
                         <i className="fas fa-trash-alt" onClick={(e) => this.props.deleteButtonClick(this.props.id)} />
                     </div>
                 </div>
         );
+
+
     }
 }
 

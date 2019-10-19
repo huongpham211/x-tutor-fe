@@ -69,7 +69,7 @@ class Bodytuitorprofile extends Component {
             <div className="col-md-3 left">
               <div className="up text-center">
                 <div className="uploadava">
-                  <img alt="" className="image" id="output" src={`https://x-tutor-be.herokuapp.com${this.props.avatar}`} />
+                  <img alt="" className="image" id="output" src={`http://localhost:3001${this.props.avatar}`} />
                 </div>
 
                 <h4 >{this.props.firstName} <span>{this.props.lastName}</span></h4>

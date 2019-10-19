@@ -63,7 +63,7 @@ class Bodyinfocard extends React.Component {
                         <div className="col-md-3 left">
                             <form className="up" method="" encType="multipart/form-data">
                                 <div className="uploadava">
-                                    <img alt="" className="image" id="output" src={`https://x-tutor-be.herokuapp.com${this.state.avatar}`} />
+                                    <img alt="" className="image" id="output" src={`http://localhost:3001${this.state.avatar}`} />
                                 </div>
 
                                 <h4 >{this.state.firstName} <span>{this.state.lastName}</span></h4>
@@ -91,13 +91,13 @@ class Bodyinfocard extends React.Component {
                             </div>
                         </div>
                         <div className="col-md-9 right">
-                            <div className="tieude khac">
+                            <div className="tieude khac infocard">
                                 <div className="second ">
                                     <i className="fas fa-money-check-alt" />
                                     <h5 className="col-md-10 col-xs-9">Payment Card</h5>
                                 </div>
                             </div>
-                            <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="otherbutton" href="#" role="button">Add new card</Link>
+                            <Link to={`/create_card/${this.state.iduser}`} name="" id="addcard" className="otherbutton" role="button">Add new card</Link>
                             <div className="payment_card">
                                 {this.getData()}
                             </div>

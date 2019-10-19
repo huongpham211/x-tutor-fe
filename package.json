@@ -38,6 +38,10 @@
     "reactjs-popup": "^1.5.0",
     "swiper": "^4.5.0"
   },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "2.5.x"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
