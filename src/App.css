@@ -302,11 +302,13 @@ span.icon-block {
 
 .group_button {
     position: absolute;
-    top: 25%;
+    top: 45%;
     left: 31%;
 }
 
-
+.otherbutton.maudep,.otherbutton.saveinfo {
+    width: auto;
+}
 
 .detail_down h3 {
     font-size: 24px;
@@ -1031,9 +1033,6 @@ h4 span {
     color:#fff !important;
     background:#86BC42;
 }
-
-
-
 
 .onecard #edit_card {
     z-index: 999;
