@@ -2468,6 +2468,11 @@ a.checkout_button,.otherbutton{
     color: #fff !important; 
 }
 
+i.fas.fa-info {
+    margin-top: 11px;
+    margin-bottom: 0px;
+}
+
 button.btn.btn-primary, button.btn.btn-warning,.otherbutton {
     background: #86BC42;
     border-color: #86BC42;

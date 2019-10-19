@@ -47,7 +47,9 @@ class Bodyinfocard extends React.Component {
                     province={value.province}
                     country={value.country}
                     postalcode={value.postalCode}
-                    remarks={value.remarks} />)
+                    remarks={value.remarks}
+                    iduser={this.state.iduser} />)
+               
             )
         }
     }

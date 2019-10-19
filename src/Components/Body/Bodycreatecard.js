@@ -23,7 +23,7 @@ class Bodycreatecard extends Component {
 
   componentDidMount() {
     axios
-      .get(`api/v1/users/${this.state.iduser}`)
+      .get(`api/v1/users/${this.props.iduser}`)
       .then((response) => {
         console.log(response.data);
 
